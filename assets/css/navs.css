@@ -1,0 +1,209 @@
+/* ──────────────────────────────────────────────────────────
+   1) Barra principal (.navbar) por debajo en el stacking
+────────────────────────────────────────────────────────── */
+.navbar {
+    position: relative;
+    z-index: 500;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+     2) Segunda barra (desktop-only2) por encima y sin recortes
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 {
+    position: relative;
+    z-index: 1000;
+    overflow: visible;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+     3) Anclaje del dropdown dentro de su <li>
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 .nav-item.new-dropdown {
+    position: relative;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+     4) Estilos del dropdown (“Aliados Estratégicos”)
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 .new-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    display: none;                   /* oculto por defecto */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 24px 32px;              /* espacio interior */
+    min-height: 320px;               /* altura mínima */
+    max-width: 600px;                /* ancho máximo recortado */
+    display: flex;                   /* layout flex de columnas */
+    gap: 24px;                       /* espacio entre columnas */
+    align-items: flex-start;         /* arranca las columnas arriba */
+    z-index: 1001;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+     5) Mostrar menú sólo cuando el <li> tenga la clase .open
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 .new-dropdown.open .new-dropdown-menu {
+    display: flex;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+     6) Columnas flexibles dentro del menú
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 .dropdown-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;       /* espacio entre enlaces */
+    flex: 1 1 0;     /* reparte el espacio horizontal */
+    min-width: 180px;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+     7) Títulos de columna con línea inferior
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 .dropdown-column h4 {
+    margin: 0 0 16px;
+    padding-bottom: 6px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #222222;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+     8) Listas sin márgenes ni viñetas
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 .dropdown-column ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+     9) Enlaces de la lista
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 .dropdown-column li a {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #555555;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+    10) Hover “vino” en cada ítem de la lista
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 .dropdown-column li:hover {
+    background-color: #691d34;
+    color: #ffffff;
+    border-radius: 4px;
+    padding-left: 4px;
+  }
+  
+
+
+  /* ──────────────────────────────────────────────────────────
+   Dropdown oculto por defecto
+────────────────────────────────────────────────────────── */
+.navbar-lower.desktop-only2 .new-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+  
+    /* oculto por defecto */
+    display: none;
+  
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 24px 32px;
+    min-height: 320px;
+    max-width: 600px;
+  
+    /* layout de columnas */
+    flex-direction: row;
+    gap: 24px;
+    align-items: flex-start;
+  
+    z-index: 1001;
+  }
+  
+  /* ──────────────────────────────────────────────────────────
+     Sólo se muestra si el LI tiene la clase .open
+  ────────────────────────────────────────────────────────── */
+  .navbar-lower.desktop-only2 .new-dropdown.open .new-dropdown-menu {
+    display: flex;
+  }
+  
+
+  /* Al hacer hover: fondo vino + texto blanco */
+.navbar-lower.desktop-only2 .dropdown-column li:hover {
+    background-color: #691d34;   /* fondo vino */
+  }
+  
+  .navbar-lower.desktop-only2 .dropdown-column li:hover a {
+    color: #ffffff !important;   /* texto blanco al hover */
+  }
+
+  
+
+  /* 1) Asegura que todos los <li> estén centrados verticalmente */
+.navbar-lower.desktop-only2 .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* 2) Refina el toggle para que ocupe el mismo alto y alineación */
+  .navbar-lower.desktop-only2 .new-dropdown-toggle {
+    display: flex;
+    align-items: center;      /* centra icono y texto */
+    height: 100%;              /* igual al alto de la barra */
+    padding: 0 12px;           /* igual spacing lateral que los <a> */
+    margin: 0;                 /* elimina márgenes extra */
+    background: none;
+    border: none;
+  }
+  
+  /* 3) Ajusta el <span> interno para que su línea encaje */
+  .navbar-lower.desktop-only2 .new-dropdown-toggle span {
+    line-height: 1;            /* evita desajustes verticales */
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 4) Asegúrate de que el ícono también esté centrado */
+  .navbar-lower.desktop-only2 .new-dropdown-toggle img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 6px;          /* espacio entre texto y flecha */
+  }
+  
+
+  /* ──────────────────────────────────────────────────────────
+   2) Asegurar que los enlaces no se subrayen nunca
+────────────────────────────────────────────────────────── */
+/* Quita cualquier decoración de texto en reposo y en hover */
+.navbar-lower.desktop-only2 a {
+    text-decoration: none !important;
+  }
+  
+  .navbar-lower.desktop-only2 a:hover {
+    text-decoration: none !important;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────
+   2) Ocultar toda la nav2 en pantallas pequeñas (solo desktop)
+────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .navbar-lower.desktop-only2 {
+      display: none !important;
+    }
+  }

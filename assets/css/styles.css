@@ -1,0 +1,1261 @@
+/* Incluir la fuente Geomanist-Regular */
+@font-face {
+    font-family: 'geomanistregular';
+    src: url('assets/fonts/geomanist-regular-webfont.woff2') format('woff2'),
+         url('assets/fonts/geomanist-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos Generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+}
+
+/* Estilos para el icono de chat y la ventana emergente */
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #D1001F;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.chat-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.chat-icon:hover {
+    background-color: #a8001a;
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: normal;
+    color: #000;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.services-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center; /* Centrar verticalmente */
+}
+
+.services-section img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    height: auto;
+}
+
+@media (min-width: 769px) {
+    .services-section {
+        justify-content: center; /* Centrar horizontalmente */
+    }
+
+    .services-section img.small-height-desktop {
+        max-width: 500px; /* Ajustar el ancho máximo */
+        max-height: 500px; /* Ajustar la altura máxima */
+    }
+
+    .services-info {
+        flex: 1 1 auto;
+        margin-left: 20px;
+        max-width: 600px; /* Limitar el ancho de la sección de información */
+    }
+}
+
+@media (max-width: 768px) {
+    .services-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-section img {
+        max-width: 100%;
+        margin: 20px 0;
+    }
+
+    .services-info {
+        flex: 1 1 100%;
+    }
+}
+
+
+
+/* Estilos para la clase ahorro */
+/* Estilos para la clase ahorro */
+.ahorro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    margin: 20px 0; /* Añade margen para separar el contenedor */
+    width: 100%; /* Asegura que el contenedor tome todo el ancho disponible */
+}
+
+/* Estilo para la lista dentro del contenedor .ahorro */
+.ahorro ul {
+    flex: 1 1 60%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Asegurar que los elementos li no se desborden */
+.ahorro ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Estilo para la imagen dentro del contenedor .ahorro */
+.ahorro img {
+    width: 100%;
+    max-width: 100%; /* Permite que la imagen tome todo el ancho disponible */
+    max-height: 500px; /* Limita la altura máxima de la imagen */
+    height: auto; /* Ajusta la altura automáticamente */
+    border-radius: 8px; /* Mantén los bordes redondeados */
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    .ahorro {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ahorro ul, .ahorro img {
+        flex: 1 1 100%;
+    }
+
+    .ahorro img {
+        margin: 20px 0;
+        max-height: 400px; /* Altura máxima para la imagen */
+        object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+    }
+}
+
+
+
+
+
+.services-info {
+    flex: 1;
+}
+
+.services-info h2 {
+    font-size: 22px;
+    color: #D1001F;
+    font-weight: normal;
+}
+
+.services-info ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.services-info ul li {
+    margin-bottom: 10px;
+}
+
+.service-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.service-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.service-list li img.icon {
+    margin-right: 10px;
+    width: 24px; /* Ajusta el tamaño según tus necesidades */
+    height: 24px;
+}
+
+.btn-primary {
+    background-color: #D1001F;
+    color: white;
+    border: 2px solid #D1001F;
+    padding: 6px 30px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.btn-primary:hover {
+    background-color: #a8001a;
+}
+
+.services-info a {
+    color: #D1001F;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.register-link {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+/* Navbar Principal */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+    font-size: 14px;
+    padding: 5px 10px;
+    font-weight: normal;
+}
+
+.login-button {
+    background-color: #691d34;
+    color: white;
+    border: none;
+    padding: 6px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: auto;
+    font-weight: normal;
+}
+
+.login-button:hover {
+    background-color: #a8001a;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* Menú desplegable para móviles */
+.mobile-dropdown {
+    background-color: #FFF;
+    padding: 10px;
+    border: 1px solid #f9f9fb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mobile-dropdown-toggle img {
+    width: 20px;
+    height: auto;
+}
+
+.mobile-dropdown-menu {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.mobile-dropdown-menu.open {
+    display: flex;
+}
+
+.mobile-dropdown-menu a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-top: 1px solid #ddd;
+}
+
+.mobile-dropdown-menu a:first-child {
+    border-top: none;
+}
+
+/* Navbar Inferior para Desktop */
+.navbar-lower.desktop-only {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c0945c;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /*border-radius: 8px;  Agregar borde redondeado a la barra de navegación */
+}
+
+/************************************************************/
+/*             NAV2 – Nueva Navbar Inferior (desktop-only2)   */
+/************************************************************/
+
+/* Contenedor principal de la nav2 */
+.navbar-lower.desktop-only2 {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px; /* Opcional: bordes redondeados */
+    /* Si es necesario ajustar la separación con otros elementos, se puede usar margin-bottom o margin-top */
+}
+
+/* Lista de elementos de la nav2 */
+.navbar-lower.desktop-only2 .navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* Estilos para cada ítem de la nav2 */
+.navbar-lower.desktop-only2 .nav-item {
+    position: relative; /* Permite posicionar el dropdown de forma absoluta */
+    padding: 10px 20px;
+}
+
+/* Estilo base para los enlaces de la nav2 */
+.navbar-lower.desktop-only2 .nav-item a {
+    text-decoration: none;
+    color: gray;
+    font-size: 15px;
+}
+
+/************************************************************/
+/*      Dropdown exclusivo para "Aliados Estratégicos"      */
+/************************************************************/
+
+/* Contenedor del dropdown dentro del ítem “Aliados Estratégicos” */
+.navbar-lower.desktop-only2 .new-dropdown {
+    position: relative;
+}
+
+/* Contenedor que actúa como botón (toggle) que agrupa texto + ícono */
+.navbar-lower.desktop-only2 .new-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+/* Estilo para el ícono de la flecha */
+.navbar-lower.desktop-only2 .new-dropdown-toggle img {
+    width: 20px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Menú desplegable con 3 columnas (por defecto oculto) */
+.navbar-lower.desktop-only2 .new-dropdown-menu {
+    display: none; /* Se oculta por defecto */
+    position: absolute;
+    top: calc(100% + 5px); /* Ubicado justo debajo del toggle */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    z-index: 1000;
+    /* Ajustes para reducir el tamaño del menú */
+    padding: 10px;       /* Menos padding que antes */
+    min-width: 450px;    /* Ancho mínimo reducido */
+    overflow: hidden;
+}
+
+/* Cuando el menú esté abierto (agregando la clase "open") */
+.navbar-lower.desktop-only2 .new-dropdown-menu.open {
+    display: flex;
+    gap: 20px; /* Menor espacio entre columnas */
+}
+
+/* Cada columna dentro del dropdown */
+.navbar-lower.desktop-only2 .new-dropdown-menu .dropdown-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px; /* Ancho mínimo de cada columna */
+}
+
+/* Títulos de cada columna */
+.navbar-lower.desktop-only2 .new-dropdown-menu .dropdown-column h4 {
+    font-size: 16px;
+    color: #000;
+    margin: 0 0 10px 0;
+    font-weight: normal;
+}
+
+/* Lista de enlaces en cada columna */
+.navbar-lower.desktop-only2 .new-dropdown-menu .dropdown-column ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Espaciado entre elementos de la lista */
+.navbar-lower.desktop-only2 .new-dropdown-menu .dropdown-column li {
+    margin-bottom: 8px;
+}
+
+/* Estilo de los enlaces dentro del dropdown */
+.navbar-lower.desktop-only2 .new-dropdown-menu .dropdown-column a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* Efecto hover para los enlaces del dropdown */
+.navbar-lower.desktop-only2 .new-dropdown-menu .dropdown-column a:hover {
+    text-decoration: underline;
+}
+
+
+
+.navbar-lower .navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-lower .nav-item {
+    padding: 10px 20px;
+    position: relative;
+    border-radius: 8px; /* Agregar borde redondeado a los elementos del menú */
+}
+
+.navbar-lower .nav-item a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: none;
+}
+
+.dropdown-toggle img {
+    width: 20px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #c0945c;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 200px;
+    border-radius: 8px; /* Agregar borde redondeado al menú desplegable */
+    overflow: hidden; /* Asegurar que los bordes redondeados funcionen correctamente */
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    font-weight: normal;
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre elementos */
+}
+
+.dropdown-menu a:hover {
+    background-color: #f9f9fb;
+    color: white;
+}
+
+/* Estilo para la línea roja */
+.dropdown-menu {
+    border-left: 3px solid #691d34;
+    padding-left: 10px;
+}
+
+/* Mostrar el menú cuando el cursor está sobre .nav-item */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Asegurar que solo un menú esté abierto a la vez */
+.navbar-nav .nav-item .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+}
+
+
+/* Navbar Inferior para Móviles */
+/* Navbar Inferior para Móviles */
+.navbar-lower.mobile-only {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #c0945c; */
+    padding: 10px 0; /* Ajuste de padding para mejorar la visualización */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-lower.open {
+    display: flex;
+}
+
+.navbar-lower .menu-section {
+    margin-bottom: 10px; /* Ajuste del margen inferior */
+    width: 100%; /* Asegurar que todas las secciones tengan el mismo ancho */
+}
+
+.navbar-lower .menu-title {
+    font-size: 18px;
+    color: white;
+    background-color: #c0945c; /* Fondo rojo para los títulos */
+    padding: 10px;
+    margin: 0; /* Elimina margen para que el fondo rojo abarque todo el ancho */
+    font-weight: normal;
+    text-align: center; /* Centra los títulos en rojo */
+}
+
+.navbar-lower .menu-items {
+    background-color: white; /* Fondo blanco para las opciones */
+    padding: 10px 20px; /* Ajuste del padding */
+    margin: 0 auto; /* Centrando los elementos */
+    width: 90%; /* Asegura que los elementos ocupen el ancho completo */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos dentro del contenedor */
+    min-height: 200px; /* Altura mínima para igualar las secciones */
+}
+
+.navbar-lower .menu-items a {
+    color: black;
+    padding: 10px 0; /* Ajuste del padding superior e inferior */
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    font-weight: normal;
+    text-align: left; /* Alinea el texto a la izquierda */
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre elementos */
+    width: 100%; /* Asegura que el enlace ocupe todo el ancho del contenedor */
+}
+
+.navbar-lower .menu-items a:hover {
+    background-color: #f9f9fb; /* Fondo gris claro al pasar el ratón */
+}
+
+/* Botón del Menú */
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding: 5px;
+}
+
+.menu-button img {
+    width: 35px;
+    height: auto;
+}
+
+/* General adjustments for better appearance */
+.navbar-lower .menu-section:last-child .menu-title {
+    margin-bottom: 0; /* Elimina margen inferior del último título */
+}
+
+/*End Mobile version*/
+
+/* Estilos para centrar imágenes en image-movement */
+.image-movement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Altura ajustada para un buen espacio de renderización */
+    overflow: hidden;
+    background-color: #f0f0f0; /* Color de fondo opcional */
+    margin-top: 10px; /* Ajustar margen para reducir padding */
+}
+
+.image-movement img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-movement img.active {
+    opacity: 1;
+}
+
+/* Estilos para las cards */
+/* Estilos para las cards */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0; /* Color de fondo del contenedor de las tarjetas */
+    margin-top: 20px; /* Espacio entre las tarjetas y la navbar inferior */
+    text-align: center; /* Centra el texto del título */
+}
+
+.text-title {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.text-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.cards-row {
+    display: flex;
+    justify-content: center; /* Asegura que las tarjetas estén centradas */
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en múltiples filas si es necesario */
+}
+
+.card {
+    width: 150px; /* Ancho de cada tarjeta */
+    padding: 10px;
+    background-color: #ffffff; /* Color de fondo de cada tarjeta */
+    color: black; /* Establece un color de texto inicial */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center; /* Alinea el texto y la imagen al centro */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves para todos los cambios en hover */
+    margin: 10px; /* Añade margen entre las tarjetas */
+    font-weight: normal;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Animación de la tarjeta */
+    background-color: #FF0000; /* Cambio de color de fondo en hover */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más prominente en hover */
+}
+
+.card:hover p, .card:hover img, .card:hover .text-title, .card:hover .text-subtitle, .card:hover .textoSub {
+    color: white; /* Cambia el color del texto a blanco al hacer hover */
+}
+
+.card img {
+    width: 50px; /* Ajusta este valor según el tamaño deseado de las imágenes */
+    height: auto;
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.card p {
+    font-size: 14px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+    margin: 0; /* Elimina los márgenes por defecto */
+    font-weight: normal;
+}
+
+/* Estilos para la clase textoSub */
+.textoSub {
+    color: red; /* Mantiene el color rojo inicial */
+}
+
+.textoSub:hover {
+    color: white; /* Cambia el color a blanco al hacer hover */
+}
+
+/* Estilos para las tarjetas de redes sociales */
+.social-cards .card {
+    width: 90px; /* Ancho de cada tarjeta de redes sociales */
+    padding: 15px;
+    margin: 5px; /* Ajusta el margen para que se vean más compactas */
+}
+
+.social-cards .card img {
+    width: 30px; /* Tamaño de las imágenes en tarjetas de redes sociales */
+}
+
+/* Estilos para las tarjetas de beneficios de crédito */
+.benefit-cards .card {
+    width: 150px; /* Ancho de cada tarjeta de beneficios de crédito */
+    padding: 10px;
+    margin: 5px; /* Ajusta el margen para que se vean más compactas */
+}
+
+.benefit-cards .card img {
+    width: 30px; /* Tamaño de las imágenes en tarjetas de beneficios de crédito */
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .cards-row {
+        flex-direction: column; /* Cambia la dirección de las tarjetas a columna en pantallas pequeñas */
+        align-items: center; /* Centra las tarjetas en pantallas pequeñas */
+    }
+
+    .card {
+        width: 90%; /* Ajusta el ancho de las tarjetas para que sean más compactas en pantallas pequeñas */
+        margin: 5px; /* Reduce el margen entre las tarjetas en pantallas pequeñas */
+    }
+}
+
+/* Estilos para el footer */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos para dispo
+
+
+
+/* Estilos Generales del Formulario */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #D1001F;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #D1001F;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #D1001F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    font-weight: normal;
+}
+
+.btn-submit:hover {
+    background-color: #a8001a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-submit:active {
+    background-color: #860016;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos de Material Design */
+.form-group input:focus ~ label,
+.form-group select:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group select:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    transform: translateY(-20px);
+    font-size: 12px;
+    color: #D1001F;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-bottom: 2px solid #D1001F;
+    padding-bottom: 8px;
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: transform 0.2s ease-in-out, font-size 0.2s ease-in-out, color 0.2s ease-in-out;
+    font-weight: normal;
+}
+
+.form-group input:focus ~ .bar:before,
+.form-group select:focus ~ .bar:before,
+.form-group textarea:focus ~ .bar:before {
+    transform: scaleX(1);
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 50%;
+    position: absolute;
+    background: #D1001F;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.bar:before {
+    left: 0;
+    width: 100%;
+}
+
+/* Ocultar el botón "Acceder a mi cuenta" en móviles */
+.mobile-hidden {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .navbar, .navbar-lower {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-items, .navbar-lower .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu-items a, .navbar-lower a {
+        margin: 5px 0;
+    }
+
+    .login-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .services-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .navbar-lower.desktop-only {
+        display: none;
+    }
+
+    .navbar-lower.open.mobile-only {
+        display: flex;
+    }
+
+    .navbar .login-button {
+        display: none;
+    }
+
+    .image-movement {
+        height: 50vh; /* Altura ajustada para la versión móvil */
+    }
+}
+
+/* Estilos para los elementos de la barra de navegación */
+.navbar .menu-items.desktop-only a,
+.navbar .menu-items.mobile-only a,
+.navbar .login-button,
+.navbar .dropdown-menu a,
+.navbar-lower .navbar-nav a,
+.navbar-lower .menu-items a {
+    font-family: 'geomanistregular', Arial, sans-serif;
+    font-weight: normal;
+    color: #818181 !important; /* Aseguramos que se aplique el color */
+}
+
+.navbar .login-button {
+    font-family: 'geomanistregular', Arial, sans-serif;
+    font-weight: normal;
+    color: white !important; /* Aseguramos que se aplique el color */
+}
+
+.navbar-lower.desktop-only .navbar-nav a,
+.navbar-lower.desktop-only .menu-items a {
+    font-family: 'geomanistregular', Arial, sans-serif;
+    font-weight: normal;
+    color: black !important; /* Aseguramos que se aplique el color */
+}
+
+@media (min-width: 769px) { /* Cambios solo para escritorio */
+    /* Cambiar tamaño del texto de las secciones específicas */
+    .navbar-lower.desktop-only .nav-item:nth-child(2) .dropdown-menu a, /* "Tengo un crédito" */
+    .navbar-lower.desktop-only .nav-item:nth-child(1) .dropdown-menu a { /* "Quiero un crédito" */
+        font-size: 16px; /* Aumentar el tamaño del texto */
+        font-weight: normal; /* Mantener peso consistente */
+        padding: 12px 16px; /* Añadir espaciado para mayor claridad */
+    }
+
+    /* Ajustar el contenedor dropdown para que sea más ancho */
+    .navbar-lower.desktop-only .nav-item:nth-child(2) .dropdown-menu,
+    .navbar-lower.desktop-only .nav-item:nth-child(1) .dropdown-menu {
+        width: auto; /* Ajustar al contenido */
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.footer-left {
+    font-size: 14px;
+}
+
+.footer-right {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 60px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-right {
+        margin-top: 10px;
+    }
+}
+
+
+.infonavit-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .infonavit-container .image-section {
+    flex: 3;
+  }
+  
+  .infonavit-container .image-section .background-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .infonavit-container .text-section {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .infonavit-container .text-section h2 {
+    color: #000;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .infonavit-container .text-section p {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .infonavit-container .text-section .btn-red {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .infonavit-container .text-section .btn-red:hover {
+    background-color: #b71c1c;
+  }
+
+
+
+  /* Contenedor principal */
+.custom-container {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 20px;
+  }
+  
+  /* Encabezado con imagen */
+  .custom-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .custom-header-image {
+    width: 80px;
+    height: auto;
+  }
+  
+  .custom-header h2 {
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  /* Contenedor de las tarjetas */
+  .custom-cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* Tarjetas individuales */
+  .custom-card {
+    flex: 1 1 calc(33.333% - 20px); /* Tres tarjetas por fila */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  
+  .custom-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Imagen de la tarjeta */
+  .custom-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Contenido de la tarjeta */
+  .custom-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .custom-card-content h3 {
+    color: #d32f2f;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .custom-card-content p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .custom-card-link {
+    color: #d32f2f;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .custom-card-link:hover {
+    color: #b71c1c;
+  }
+  
+  /* Responsivo para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .custom-cards-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .custom-card {
+      flex: 1 1 100%; /* Una tarjeta por fila */
+    }
+  }
+  

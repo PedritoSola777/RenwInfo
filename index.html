@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derechohabientes | Infonavit</title>
+    <link rel="icon" href="./assets/img/infonavit.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/botStyles.css">
+    <link rel="stylesheet" href="assets/css/banner.css">
+    <link rel="stylesheet" href="assets/css/navs.css">
+
+
+    <style>
+      @media only screen and (max-width: 768px) {
+      img[alt="Infonavit"] {
+        height: 40px !important;
+        display: block;
+        margin: 0 auto;
+      }
+      }
+
+      .image-movement img.desktop-img,
+.image-movement img.mobile-img {
+  object-fit: cover;
+  object-position: center top; /* Puedes ajustar este valor */
+  height: 100%;
+  width: 100%;
+  max-height: 550px; /* Ajusta según necesidad */
+}
+
+
+
+  </style>
+    
+
+</head>
+<body>
+
+
+
+
+   <!-- Navbar Inferior – Desktop (segunda barra, “desktop-only2”) -->
+<!-- Navbar Inferior – Desktop (segunda barra, “desktop-only2”) -->
+<nav class="navbar-lower desktop-only2">
+    <ul class="navbar-nav">
+      <!-- Ítem con Dropdown: Aliados Estratégicos -->
+      <li class="nav-item new-dropdown">
+        <button class="new-dropdown-toggle" aria-expanded="false">
+          <span style="font-size: 18px;">Aliados Estratégicos</span>
+          <img src="./assets/icons/arrow_down2.png" alt="Desplegar menú">
+        </button>
+        <div class="new-dropdown-menu">
+          <div class="dropdown-column">
+            <h4><b>Para tu gestión</b></h4>
+            <ul>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/para-tu-gestion/desarrolladores/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz93L0MjAwC_Z1CAkKNnIzNXM30w8EKjCwMDNydDIAKLDwsDBzdXD1dLX2MjdxDDfWjiNFvgAM4GhCnH4-CKPzGh-tH4bXCzAy_goAQmAJ8YUDIFQW5oaERBpme6Y6KigAfg7F9/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Desarrolladores</a></li>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/para-tu-gestion/entidades-financieras/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz93L0MjAwC_Z1CAkKNnIzNQs31w_EqMDPTj6JAf0AIkfqNLAwM3J0MgAosPCwMHN1cPV0tfYyN3EMNidNvgAM4GlDkfpCCKPzGh-tH4bUCFIL4FICDCKwAXxgQckVBbigQRBhkeqYrAgD4w6A0/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Entidades financieras</a></li>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/para-tu-gestion/notarios/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz93L0MjAwC_Z1CAkKNnIzNDM31w_EqMDPTj6JAf0AIkfqNLAwM3J0MgAosPCwMHN1cPV0tfYyN3EMNidNvgAM4GlDkfpCCKPzGh-tH4bUCFIL4FICDCKwAXxgQckVBbigQRBhkeqYrAgDqXLFJ/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Notarios</a></li>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/para-tu-gestion/promotores-ventas-asesores-confianza/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz93L0MjAwC_Z1CAkKNnIxD_Q30w_EpMDMz04-iQH9ACJH6jSwMDNydDIAKLDwsDBzdXD1dLX2MjdxDDYnTb4ADOBpQ5H6Qgij8xofrR-GzAhyC-BSAgwisAF8YEHJFQW4oEEQYZHqmKwIAqBohbA!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Promotores de ventas y <br> asesores de cobranza</a></li>
+              <li><a href="#">Verificadores de obra</a></li>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/para-tu-gestion/unidades-valuacion/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz93L0MjAwC_Z1CAkKNnIzNAsz0w_EqMDPTj6JAf0AIkfqNLAwM3J0MgAosPCwMHN1cPV0tfYyN3EMNidNvgAM4GlDkfpCCKPzGh-tH4bUCFIL4FICDCKwAXxgQckVBbigQRBhkeqYrAgC0yNCZ/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Unidades de valuación</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-column">
+            <h4><b>Para tu casa</b></h4>
+            <ul>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/para-tu-gestion/aliadosConstruYO/!ut/p/z1/pZBBCsIwFETP4gkyTUpIl02oaUW0kYTWbCSrUtDqQjy_ocsWa8XZfXgzfxjiSUv8EF59F579fQjXeJ89v3ANlCpNDvqkGExtk0w7AyVS0kyAHSjMUdraUck458T_4a_tSj8VgJaIgCgF8m1RFdmeUe2SdX58UI5f-88AvxzfED95MV9wCRgnGoGlDb61eNxcVIu-6jZvDIhzxw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Comercios afiliados a los <br> productos de Mejora</a></li>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/para-tu-gestion/aliadosConstruYO/!ut/p/z1/pZBBCsIwFETP4gkyTUpIl02oaUW0kYTWbCSrUtDqQjy_ocsWa8XZfXgzfxjiSUv8EF59F579fQjXeJ89v3ANlCpNDvqkGExtk0w7AyVS0kyAHSjMUdraUck458T_4a_tSj8VgJaIgCgF8m1RFdmeUe2SdX58UI5f-88AvxzfED95MV9wCRgnGoGlDb61eNxcVIu-6jZvDIhzxw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Proveedores de Hogar a tu <br> Medida</a></li>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/para-tu-casa/proveedores-promotores-vecinales/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz93L0MjAwC_Z1CAkKNnIzNPMz0w_EqMDPXj6JAf0CIGXH6jSwMDNydDIAKLDwsDBzdXD1dLX2MjdxDDYnTb4ADOBpQ5H6Qgij8xofrR-G1AhSC-BSAgwisAF8YEHJFQW4oEEQYZHqmKwIAPe7dqA!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Promotores vecinales <br> certificados</a></li>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/para-tu-casa/ecotecnologias/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz93L0MjAwC_Z1CAkKNnIzNPMz1w_EqMDPXj6JAf0CIGXH6jSwMDNydDIAKLDwsDBzdXD1dLX2MjdxDDYnTb4ADOBpQ5H6Qgij8xofrR-G1AhSC-BSAgwisAF8YEHJFQW4oEEQYZHqmKwIAgVNQeQ!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Proveedores de <br> ecotecnologías</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-column">
+            <h4><b>Apoyos</b></h4>
+            <ul>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/apoyos/agentes_cobranza/!ut/p/z1/jZBBDoIwEEXPwgn6W0gpS4rQ1ohCQgW7MawIiaIL4_klsNXK7CZ578_kE0c64qb-PQ79a3xM_W3eL45fudmBigxM6zgBj4o6Ks-U8pCRdgUUoLOIHtUeDPVJNpVlMqwaTtwWnwlAScy-0AJpkZs8OYRMWbrNx49Jsc33AM4f3xK3nvjeAC9jP7BUtAC-Dv598bxbazuMZgiCD46ctL8!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Agentes de Cobranza <br> Extrajudicial</a></li>
+              <li><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/proveedores-externos/apoyos/mediadores/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz93L0MjAwC_Z1CAkKNnIzNDM30w_Eq8DXXj6JAf0CIGXH6jSwMDNydDIAKLDwsDBzdXD1dLX2MjdxDDYnTb4ADOBpQ5H6Qgij8xofrR-G1AhSC-BSAgwisAF8YEHJFQW4oEEQYZHqmKwIAzNSYvg!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Mediadores</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+  
+      <!-- Ítem sin dropdown: Transparencia -->
+      <li class="nav-item">
+        <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/transparencia/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz93J0sLAwC3UP8nJz9_Y0tXMz1w8EKjCwMDNydDIAKLDwsDBzdXD1dLX2MjdxDDfWjiNFvgAM4GhCnH4-CKPzGh-tHgZXg8wEhMwpyQ0MjDDIdAWhCXqg!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">
+          <span style="font-size: 18px; color: gray;">Transparencia</span>
+        </a>
+      </li>
+  
+      <!-- Ítem sin dropdown: Protección de datos personales -->
+      <li class="nav-item">
+        <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/transparencia/aviso-privacidad/!ut/p/z1/jY_BCsIwEEQ_aTdJaddjU-u2WJIWDK25lJwkoNWD-P2KePFg7NwG3sww4GECv4RHPIV7vC7h_PJHn885IzZVJowt9xkOpHvURa86IWF8A5IQWaMwTA1huavbetMpyU6AX5PHHypxXT4B-HT9CP57gjURDnwwurJW0bb4AKmL_0ZuF-cmjO0TMDfkjA!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">
+          <span style="font-size: 18px; color: gray;">Protección de datos personales</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+  
+  
+
+  
+
+
+<!-- Navbar Principal -->
+<div class="navbar">
+    <div class="logo">
+        <a href='/'>
+        <img src="https://portalmx.infonavit.org.mx/wps/contenthandler/!ut/p/digest!YhCANQoyGac-C47kTSp4tg/dav/fs-type1/themes/InfonavitWebV2/images/logo-gob-infonavit-nav.png" alt="Infonavit" style="height: 70px; width: auto;">
+        </a>
+    </div>
+
+    <button class="login-button desktop-only"><a href="https://micuenta.infonavit.org.mx/" class="login-button">Acceder a Mi Cuenta Infonavit</a></button>
+    <button class="menu-button mobile-only" id="menuButton"><img src="./assets/icons/manage_searchRed.png" alt="Menu Icon"></button>
+</div>
+
+<!-- Menú desplegable para móviles -->
+
+
+<div class="mobile-search mobile-only" id="mobileSearch">
+    <!-- Contenido del menú de búsqueda -->
+</div>
+
+<!-- Navbar Inferior para Desktop -->
+<nav class="navbar-lower desktop-only">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <div class="dropdown-toggle">
+                <a href="#"><span style="font-size: 15px; color: white;">Quiero un crédito</span></a>
+                <img src="./assets/icons/arrow_down.png" alt="Menu">
+            </div>
+            <div class="dropdown-menu">
+                <a href="https://portalmx.infonavit.org.mx/...">Quiero comprar</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Quiero construir</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Quiero remodelar</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Quiero pagar mi deuda</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Quiero comprar terreno</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown-toggle">
+                <a href="#"><span style="font-size: 15px; color: white;">Tengo un crédito</span></a>
+                <img src="assets/icons/arrow_down.png" alt="Menu">
+            </div>
+            <div class="dropdown-menu">
+                <a href="https://portalmx.infonavit.org.mx/...">Soluciones para ti</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Agentes de Cobranza</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Seguro de daños </a>
+                <a href="https://portalmx.infonavit.org.mx/...">Pagos</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Devolución de Pago</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown-toggle">
+                <a href="#"><span style="font-size: 15px; color: white;">Mi ahorro</span></a>
+                <img src="assets/icons/arrow_down.png" alt="Menu">
+            </div>
+            <div class="dropdown-menu">
+                <a href="https://portalmx.infonavit.org.mx/...">Aportaciones voluntarias</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Pagos en proceso aclaratorio</a>
+                <a href='/remo'>Retiro de mi ahorro</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown-toggle">
+                <a href="#"><span style="font-size: 15px; color: white;">Centro de Ayuda</span></a>
+                <img src="assets/icons/arrow_down.png" alt="Menu">
+            </div>
+            <div class="dropdown-menu">
+                <a href="https://portalmx.infonavit.org.mx/...">Mi Ahorro</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Aportaciones a mi ahorro</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Quiero un crédito</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Tengo un crédito</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Mi cuenta infonavit</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Atención y servicios</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Términos comunes</a>
+                <a href="https://portalmx.infonavit.org.mx/...">Glosario</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<!-- Navbar Inferior para Móviles -->
+<nav class="navbar-lower mobile-only" id="navbarLower">
+    <div class="menu-section">
+        <div class="menu-title">Quiero un crédito</div>
+        <div class="menu-items">
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/quiero_credito/quiero_comprar/!ut/p/z1/jc_RCoIwFAbgZ_EJ9m_TOS9FU6ekjmjZbsKrGJR1ET1_RhIkWJ27A9_Pfw6xpCN26O_u2N_cZehP47634iByoEh8WksjY-g6qlkluKqKkOxeQKWgMgGjgWQQyqwyvzQ8bzixi3lWxu_8MrB_9S-DZx4LE2PM28-KJswS6CwQmzVaIGA_QMvnYP6DmEAUpT6tJFhLa0AbTVOVhgjgT-DLmdfzdtvBKRd73gOk8Slx/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Quiero comprar</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/quiero_credito/quiero_construir/!ut/p/z1/pZDLDoIwEEW_xS_obYFSlgQEBiKPGEG7MawMiaIL4_erGBcaCyTOrsk5vXeGabZlum9v3aG9due-PT7eOy33MgaSwOa5qpWPKvdykUmLApKseQEUgqsAgjtKQFK9jOy0tuLCYtroi9R3374ZMPuUJeP-AOhZ_U35cl6-54U2zxREyXOgqiseUujCgT3Ph2F8_LX_c0E9_n3D9GdE4UYBqsiR6xVKwBETQGl9Az9uOABjR5qqORZBioupDi67nDbDbNFRR4fFHTpDUzA!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Quiero construir</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/quiero_credito/quiero_remodelar/!ut/p/z1/pZHRCoIwFIYfaWdzbvNSZuqU1BGp7Sa8kkFZF9HzJ0oQkVPo3G18H__POcigFpmhe9q-e9jb0F3G98mwM0sAUklxUfJYgo59dthDNf4x1MyAigALCQT7ggBT9S6mWe0lpYfMpy9qEYIugoLkzCNZyN_-MrDsqzx1-xPg8KVia_lsmx8EEcW5AFLhAkDXGkcq4uAD3ebDwoTwT_8JMJvutwwYd70GGWeET1aAyvsGftxgAlxLXqvpilACk7UOHN2vx3lasMqq_gVFr6S2/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Quiero remodelar</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/quiero_credito/quiero_pagar/!ut/p/z1/lZHLDoIwEEW_hS_obYFSlgQECpFHjKjdGFaGRNGF8fs1-IioFJzdJOdk7uQSRdZEtfWl2dXn5tjW-9u-UXzLIyD2LZrlTuijDG2-mKOAyB2yugMyABU-GLUFA5fVLLSSyoxyk6h3X1TCQ5m5GUu5yRLv5Q8Dw75MY73fARrfl3zsPu_7_f8RP33XDSyaCrCCZkBZlTSQgQMb1jQfA-Nhmq958D__G1CT-h8GlP69FVHaiDYbAQrzE_jRYQfoShqLqTshBWVjGRxyOiwfs0YjG7nzDOMKUcFZ1A!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Quiero pagar mi deuda</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/quiero_credito/quiero_compra_terreno/!ut/p/z1/lZJLDoIwFEXX4gp6W6CUIQGRQuQTImonhpEhUXRgXL8GgxGRgm_W5Jzc3vYRRXZENdW9Pla3-tJUp-d5r_iBr4DQM2mS2oGHPLB4sUaGZWGT7QuQPqjwwKglGLgsl4EZlcYqNYj69EUpXOSJk7CYGyxy3_44MO7LONT7LaDxPcmn8nnf7_cXaZfvOL5JYwGW0QTIy5z60rdhwZznY2RczPM1BTU-wkH_IfBf_hBQs_ZnHFD659kSpa1osQkgM76BHzvQArpPnrqmLkIKyqbuYJPredPNDrWs5XGxeABdIX7_/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Quiero comprar terreno</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/quiero_credito/crezcamos_juntos/!ut/p/z1/pZJBb4JAEIV_iweuzCzCsvS2gViRlkoaFedisMGVBlmDVP5-tT0RFU18t928t9-8yQJBClRlx0JlTaGrrDydl8RX_BVx7Nss_nBHPiYjh3--4xSFzWHRNYi5kJjEXmxFfGhNpAt0Ox_5F_lLAz3F54_xPS-wWSTQmrIYMZknLAgDFx20H8vjDUl8qv-5IPU_vwDqIq5s4M_QV_EepA8RCmbdm8GFCZAq9fr_R8lqPRQKqM43eZ3X5k99ut42zf7wYqCBbduaSmtV5uaX3hl4LbLVhwbSrhP2u9lZKRbht1Me36QcDH4BQ3SdaA!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Crezcamos juntos</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/quiero_credito/credito_bancario/!ut/p/z1/lZBBb4JAEIV_DVfmgbgs3jYQrRIppFFxLwYNXUmANUDl74upF1pt0rnN5PvyJo8kpSTr7FqorCt0nZXDvpfswBbAm-9Y0bs795HMp-xjjRihz2g3BviWCySRF9khm9gr4ZL8l_8buPt4MQKDL8cRPz9gD8DzAscKOezYioBkm1jBMnAxhfMA_ghZkVSlPn73IerjhCuSTf6ZN3ljfjXD-dx1l3ZmwEDf96bSWpW5edKVgWfKWbcdpWOSLtUmRRFXO96KG9EgM6s!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Cuenta infonavit + Crédito Bancario</a>
+        </div>
+    </div>
+    <div class="menu-section">
+        <div class="menu-title">Tengo un crédito</div>
+        <div class="menu-items">
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/saldos_congelados/!ut/p/z1/lZJPb4JAEMU_iweuzCzCstsbgViByp-0RdxLgw1FGmQNUvn6NXqpVQHnNrO_l_fysiAgBVFnh7LI2lLWWXXcV4J-UNdBwmzU5h4jSDmzw5AvouQNYXkGnhHntk4CljAL44AHmk-nmmeZIP4-h-bMxnhm0NcFRujb9L_-GujRM50O-Y_Uc-7oxGeoRSRAjJOYOK5jooH6OD3eGQsfzH8NiFH93wdEf7wliMuINxo8AX0VDZn0WbiMaEMZTPBAFJVcn3-kVa-nrADR5F95kzfqT3M8b9p2t39SUMGu69RCyqLK1U-5VfCWZCP3LaSXJOy276dJsXS_jerwYk0mv2WyYgg!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Saldos congelados (Segundo piso RC)</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/soluciones_para_ti/!ut/p/z1/nZJBT4NAEIV_DUeZt5QuizdSUqVELDG2OBcDBrcklG0oSvz31tQLqdLq3GbyvpmXlyGmjLjJ3yudd5Vp8vrQP7F8ljfA7cwVyb03nyGdT-XDHZZQsaT1UKBWKkCa-IkTy0mkhEP8f95ZBN6QP11_hpeX8b4fuiJWcJYiAdJVKsIo9DCFexmPXyrAH_2fBsTj69fEIyeOCY4L5LdgLINzLhbEujbF8WGCppgoTdyWr2VbtvZbexhvum63v7Zgoe97Wxuj69J-MVsLPyEbs-8oGyppt338qgxVdMXFR_8JIoxT-w!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Soluciones para ti</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/agencia_soluciones/!ut/p/z1/nZJBT4NAEIV_DUeZt5QuizdSUqVELDG2OBcDBrcklG0oSvz31tQLqdLq3GbyvpmXlyGmjLjJ3yudd5Vp8vrQP7F8ljfA7cwVyb03nyGdT-XDHZZQsUfroUCtVIA08RMnlpNICYf4_7yzCLwhf7r-DC8v430_dEWs4CxFAqSrVIRR6GEK9zIev1SAP_o_DYjH16-JR04cExwXyG_BWAbnXCyIdW2K48METTFRmrgtX8u2bO239jDedN1uf23BQt_3tjZG16X9YrYWfkI2Zt9RNlTSbvv4VRmq6IqLj_4TMn3zkA!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Agentes de Cobranza Extrajudicial</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/seguro-danos/!ut/p/z1/pZLNroJADIWfhqW0M-A4uCOXRNEEZaFiNwZucCRBxiBKfHt_Nze5jka7a3O-9uSkQJAAVemxUGlT6CotL_2SxEoMEIc_LovkXPoYR17Ex8IJJw6HhUkgGQf6nOcjv2fir-tf8OI93vMCl40l8imLEON5zIIw6GEX3fd4fFI-fuP_FhCZ1y-ADCfuCZoF4iEwZfDKxQhIlTq7P4xfZY5UQHW-zuu8tg_1Zbxpmt2-b6GFbdvaSmtV5vav3lr4H7LR-waSv0rYbWfXSrAIO5Sd2jPyVZlr/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Seguro de daños por siniestro</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/pagos/!ut/p/z1/nZJBb4JAEIV_DUeZtwjL0huRWNFIJU2V7sWAoSsJsgZR0n9fG3shWrSd20zeN_PyMiQpIVmlp0KlTaGrtDz375Kv-TMwGdksenHHI8Rjh7_OsQDmDq26ArEUPuLIi6wZH4aCWST_z1tT3-3y1-vv8Pwx3vMCm80ErAWLgHgZsyAMXDiwH-PxS_n4o__rgGT_-hXJnhOXBPsF_EfQl8E9F1OSqtTZ5WH8KhsKRbLOP_I6r81jfR5vm2Z_eDJgoG1bU2mtytzc6J2BW8hWHxpKukra796-K0ERDmT22X4BMvKa0w!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Pagos</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/dev_excedentes/!ut/p/z1/nZJBb4JAEIV_Dccyw4Lr4m2VpCIpgSYqzsWAoSsJsgZpif9eGnshtmid20zeN_PyMkCQAFXpV6HSptBVWnb9hviWvyLOZ44V4puYYmyzYBTJCOfvHNZ9gVgJiXHohizgti8sBvQ8zxZy3Odv19_h-WO863qOFQhkUecR41Vseb43xhE6j_H4R0n8p__bgGh4_Rpo4MQ1wWEB_xEMZXDPxQJIlTq7PoysMlsooDr_yOu8Nj_rbrxvmuNpYqCBbduaSmtV5uZOHwz8DdnrUwNJXwnHw_K7Eiz8F8rO7QUCqbhX/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Devolución de Pago a Beneficiarios</a>
+        </div>
+    </div>
+    <div class="menu-section">
+        <div class="menu-title">Mi ahorro</div>
+        <div class="menu-items">
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/mi_ahorro/aportaciones_extraordinarias/!ut/p/z1/lZJRb4IwEMc_iw88jrsilrK3BqKiGUqWKbuXBRZWSZAaZJJ9-5m5F8JW9d7a_H7t3b8FghSozk6lytpS11l1Xr8Sf-MzxHngsnjlTQNMphP-_IRrFAGDbR8QGyExif3YWfJxJJgDZPAFN_rOQnp9f3j8FZ_fdr_vhy5bCnTWLEZMNgkLo9DDCbq3-fhPSbxz_iFAd-U_BMjc3hbIEPHlBcwA_wVMGV7rYgGkKp1fPpys87FQQE3xUTRFY3825-1d2x6OjxZa2HWdrbRWVWG_672Ffyk7fWwh7ZNw2L_8VIpl9ED5VydHo28eRJJo/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Aportaciones extraordinarias</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/mi_ahorro/pagos_proceso_aclaratorio/!ut/p/z1/lZJRb4IwEMc_iw88jrsilrK3RuKGZigxKruXBRZWSZAaZCN--5m5F4JWvbc2v19792-BIAGq0p9CpU2hq7Q8rd-Jf_AXxNexy6K5NxljPBnx5RsuUCwRNl1ArIXEOPIjZ8aHoWAOkMEX3Og7U-l1_f7xN3x-3_2-H7hsJtBZsAgxXscsCAMPR-je5-OVkvjg_H2AHsq_D5C5vQ2QIeLzC5gB_g-YMrzVxRRIlTo7fzhZZUOhgOr8K6_z2v6uT9vbptkfni20sG1bW2mtytz-1DsLLylbfWgg6ZKw363-KsEifKLs2MrB4Beo35Xa/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Pagos en proceso aclaratorio</a>
+            <a href='/remo'>Retiro de mi ahorro</a>
+        </div>
+    </div>
+    <div class="menu-section">
+        <div class="menu-title">Centro de Ayuda</div>
+        <div class="menu-items">
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/mi_ahorro/pagos_proceso_aclaratorio/!ut/p/z1/lZJRb4IwEMc_iw88jrsilrK3RuKGZigxKruXBRZWSZAaZCN--5m5F4JWvbc2v19792-BIAGq0p9CpU2hq7Q8rd-Jf_AXxNexy6K5NxljPBnx5RsuUCwRNl1ArIXEOPIjZ8aHoWAOkMEX3Og7U-l1_f7xN3x-3_2-H7hsJtBZsAgxXscsCAMPR-je5-OVkvjg_H2AHsq_D5C5vQ2QIeLzC5gB_g-YMrzVxRRIlTo7fzhZZUOhgOr8K6_z2v6uT9vbptkfni20sG1bW2mtytz-1DsLLylbfWgg6ZKw363-KsEifKLs2MrB4Beo35Xa/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Mi Ahorro</a>
+                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/11_aportaciones_credito/10_aportaciones_patron/!ut/p/z1/jZDLCoJAFIafxQeIOWM66lIU85I3QrPZyGBmA6Vi0qKnb4I2Bqlnd_j__1w-RFGBaMuevGEj71p2E_2JkpLsAFxLwVGsORakjkoOISSgxwQdpwY9101IIyOSA7KVfZMguiZvGLaCAx3kBEcAaZ5i27M1UEFZl4c_ZcK6_IyBzo_3lxYIgvIQWmGDaM_G64a3lw4VGJes74aRVYJz_SiroT7z8SPAVBCZoWvFmXS66Be0tmQgX8Mc6qVn-3uWZcVr7wL3GlOS3vPNyLY!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=49e52e39-68fe-49f7-a174-9b5934e46906&subtemaSelect=042bb25e-f7fe-4c3e-98ad-9de61382c7ea">Aportaciones a mi ahorro</a>
+                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/12_quiero_credito/10_informacion_obtener/!ut/p/z1/jZDLDoIwEEW_xQ8wnVYosCQQBJVXDIrdNBURmyhogy78ejFxo4nA7Gbm3nkcxFCOWC0eshKtbGpx7vIdo5zOAXxHw1FseA6knk7XISRgxhRtvwXmxrQhjayILOmMLGyK2Bi_ZbkaXppAEhwBpJsUu4FrgA7aOD_8CRvG-XsErH_8YmhBR5Co0AkrxK6iPU1lfWxQjgm_3WWpGl6o8iDbdwn4u6cuoujY82bflnWpugPZ94pfxMaQgH4EfZCH3rxesizLnysfZFDZk8kLzFodKw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=f11561e0-37ae-4ac3-b484-05a6caa16294&subtemaSelect=909de2bc-05b8-4229-a420-dffa147547b8">Quiero un crédito</a>
+                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/12_quiero_credito/10_informacion_obtener/!ut/p/z1/jZDLDoIwEEW_xQ8wnVYosCQQBJVXDIrdNBURmyhogy78ejFxo4nA7Gbm3nkcxFCOWC0eshKtbGpx7vIdo5zOAXxHw1FseA6knk7XISRgxhRtvwXmxrQhjayILOmMLGyK2Bi_ZbkaXppAEhwBpJsUu4FrgA7aOD_8CRvG-XsErH_8YmhBR5Co0AkrxK6iPU1lfWxQjgm_3WWpGl6o8iDbdwn4u6cuoujY82bflnWpugPZ94pfxMaQgH4EfZCH3rxesizLnysfZFDZk8kLzFodKw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=f11561e0-37ae-4ac3-b484-05a6caa16294&subtemaSelect=909de2bc-05b8-4229-a420-dffa147547b8">Tengo un crédito</a>
+                <a href="https://micuenta.infonavit.org.mx/">Mi cuenta infonavit</a>
+                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/12_quiero_credito/10_informacion_obtener/!ut/p/z1/jZDLDoIwEEW_xQ8wnVYosCQQBJVXDIrdNBURmyhogy78ejFxo4nA7Gbm3nkcxFCOWC0eshKtbGpx7vIdo5zOAXxHw1FseA6knk7XISRgxhRtvwXmxrQhjayILOmMLGyK2Bi_ZbkaXppAEhwBpJsUu4FrgA7aOD_8CRvG-XsErH_8YmhBR5Co0AkrxK6iPU1lfWxQjgm_3WWpGl6o8iDbdwn4u6cuoujY82bflnWpugPZ94pfxMaQgH4EfZCH3rxesizLnysfZFDZk8kLzFodKw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=f11561e0-37ae-4ac3-b484-05a6caa16294&subtemaSelect=909de2bc-05b8-4229-a420-dffa147547b8">Atención y servicios</a>
+                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/12_quiero_credito/10_informacion_obtener/!ut/p/z1/jZDLDoIwEEW_xQ8wnVYosCQQBJVXDIrdNBURmyhogy78ejFxo4nA7Gbm3nkcxFCOWC0eshKtbGpx7vIdo5zOAXxHw1FseA6knk7XISRgxhRtvwXmxrQhjayILOmMLGyK2Bi_ZbkaXppAEhwBpJsUu4FrgA7aOD_8CRvG-XsErH_8YmhBR5Co0AkrxK6iPU1lfWxQjgm_3WWpGl6o8iDbdwn4u6cuoujY82bflnWpugPZ94pfxMaQgH4EfZCH3rxesizLnysfZFDZk8kLzFodKw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=f11561e0-37ae-4ac3-b484-05a6caa16294&subtemaSelect=909de2bc-05b8-4229-a420-dffa147547b8">Términos comunes</a>
+                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/12_quiero_credito/10_informacion_obtener/!ut/p/z1/jZDLDoIwEEW_xQ8wnVYosCQQBJVXDIrdNBURmyhogy78ejFxo4nA7Gbm3nkcxFCOWC0eshKtbGpx7vIdo5zOAXxHw1FseA6knk7XISRgxhRtvwXmxrQhjayILOmMLGyK2Bi_ZbkaXppAEhwBpJsUu4FrgA7aOD_8CRvG-XsErH_8YmhBR5Co0AkrxK6iPU1lfWxQjgm_3WWpGl6o8iDbdwn4u6cuoujY82bflnWpugPZ94pfxMaQgH4EfZCH3rxesizLnysfZFDZk8kLzFodKw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=f11561e0-37ae-4ac3-b484-05a6caa16294&subtemaSelect=909de2bc-05b8-4229-a420-dffa147547b8">Glosario</a>
+        </div>
+    </div>
+</nav>
+
+<!-- <div class="image-movement">
+    <img src="./assets/img/feriasWeb.png" alt="Credito Infonavit" class="desktop-img active">
+    <img src="./assets/img/bannerDesk2.png" alt="" class="desktop-img">
+    <img src="./assets/img/bannerDesk3.png" alt="" class="desktop-img">
+
+    
+
+    <div class="navigation-buttons">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
+    </div>
+</div> -->
+
+
+
+<div class="image-movement">
+    <!-- Contenedor de imágenes para escritorio -->
+    <div class="desktop-images">
+        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/0f311b65-fbc5-4785-84fc-1cc71f7bae7c/pc+%282%29.jpg?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-0f311b65-fbc5-4785-84fc-1cc71f7bae7c-pnaKIz8"    alt="Credito Infonavit" class="desktop-img active">
+        <!-- <img src="./assets/img/bannerDesk2.png" alt="" class="desktop-img">
+        <img src="./assets/img/bannerDesk3.png" alt="" class="desktop-img"> -->
+    </div>
+
+    <!-- Contenedor de imágenes para móvil -->
+    <div class="mobile-images">
+        <img src="./assets/img/movil.jpg" alt="Credito Infonavit" class="mobile-img active">
+        <!-- <img src="./assets/img/bannerMov2.png" alt="" class="mobile-img">
+        <img src="./assets/img/bannerMov3.png" alt="" class="mobile-img"> -->
+    </div>
+
+    <!-- Botón de llamada a la acción (opcional) -->
+    <!-- <a href="#" class="cta-button">Descubre más</a> -->
+
+    <!-- Botones de navegación -->
+    <!-- <div class="navigation-buttons">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
+    </div> -->
+</div>
+
+
+<!-- Cards Section -->
+    <!-- Cards Section -->
+<div class="cards-container">
+    <div class="text-title"><b style="color: #666;">Realiza tus tareas de manera más sencilla</b></div>
+    <div class="text-subtitle">¡Siguenos!</div>
+    <div class="cards-row social-cards">
+        <div class="card social-card">
+            <a href="https://www.youtube.com/@ComunidadInfonavit">
+                <img src="./assets/icons/YT.png" alt="YouTube Icon">
+                <p></p>
+            </a>
+        </div>
+        <div class="card social-card">
+            <a href="https://www.facebook.com/ComunidadInfonavit">
+                <img src="./assets/icons/FB.png" alt="Facebook Icon">
+                <p></p>
+            </a>
+        </div>
+        <div class="card social-card">
+            <a href="https://open.spotify.com/show/3gUlQtXksmtoyEQvcxdVfH?si=685a24cb83cc4fee">
+                <img src="./assets/icons/Spotify.png" alt="Spotify Icon">
+                <p></p>
+            </a>
+        </div>
+    </div>
+
+    <div class="cards-container">
+        <div class="text-title"><b style="color: #666;">Beneficios de un crédito infonavit</b></div>
+        <div class="cards-row benefit-cards">
+            <div class="card benefit-card">
+                <img src="./assets/icons/ahorro.png" alt="Ahorro Icon">
+                <p><b>Mi ahorro</b></p>
+                <p>Utiliza tu ahorro en la <b class="textoSub">Subcuenta de Vivienda</b> para ampliar tu capacidad de compra</p>
+            </div>
+            <div class="card benefit-card">
+                <img src="./assets/icons/request_quote_24dp_2854C5_FILL0_wght400_GRAD0_opsz24.png" alt="Interés Icon">
+                <p><b>Tasa de interés</b></p>
+                <p>Tasa diferenciada por nivel salarial, fija durante toda la vida del crédito.</p>
+            </div>
+            <div class="card benefit-card">
+                <img src="./assets/icons/currency_exchange_24dp_2854C5_FILL0_wght400_GRAD0_opsz24.png" alt="Aportaciones Icon">
+                <p><b>Aportaciones patronales</b></p>
+                <p>Se aplican al pago del capital de tu crédito</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="infonavit-container">
+        <div class="image-section">
+          <img src="assets/img/inversiones.jpg" alt="Oficina con monitores" class="background-image">
+        </div>
+        <div class="text-section">
+          <h2>Inversiones Infonavit</h2>
+          <p>¿Qué inversiones hace el Infonavit?</p>
+          <a href="https://portalmx.infonavit.org.mx/wps/portal/inversiones.web/necesidades_capacidades/coordinacion_general_inversiones/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz9_F0NnAwCzd2DDY19Qo2NDEz0w1EVWPi7GRoEBvmbhAQFGRhb-JrrRxGj3wAHcDQgTj8eBVH4jQ_Xj8JnRbCJCboCLF4kZElBbmhohEGmJwASdhjo/dz/d5/L2dBISEvZ0FBIS9nQSEh/" class="btn-red" target="_blank">Conoce más</a>
+
+        </div>
+      </div>
+</div>
+
+<br>
+
+<div class="custom-container">
+    <div class="custom-header">
+      <img src="assets/img/logo-infonavit-facil.png" alt="Logo Infonavit" class="custom-header-image">
+      <h2>Conoce más acerca de tu Crédito Infonavit en Infonavit Fácil</h2>
+    </div>
+    <div class="custom-cards-container">
+      <div class="custom-card">
+        <img src="assets/img/conviene.jpg" alt="¿Qué Crédito me conviene?" class="custom-card-image">
+        <div class="custom-card-content">
+          <h3>¿Qué Crédito me conviene?</h3>
+          <p>En INFONAVIT contamos con créditos que te ayudarán para comprar una vivienda nueva o una ya existente, remodelar tu casa o construir a tu gusto y necesidades en tu propio terreno.</p>
+          <a href="https://infonavitfacil.mx/category/que-credito-me-conviene/" class="custom-card-link" target="_blank">Conoce más</a>
+        </div>
+      </div>
+      <div class="custom-card">
+        <img src="assets/img/deudas.jpg" alt="Solución a tus deudas" class="custom-card-image">
+        <div class="custom-card-content">
+          <h3>Solución a tus deudas</h3>
+          <p>Pagar tu Crédito Infonavit es una meta a largo plazo y sabemos que muchos temas personales, familiares y laborales pueden pasar en cualquier momento, por eso te detallamos qué opciones tenemos disponibles para ayudarte en caso de situaciones complejas.</p>
+          <a href="https://infonavitfacil.mx/category/solucion-a-tus-deudas/" class="custom-card-link" target="_blank">Conoce más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+
+
+
+<!-- Cards Section -->
+
+
+
+
+<!-- Chat Icon and Window -->
+<div class="chat-icon" id="chatIcon">
+    <img src="./assets/icons/chat.png" alt="Chat Icon">
+</div>
+<div class="chat-window" id="chatWindow" style="display: none;">
+    <div class="chatbot">
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="loading-text">Cargando asistente virtual...</div>
+        </div>
+        
+    </div>
+</div>
+
+<script src="assets/JS/main.js"></script>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <center>
+
+                <p>Derechos reservados © Infonavit 2017</p>
+            </center>
+        </div>
+        <div class="footer-right">
+            <img src="assets/icons/infonavit_W.png" alt="" class="social-icon">
+
+        </div>
+    </div>
+</footer>
+
+
+<script src="assets/JS/bot.js"> </script>
+<script src="assets/JS/slide.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1) Cada vez que hagan click en el toggle…
+      document.querySelectorAll('.new-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();                                // no burbujear
+          const item = btn.closest('.new-dropdown');         // el LI padre
+          // Cierra otros dropdowns abiertos:
+          document.querySelectorAll('.new-dropdown.open').forEach(d => {
+            if (d !== item) d.classList.remove('open');
+          });
+          // Abre/Cierra este:
+          item.classList.toggle('open');
+        });
+      });
+    
+      // 2) Al hacer click fuera, cerramos todo
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.new-dropdown.open').forEach(d => {
+          d.classList.remove('open');
+        });
+      });
+    });
+    </script>
+    
+
+
+</body>
+</html>
