@@ -1455,3 +1455,122 @@ input[type="number"] {
   color: #000;
   font-weight: 700;
 }
+
+
+/* ======================================
+   📱  MOBILE (≤ 768px)
+   ====================================== */
+@media (max-width: 768px) {
+
+  /* CALCULADORA */
+  .calculadora-contenedor {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+    align-items: center;
+  }
+
+  .calculadora-inputs,
+  .resultado {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .resultado h2 {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .resultado-item strong {
+    font-size: 28px;
+    text-align: center;
+    display: block;
+  }
+
+  #btnCalcular,
+  .btn-ingresar {
+    width: 100%;
+  }
+
+
+  /* BLOQUE INFONAVIT */
+  .bloque-infonavit {
+    padding: 40px 20px;
+    border-radius: 0 0 50px 50px;
+  }
+
+  .iconos-contenedor {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .icono-separador {
+    display: none;
+  }
+
+  .icono-item {
+    max-width: 240px;
+  }
+}
+
+
+
+/* ======================================
+   📱  EXTRA SMALL (≤ 480px)
+   ====================================== */
+@media (max-width: 480px) {
+
+  /* CALCULADORA */
+  .resultado-item strong {
+    font-size: 24px;
+  }
+
+  #btnCalcular,
+  .btn-ingresar {
+    font-size: 14px;
+  }
+
+  .edad-title {
+    font-size: 20px;
+  }
+
+  #edad-slider {
+    height: 6px;
+  }
+
+  /* BLOQUE INFONAVIT */
+  .bloque-infonavit h2 {
+    font-size: 22px;
+  }
+
+  .bloque-infonavit .descripcion {
+    font-size: 14px;
+  }
+
+  .destacado {
+    font-size: 15px;
+  }
+}
+
+
+
+/* ======================================
+   📟  TABLETS (769px – 1024px)
+   ====================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* CALCULADORA */
+  .calculadora-contenedor {
+    gap: 40px;
+  }
+
+  .calculadora-inputs,
+  .resultado {
+    width: 45%;
+  }
+
+  /* BLOQUE INFONAVIT */
+  .iconos-contenedor {
+    gap: 25px;
+  }
+}
