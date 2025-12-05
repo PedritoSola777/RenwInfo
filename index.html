@@ -342,6 +342,121 @@
       </div>
 </div>
 
+
+<div class="calculadora-wrapper">
+
+  <div class="calculadora-contenedor">
+
+    <div class="calculadora-inputs">
+      <label>Sueldo mensual</label>
+      <input type="number" id="sueldo" placeholder="$ 12,000">
+
+      <label class="edad-title" id="edadTexto">23 años</label>
+
+      <input type="range" min="18" max="55" value="23" id="edad-slider">
+      <div class="edad-labels">
+        <span>18 años mínimo</span>
+        <span>55 años máximo</span>
+      </div>
+
+      <button id="btnCalcular">Calcular</button>
+    </div>
+
+    <div class="resultado">
+      <h2>Te prestamos hasta:</h2>
+
+      <div class="resultado-item">
+        <strong id="montoMaximo">-----</strong>
+      </div>
+
+          <p class="aclaracion fila">
+      <span>Tasa</span>
+      <b>5.21%</b>
+    </p>
+
+    <p class="aclaracion fila">
+      <span>CAT</span>
+      <b>5.6</b>
+    </p>
+
+    <p class="aclaracion fila">
+      <span>Plazo</span>
+      <b>15 años</b>
+    </p>
+
+
+      <p class="aclaracion">
+        NI: CAT indicativo cuyo cálculo es no informativo para el acreditado.
+      </p>
+      <b>
+        <p style="color: #be945d;">Accede a Mi Cuenta Infonavit</p>
+      </b>
+
+       <p class="aclaracion">
+        Consulta si ya puedes solicitar tu crédito, cuánto ahorro <br>
+        tienes y más.
+      </p>
+      <a href="https://micuenta.infonavit.org.mx/">
+        <button class="btn-ingresar">Ingresar</button>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<br>
+
+<section class="bloque-infonavit">
+
+  <h2>¿Cuánto me puede prestar Infonavit?</h2>
+
+  <p class="descripcion">
+    Recuerda que la Unidad de Medida y Actualización se cambia regularmente al inicio de cada año.
+  </p>
+
+  <p class="destacado">Esta cantidad se multiplica por 30.4</p>
+
+  <p class="nota">
+    Nota: Este simulador solo aplica para Crédito Infonavit y para Crédito Infonavit Total.
+  </p>
+
+  <div class="iconos-contenedor">
+
+    <div class="icono-item">
+      <div class="icono-circulo">
+        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/202b6ee3-23cc-4fca-a087-0a773b876ee8/icono-monto-del-credito.png?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-202b6ee3-23cc-4fca-a087-0a773b876ee8-pmI1Yit" alt="Crédito" />
+      </div>
+      <h4>Monto del crédito</h4>
+      <p>Varía de acuerdo a la edad o el salario</p>
+    </div>
+
+    <div class="icono-separador"></div>
+
+    <div class="icono-item">
+      <div class="icono-circulo">
+        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/ab938603-c00b-4e11-b3e4-686f94edc048/icono-pagos-fijos.png?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-ab938603-c00b-4e11-b3e4-686f94edc048-pmI1Yxv" alt="Pagos" />
+      </div>
+      <h4>Pagos fijos</h4>
+      <p>Durante toda la vida del crédito</p>
+    </div>
+
+    <div class="icono-separador"></div>
+
+    <div class="icono-item">
+      <div class="icono-circulo">
+        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/6bb0f865-4e0d-43d8-a5d3-8ce70939f971/icono-aporte-patronal.png?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-6bb0f865-4e0d-43d8-a5d3-8ce70939f971-pmI1YMe" alt="Aporte" />
+      </div>
+      <h4>Aporte patronal</h4>
+      <p>Abono directo a capital para reducir el plazo del crédito</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
 <br>
 
 <div class="custom-container">
@@ -437,7 +552,39 @@
       });
     });
     </script>
-    
+
+    <script>
+      const edadSlider = document.getElementById("edad-slider");
+const edadTexto = document.getElementById("edadTexto");
+const montoMaximo = document.getElementById("montoMaximo");
+
+edadSlider.addEventListener("input", () => {
+  edadTexto.textContent = `${edadSlider.value} años`;
+});
+
+document.getElementById("btnCalcular").addEventListener("click", () => {
+  const sueldo = Number(document.getElementById("sueldo").value);
+
+  let base = 0;
+
+  if (sueldo <= 10000) base = 200000;
+  else if (sueldo <= 15000) base = 250000;
+  else if (sueldo <= 20000) base = 300000;
+  else if (sueldo <= 25000) base = 350000;
+  else if (sueldo >= 30000) base = 400000;
+
+  // Agregarle centavos variables para que parezca un cálculo “real”
+  const variacion = Math.random() * 5000 - 2500; 
+  const montoFinal = base + variacion;
+
+  montoMaximo.textContent = montoFinal.toLocaleString("es-MX", {
+    style: "currency",
+    currency: "MXN",
+    minimumFractionDigits: 2
+  });
+});
+
+    </script>
 
 
 </body>
