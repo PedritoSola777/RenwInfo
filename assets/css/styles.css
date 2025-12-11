@@ -1574,3 +1574,50 @@ input[type="number"] {
     gap: 25px;
   }
 }
+
+
+
+/* Capa oscura suave */
+.ahorro-overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* Texto centrado */
+.ahorro-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  z-index: 2;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.6);
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ahorro {
+    height: 170px;
+  }
+
+  .ahorro-texto {
+    font-size: 24px;
+  }
+}
+
+.edad-label {
+  text-align: center;
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 10px;
+}
