@@ -386,7 +386,7 @@
 
 
       <p class="aclaracion">
-        NI: CAT indicativo cuyo cálculo es no informativo para el acreditado.
+        NI: CAT indicativo cuyo cálculo es no informativo para el acreditado, dado los parámetros particulares del crédito
       </p>
       <b>
         <p style="color: #be945d;">Accede a Mi Cuenta Infonavit</p>
@@ -553,29 +553,84 @@
     </script>
 
     <script>
-      const edadSlider = document.getElementById("edad-slider");
+      /* =====================================================
+   SLIDER DE EDAD
+   ===================================================== */
+const edadSlider = document.getElementById("edad-slider");
 const edadTexto = document.getElementById("edadTexto");
 const montoMaximo = document.getElementById("montoMaximo");
+const sueldoInput = document.getElementById("sueldo");
 
+/* Actualizar texto de edad en tiempo real */
 edadSlider.addEventListener("input", () => {
   edadTexto.textContent = `${edadSlider.value} años`;
 });
 
+
+/* =====================================================
+   FORMATEO DEL SUELDO CON SIGNO $
+   ===================================================== */
+sueldoInput.addEventListener("input", (e) => {
+
+  // posición del cursor
+  let cursorPos = e.target.selectionStart;
+
+  // impedir escribir antes del "$ "
+  if (cursorPos <= 2) {
+    e.target.selectionStart = e.target.value.length;
+    e.target.selectionEnd = e.target.value.length;
+  }
+
+  // quitar todo lo que no sea número
+  let valor = e.target.value.replace(/[^0-9]/g, "");
+
+  // si no hay números, deja solo "$ "
+  if (valor === "") {
+    e.target.value = "$ ";
+    return;
+  }
+
+  // formatear con comas
+  let formateado = Number(valor).toLocaleString("es-MX");
+
+  // actualizar input
+  e.target.value = "$ " + formateado;
+
+  // poner cursor al final
+  e.target.selectionStart = e.target.value.length;
+  e.target.selectionEnd = e.target.value.length;
+});
+
+
+/* =====================================================
+   BOTÓN CALCULAR
+   ===================================================== */
 document.getElementById("btnCalcular").addEventListener("click", () => {
-  const sueldo = Number(document.getElementById("sueldo").value);
+
+  // convertir sueldo a número real
+  let sueldoNumero = sueldoInput.value.replace(/[^0-9]/g, "");
+  sueldoNumero = Number(sueldoNumero);
+
+  // si el input está vacío o inválido
+  if (!sueldoNumero || sueldoNumero <= 0) {
+    montoMaximo.textContent = "Ingresa un sueldo válido";
+    return;
+  }
 
   let base = 0;
 
-  if (sueldo <= 10000) base = 200000;
-  else if (sueldo <= 15000) base = 250000;
-  else if (sueldo <= 20000) base = 300000;
-  else if (sueldo <= 25000) base = 350000;
-  else if (sueldo >= 30000) base = 400000;
+  // rangos
+  if (sueldoNumero <= 10000) base = 200000;
+  else if (sueldoNumero <= 15000) base = 250000;
+  else if (sueldoNumero <= 20000) base = 300000;
+  else if (sueldoNumero <= 25000) base = 350000;
+  else if (sueldoNumero >= 30000) base = 400000;
 
-  // Agregarle centavos variables para que parezca un cálculo “real”
-  const variacion = Math.random() * 5000 - 2500; 
+  // variación para parecer monto “real”
+  const variacion = Math.random() * 5000 - 2500;
   const montoFinal = base + variacion;
 
+  // mostrar en formato MXN exacto
   montoMaximo.textContent = montoFinal.toLocaleString("es-MX", {
     style: "currency",
     currency: "MXN",
@@ -583,7 +638,9 @@ document.getElementById("btnCalcular").addEventListener("click", () => {
   });
 });
 
-    </script>
+
+</script>
+
 
 
 </body>
