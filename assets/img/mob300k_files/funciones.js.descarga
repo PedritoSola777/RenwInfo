@@ -1,0 +1,64 @@
+var edadVal= 0;
+
+document.cargaModalHipoVerde = function carModal() {
+	//$('#modalHipo').appendTo("body").modal('show');
+	$('#modalHipo').modal('show');
+}
+
+document.escondeModalHipoVerde = function escModal() {
+	$("#modalHipo").modal("hide");
+}
+
+document.scrollPage= function scroll(div){
+	 $('html, body').animate({
+	        scrollTop: $("#"+div).offset().top
+	   }, 100);
+}
+
+function updateTextInput(val) {
+    document.getElementById('textInput').value= val + ' a\u00F1os';
+    document.getElementById('edadTxt').value= val; 
+    $("#errorEdad").hide();
+    
+}
+
+
+document.obtieneEdad = function edo() {
+	return  document.getElementById('edadTxt').value;
+}
+
+document.cpf = function cpfej() {
+	setTimeout("execmascara()",1);   
+}
+
+document.cpf2 = function cpfej() {
+	setTimeout("execmascaraMenor()",1);   
+}
+
+
+function execmascara(){   
+	document.getElementById('saldoId').value= moneda(document.getElementById('saldoId').value);
+}
+
+function execmascaraMenor(){   
+	document.getElementById('monMenorId').value= moneda(document.getElementById('monMenorId').value);
+}  
+
+
+function moneda(v){   
+	v=v.replace(/([^0-9\.]+)/g,''); 
+	v=v.replace(/^[\.]/,''); 
+	v=v.replace(/[\.][\.]/g,''); 
+	v=v.replace(/\.(\d)(\d)(\d)/g,'.$1$2'); 
+	v=v.replace(/\.(\d{1,2})\./g,'.$1'); 
+	v = v.toString().split('').reverse().join('').replace(/(\d{3})/g,'$1,');    
+	v = v.split('').reverse().join('').replace(/^[\,]/,''); 
+	
+	if(v !== ''){
+		return '$ '+v;
+	}else{
+		return '';
+	}
+
+}
+

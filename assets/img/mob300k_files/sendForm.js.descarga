@@ -1,0 +1,374 @@
+		var timeout = 7000;
+		var EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$" ;
+		var ALFANUM_ESPECIALES_PATTERN = "^[ A-Za-z0-9\\.\u00E1\u00E9\u00ED\u00F3\u00FA\u00C1\u00C9\u00CD\u00D3\u00DA\u00FC\u00DC\u00F1\u00D1]+$" ; //áéíóúÁÉÍÓÚüÜñÑ
+		
+		$( "#divColEdited" ).removeClass( "d-block" ).addClass( "d-none" );
+		$( "#imgReloading" ).removeClass( "d-block" ).addClass( "d-none" );
+
+		function enableBtnEnviar() {
+			
+			$("#msgError").removeClass("visible").addClass("invisible").html('');
+			$("#msgExito").removeClass("visible").addClass("invisible").html('');
+
+			if ($("#cpInCo").val().trim().length < 5) {
+				$("#msgError").removeClass("invisible").addClass("visible").html('El código postal debé de ser de 5 digítos.');
+				$("#avisoPriv").prop('checked', '');
+			} else if ($("#coloniaId").val().trim().length < 1) {
+				$("#msgError").removeClass("invisible").addClass("visible").html('Selecciona tu colonia.');
+				$("#avisoPriv").prop('checked', '');
+			} else if ($("#coloniaId").val().trim().length < 1) {
+				$("#msgError").removeClass("invisible").addClass("visible").html('Selecciona tu colonia.');
+				$("#avisoPriv").prop('checked', '');
+			} else if ($("#coloniaId").val() == "-1" ) {
+				if ( $("#coloniaEdited").val().trim().length < 5) {
+					$("#msgError").removeClass("invisible").addClass("visible").html('Ingresa tu colonia.');
+					$("#avisoPriv").prop('checked', '');
+				} else if ( !$("#coloniaEdited").val().match( ALFANUM_ESPECIALES_PATTERN ) ) {
+					$("#msgError").removeClass("invisible").addClass("visible").html('La colonia tiene caracteres no permitidos.');
+					$("#avisoPriv").prop('checked', '');
+				} else {
+					if (!$("#avisoPriv").prop('checked')) {
+						$("#btnEnviar").prop('disabled', 'disabled');
+					} else {
+						$("#btnEnviar").prop('disabled', '');
+					}
+				}
+			} else {
+				if (!$("#avisoPriv").prop('checked')) {
+					$("#btnEnviar").prop('disabled', 'disabled');
+				} else {
+					$("#btnEnviar").prop('disabled', '');
+				}
+			}
+		}
+		
+		function consultaNss() {
+			
+			$("#msgError").removeClass("visible").addClass("invisible")
+					.html('');
+			$("#msgExito").removeClass("visible").addClass("invisible")
+					.html('');
+
+			if ($("#nss").val().trim().length == 11) {
+				$("#btnConsultar").prop('disabled', 'disabled');
+				$.ajax({
+					type : 'POST',
+					timeout : timeout,
+					url : '/VivientaBienestarInCo/webresources/viviendaBienestarInCoRest/validaNss?nss='
+							+ $("#nss").val().trim()
+							+ '&captcha='
+							+ $("#captcha").val().trim() + '',
+					dataType : 'json',
+					contentType : 'application/json; charset=utf-8',
+					cors : true,
+					success : function(jsonResp) {
+						if (jsonResp.codigo === '00') {
+							$( '#nombreEnc').html( jsonResp.data.nombre ) ;
+							$("#nss").prop('disabled', 'disabled');
+							$("#captcha").prop('disabled', 'disabled');
+							$('#consultaNss').slideUp(1000);
+							$('#datosContacto').delay(750).slideDown(1000);
+						} else if (jsonResp.codigo === '01') {
+							$("#msgError").removeClass("invisible").addClass("visible").html( "Ya hemos recibido tus datos anteriormente, agradecemos tu interés en el programa." );
+						} else if (jsonResp.codigo === '04') {
+							$("#msgError").removeClass("invisible").addClass("visible").html( "El Número de Seguridad Social que ingresaste no existe, por favor verifícalo. Si requieres ayuda puedes comunicarte a Infonatel al 800 008 3900." );
+						} else if (jsonResp.codigo === '07') {
+							$("#msgError").removeClass("invisible").addClass("visible").html( "El Número de Seguridad Social que ingresaste no existe, por favor verifícalo. Si requieres ayuda puedes comunicarte a Infonatel al 800 008 3900." );
+						} else if (jsonResp.codigo === '05') {
+							$("#msgError").removeClass("invisible").addClass("visible").html( "Ocurrió un error inesperado, inténtalo de nuevo más tarde." );
+						} else if (jsonResp.codigo === '06') {
+							$("#msgError").removeClass("invisible").addClass("visible").html( "El Número de Seguridad Social que ingresaste pertenece a una persona fallecida." );
+						} else {
+							$("#msgError").removeClass("invisible").addClass("visible").html( jsonResp.mensaje );
+							$("#btnConsultar").prop('disabled', '');
+						}
+					},
+					error : function(e) {
+						console.log('e++ error', e, e.statusText)
+						$("#msgError").removeClass("invisible").addClass("visible").html( 'Ocurrió un error inesperado, inténtalo de nuevo más tarde.' );
+					}
+				});
+			} else {
+				$("#msgError").removeClass("invisible").addClass("visible").html( 'El Número de Seguridad Social (NSS) debe tener 11 números, por favor verifícalo.' );
+			}
+		}
+		
+		function continuarDireccion() {
+			
+			$("#msgError").removeClass("visible").addClass("invisible").html('');
+			$("#msgExito").removeClass("visible").addClass("invisible").html('');
+
+			if ($("#celularInCo").val().trim().length < 1) {
+				$("#msgError").removeClass("invisible").addClass("visible").html('Es necesario registrar un teléfono celular.');
+			} else if ( $("#celularInCo").val().trim().length < 10 ) {
+				$("#msgError").removeClass("invisible").addClass("visible").html( 'El número de teléfono celular que intentas ingresar no es valido.' );
+			} else if ($("#correo").val().trim().length < 1) {
+				$("#msgError").removeClass("invisible").addClass("visible").html('Es necesario registrar un correo electrónico.');
+			} else if ( !$("#correo").val().match( EMAIL_PATTERN ) ) {
+				$("#msgError").removeClass("invisible").addClass("visible").html( 'El correo electrónico que intentas ingresar no es valido.' );
+			} else {
+				
+				$.ajax({
+					type : 'POST',
+					timeout : timeout,
+					url : '/VivientaBienestarInCo/webresources/viviendaBienestarInCoRest/validaCorreoCelular?nss='
+							+ $("#nss").val().trim()
+							+ '&celular='
+							+ $("#celularInCo").val().trim()
+							+ '&correo='
+							+ $("#correo").val().trim()
+							+ '',
+					dataType : 'json',
+					contentType : 'application/json; charset=utf-8',
+					cors : true,
+					success : function(jsonResp) {
+						if ( jsonResp.codigo === '00' && jsonResp.mensaje === 'Exito' ) {
+							$('#datosContacto').slideUp(1000);
+							$('#datosDireccion').delay(750).slideDown(1000);
+							
+						} else if ( jsonResp.data.servicio == 'DatosContacto' ) {
+							if (jsonResp.data.codigo == '01') {
+								$("#msgError").removeClass("invisible").addClass("visible").html( "El teléfono celular pertenece a otra persona." );
+								$("#btnEnviar").prop('disabled', '');
+							} else if (jsonResp.data.codigo == '02') {
+								$("#msgError").removeClass("invisible").addClass("visible").html( "El correo electrónico pertenece a otra persona." );
+								$("#btnEnviar").prop('disabled', '');
+							} else if (jsonResp.data.codigo == '03') {
+								$("#msgError").removeClass("invisible").addClass("visible").html( "El teléfono celular y el correo electrónico pertenecen a otra persona." );
+								$("#btnEnviar").prop('disabled', '');
+							} else {
+								$("#msgError").removeClass("invisible").addClass("visible").html( 'Ocurrió un error inesperado, inténtalo de nuevo más tarde.' );
+							}
+							
+						} else {
+							$("#msgError").removeClass("invisible").addClass("visible").html( jsonResp.mensaje );
+							$("#btnEnviar").prop('disabled', '');
+						}
+					},
+					complete : function() {
+					},
+					error : function(e) {
+						console.log('e++ error', e, e.statusText)
+						$("#msgError").removeClass("invisible").addClass("visible").html( 'Ocurrió un error inesperado, inténtalo de nuevo más tarde.' );
+					}
+				});
+				/*
+				if (!$("#avisoPriv").prop('checked')) {
+					$("#btnEnviar").prop('disabled', 'disabled');
+					$("#btnContinuar").prop('disabled', 'disabled');
+				} else {
+					$("#btnEnviar").prop('disabled', '');
+					$("#btnContinuar").prop('disabled', '');
+				}
+				*/
+			}
+		}
+		
+		function crearCaso() {
+			$("#msgError").removeClass("visible").addClass("invisible").html('');
+			$("#msgExito").removeClass("visible").addClass("invisible").html('');
+			$("#btnEnviar").prop('disabled', 'disabled');
+			
+			$.ajax({
+				type : 'POST',
+				timeout : timeout,
+				url : '/VivientaBienestarInCo/webresources/viviendaBienestarInCoRest/sendForm?nss='
+						+ $("#nss").val().trim()
+						+ '&celular='
+						+ $("#celularInCo").val().trim()
+						+ '&correo='
+						+ $("#correo").val().trim()
+						+ '&captcha='
+						+ $("#captcha").val().trim()
+						
+						+ '&cp='
+						+ $("#cpInCo").val().trim()
+						+ '&estadoId='
+						+ $("#estadoId").val().trim()
+						+ '&estado='
+						+ myReplace( $("#estado").val().trim() )
+						+ '&municipioId='
+						+ $("#municipioId").val().trim()
+						+ '&municipio='
+						+ myReplace( $("#municipio").val().trim() )
+						+ '&coloniaId='
+						+ $("#coloniaId").val().trim()
+						+ '&colonia='
+						+ myReplace( $("#colonia option:selected").text().trim() )
+						+ '&coloniaEdited='
+						+ $("#coloniaEdited").val().trim()
+						
+						+ '&crmVersionViviendaBienestarInCo='
+						+ crmVersionViviendaBienestarInCo /*esta en contenido del modal*/
+						+ '', 
+				dataType : 'json',
+				contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+				cors : true,
+				success : function(jsonResp) {
+					if (jsonResp.codigo === '00') {
+						if (jsonResp.data.servicio == 'CreaCaso') {
+							if (jsonResp.data.codigo == '0000') {
+								$("#nss").val('');
+								$("#correo").val('');
+								$("#celularInCo").val('');
+								$("#captcha").val('');
+								$("#nss").prop('disabled', '');
+								$("#captcha").prop('disabled', '');
+								$("#avisoPriv").prop('disabled', '');
+								$("#avisoPriv").prop('checked', '');
+								$('#captchaImg').prop('src', '/VivientaBienestarInCo/kaptcha' );
+								$('#datosDireccion').slideUp(1000);
+								$('#gracias').delay(750).slideDown(1000);
+							/*} else if ( jsonResp.data.codigo == '0001' ) {*//* TODO, ver si validar cada codigo*/
+							} else if (jsonResp.data.codigo == '01') {
+								$("#msgError").removeClass("invisible").addClass("visible").html( 'Ocurrió un error inesperado, inténtalo de nuevo más tarde.' );
+							} else {
+								$("#msgError").removeClass("invisible").addClass("visible").html( jsonResp.data.descripcion );
+								$("#btnEnviar").prop('disabled', '');
+							}
+						} else if (jsonResp.data.servicio == 'DatosContacto') {
+							if (jsonResp.data.codigo == '01') {
+								$("#msgError").removeClass("invisible").addClass("visible").html( "El teléfono celular pertenece a otra persona." );
+								$("#btnEnviar").prop('disabled', '');
+							} else if (jsonResp.data.codigo == '02') {
+								$("#msgError").removeClass("invisible").addClass("visible").html( "El correo electrónico pertenece a otra persona." );
+								$("#btnEnviar").prop('disabled', '');
+							} else if (jsonResp.data.codigo == '03') {
+								$("#msgError").removeClass("invisible").addClass("visible").html( "El teléfono celular y el correo electrónico pertenecen a otra persona." );
+								$("#btnEnviar").prop('disabled', '');
+							} else {
+								$("#msgError").removeClass("invisible").addClass("visible").html( 'Ocurrió un error inesperado, inténtalo de nuevo más tarde.' );
+							}
+							
+						} else {
+							$("#msgError").removeClass("invisible").addClass("visible").html( 'Ocurrió un error inesperado, inténtalo de nuevo más tarde.' );
+						}
+						
+					} else {
+						$("#msgError").removeClass("invisible").addClass("visible").html( jsonResp.mensaje );
+						$("#btnEnviar").prop('disabled', '');
+					}
+				},
+				complete : function() {
+				},
+				error : function(e) {
+					console.log('e++ error', e, e.statusText)
+					$("#msgError").removeClass("invisible").addClass("visible").html( 'Ocurrió un error inesperado, inténtalo de nuevo más tarde.' );
+				}
+			});
+		}
+
+		function consultaCP() {
+			$("#msgError").removeClass("visible").addClass("invisible").html('');
+			$("#msgExito").removeClass("visible").addClass("invisible").html('');
+			
+			if ( $( "#cpInCo" ).val().trim().length < 5 ) {
+				$( "#msgError" ).removeClass("invisible").addClass("visible").html( "El código postal debé de ser de 5 digítos." );
+				$( "#estado" ).val( "" );
+				$( "#estadoId" ).val( "" );
+				$( "#municipio" ).val( "" );
+				$( "#municipioId" ).val( "" );
+				$( "#coloniaId" ).val( "" );
+				$( "#colonia" ).html( "" );
+				$( "#avisoPriv" ).prop('checked', '');
+				
+				$( "#imgReloading" ).removeClass( "d-block" ).addClass( "d-none" );
+			} else {
+				$.ajax({
+					type : 'POST',
+					timeout : timeout,
+					url : '/VivientaBienestarInCo/webresources/viviendaBienestarInCoRest/validaCP?cp='
+							+ $("#cpInCo").val().trim()
+							+ '',
+					dataType : 'json',
+					contentType : 'application/json; charset=utf-8',
+					cors : true,
+					success : function( jsonResp ) {
+						if (jsonResp.codigo === '00') {
+							$( "#estado" ).val( jsonResp.data.estado );
+							$( "#estadoId" ).val( jsonResp.data.estadoId );
+							$( "#municipio" ).val( jsonResp.data.municipio );
+							$( "#municipioId" ).val( jsonResp.data.municipioId );
+							$( "#coloniaId" ).val( "" );
+							$( "#coloniaEdited" ).val( "" );
+							$( "#divColEdited" ).removeClass( "d-block" ).addClass( "d-none" );
+							$( "#avisoPriv" ).prop('checked', '');
+							$( "#btnEnviar" ).prop('disabled', 'disabled');
+							
+							var $dropdownColonia = $( "#colonia" );
+							$dropdownColonia.html( "" );
+							
+							if ( jsonResp.data.colonias.length < 1 ) {
+								$("#msgError").removeClass("invisible").addClass("visible").html( "Sin resultados obtenidos." );
+							} else {
+								$dropdownColonia.append( $( "<option />" ).val( "" ).text( "Selecciona" ) ) ;
+								$.each( jsonResp.data.colonias , function () {
+								    $dropdownColonia.append( $( "<option />" ).val( this.coloniaId ).text( this.colonia ) ) ;
+								});
+								/*$dropdownColonia.append( $( "<option />" ).val( "-1" ).text( "Otro" ) ) ;*/
+							}
+							
+							
+						} else {
+							$("#msgError").removeClass("invisible").addClass("visible").html( jsonResp.mensaje );
+							$("#btnEnviar").prop('disabled', '');
+						}
+					},
+					complete : function() {
+						$( "#imgReloading" ).removeClass( "d-block" ).addClass( "d-none" );
+					},
+					error : function(e) {
+						console.log('e++ error', e, e.statusText)
+						$("#msgError").removeClass("invisible").addClass("visible").html( 'Ocurrió un error inesperado, inténtalo de nuevo más tarde.' );
+					}
+				});
+			}
+		}
+
+		$('#nss').keypress(function(event) {
+			if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
+				event.preventDefault();
+			}
+		});
+		$('#celularInCo').keypress(function(event) {
+			if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
+				event.preventDefault();
+			}
+		});
+		$('#cpInCo').keypress(function(event) {
+			if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
+				event.preventDefault();
+			}
+		});
+		$('#cpInCo').blur(function(event) {
+			$("#imgReloading").removeClass( "d-none" ).addClass( "d-block" );
+			 consultaCP();
+		});
+		$('#colonia').change(function(event) {
+			
+			$("#avisoPriv").prop('checked', '');
+			$("#btnEnviar").prop('disabled', 'disabled');
+			
+			$('#coloniaId').val( $('#colonia').val() );
+			
+			if( $('#colonia').val() == '-1' ) {
+				$( "#divColEdited" ).removeClass( "d-none" ).addClass( "d-block" );
+			} else {
+				$( "#coloniaEdited" ).val( "" ) ;
+				$( "#divColEdited" ).removeClass( "d-block" ).addClass( "d-none" );
+			}
+		});
+		
+		// áéíóúÁÉÍÓÚñÑ
+		var chars = [ '\u00E1','\u00E9','\u00ED','\u00F3','\u00FA','\u00C1','\u00C9','\u00CD','\u00D3','\u00DA','\u00F1','\u00D1' ] ;
+		//var chars = [ 'á','é','í','ó','ú','Á','É','Í','Ó','Ú','ñ','Ñ' ] ;
+		var chars2 = [ 'acentoma','acentome','acentomi','acentomo','acentomu','acentonA','acentonE','acentonI','acentonO','acentonU','acentomn','acenotnN' ] ;
+		
+		function myReplace( cadena) {
+			var resp = cadena ;
+			for ( i=0; i < chars.length; i++) {
+				resp = resp.replace( chars[ i ] , chars2[ i ] ) ;
+			}
+			return resp ;
+		}
+		

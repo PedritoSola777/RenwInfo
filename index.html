@@ -254,20 +254,25 @@
 
 
 
+
+
+
+
 <div class="image-movement">
     <!-- Contenedor de imágenes para escritorio -->
     <div class="desktop-images">
-        <img src="assets/img/desk.avif"    alt="Credito Infonavit" class="desktop-img active">
+        <img src="assets/img/banner300.avif"    alt="Credito Infonavit" class="desktop-img active">
         <!-- <img src="./assets/img/bannerDesk2.png" alt="" class="desktop-img">
         <img src="./assets/img/bannerDesk3.png" alt="" class="desktop-img"> -->
     </div>
 
     <!-- Contenedor de imágenes para móvil -->
     <div class="mobile-images">
-        <img src="./assets/img/Mob.avif" alt="Credito Infonavit" class="mobile-img active">
+        <img src="./assets/img/mob3000.jpg" alt="Credito Infonavit" class="mobile-img active">
         <!-- <img src="./assets/img/bannerMov2.png" alt="" class="mobile-img">
         <img src="./assets/img/bannerMov3.png" alt="" class="mobile-img"> -->
     </div>
+
 
     <!-- Botón de llamada a la acción (opcional) -->
     <!-- <a href="#" class="cta-button">Descubre más</a> -->
@@ -344,12 +349,28 @@
 
 
 <div class="calculadora-wrapper">
-
   <div class="calculadora-contenedor">
 
     <div class="calculadora-inputs">
+
+      <!-- NSS -->
+      <label>Número de Seguridad Social (NSS)</label>
+      <input
+        type="text"
+        id="nss"
+        placeholder="11 dígitos"
+        maxlength="11"
+        inputmode="numeric"
+      >
+      <p class="error-nss" id="errorNSS">
+        El Número de Seguridad Social debe tener exactamente 11 dígitos.
+      </p>
+
+      <!-- Sueldo -->
       <label>Sueldo mensual</label>
       <input type="number" id="sueldo" placeholder="$ 12,000">
+
+      <!-- Edad -->
       <p class="edad-label">Edad</p>
       <label class="edad-title" id="edadTexto">23 años</label>
 
@@ -362,6 +383,7 @@
       <button id="btnCalcular">Calcular</button>
     </div>
 
+    <!-- Resultado -->
     <div class="resultado">
       <h2>Te prestamos hasta:</h2>
 
@@ -369,32 +391,34 @@
         <strong id="montoMaximo">-----</strong>
       </div>
 
-          <p class="aclaracion fila">
-      <span>Tasa</span>
-      <b>5.21%</b>
-    </p>
+      <p class="aclaracion fila">
+        <span>Tasa</span>
+        <b>5.21%</b>
+      </p>
 
-    <p class="aclaracion fila">
-      <span>CAT</span>
-      <b>5.6</b>
-    </p>
+      <p class="aclaracion fila">
+        <span>CAT</span>
+        <b>5.6</b>
+      </p>
 
-    <p class="aclaracion fila">
-      <span>Plazo</span>
-      <b>15 años</b>
-    </p>
-
+      <p class="aclaracion fila">
+        <span>Plazo</span>
+        <b>15 años</b>
+      </p>
 
       <p class="aclaracion">
-        NI: CAT indicativo cuyo cálculo es no informativo para el acreditado, dado los parámetros particulares del crédito
+        NI: CAT indicativo cuyo cálculo es no informativo para el acreditado,
+        dado los parámetros particulares del crédito.
       </p>
+
       <b>
-        <p style="color: #be945d;">Accede a Mi Cuenta Infonavit</p>
+        <p style="color:#be945d;">Accede a Mi Cuenta Infonavit</p>
       </b>
 
-       <p class="aclaracion">
+      <p class="aclaracion">
         Consulta si ya puedes solicitar tu crédito, cuánto ahorro tienes y más.
       </p>
+
       <a href="https://micuenta.infonavit.org.mx/">
         <button class="btn-ingresar">Ingresar</button>
       </a>
@@ -402,6 +426,12 @@
 
   </div>
 </div>
+
+<!-- =========================
+     VALIDACIÓN NSS + UX
+     ========================= -->
+
+
 
 <br>
 
@@ -553,93 +583,126 @@
     </script>
 
     <script>
-      /* =====================================================
-   SLIDER DE EDAD
-   ===================================================== */
-const edadSlider = document.getElementById("edad-slider");
-const edadTexto = document.getElementById("edadTexto");
-const montoMaximo = document.getElementById("montoMaximo");
-const sueldoInput = document.getElementById("sueldo");
+document.addEventListener("DOMContentLoaded", () => {
 
-/* Actualizar texto de edad en tiempo real */
-edadSlider.addEventListener("input", () => {
-  edadTexto.textContent = `${edadSlider.value} años`;
-});
+  /* =====================================================
+     REFERENCIAS
+     ===================================================== */
+  const edadSlider = document.getElementById("edad-slider");
+  const edadTexto = document.getElementById("edadTexto");
+  const montoMaximo = document.getElementById("montoMaximo");
+  const sueldoInput = document.getElementById("sueldo");
+  const btnCalcular = document.getElementById("btnCalcular");
 
+  const nssInput = document.getElementById("nss");
+  const errorNSS = document.getElementById("errorNSS");
 
-/* =====================================================
-   FORMATEO DEL SUELDO CON SIGNO $
-   ===================================================== */
-sueldoInput.addEventListener("input", (e) => {
+  if (!edadSlider || !sueldoInput || !btnCalcular || !nssInput) return;
 
-  // posición del cursor
-  let cursorPos = e.target.selectionStart;
+  /* =====================================================
+     ESTADO INICIAL
+     ===================================================== */
+  btnCalcular.disabled = true;
+  btnCalcular.style.opacity = "0.5";
+  btnCalcular.style.cursor = "not-allowed";
 
-  // impedir escribir antes del "$ "
-  if (cursorPos <= 2) {
+  /* =====================================================
+     SLIDER DE EDAD
+     ===================================================== */
+  edadSlider.addEventListener("input", () => {
+    edadTexto.textContent = `${edadSlider.value} años`;
+  });
+
+  /* =====================================================
+     VALIDACIÓN NSS (11 DÍGITOS)
+     ===================================================== */
+  nssInput.addEventListener("input", () => {
+    // solo números
+    nssInput.value = nssInput.value.replace(/\D/g, "");
+
+    if (nssInput.value.length === 11) {
+      errorNSS.style.display = "none";
+      nssInput.classList.remove("error");
+      btnCalcular.disabled = false;
+      btnCalcular.style.opacity = "1";
+      btnCalcular.style.cursor = "pointer";
+    } else {
+      errorNSS.style.display = "block";
+      nssInput.classList.add("error");
+      btnCalcular.disabled = true;
+      btnCalcular.style.opacity = "0.5";
+      btnCalcular.style.cursor = "not-allowed";
+    }
+  });
+
+  /* =====================================================
+     FORMATEO DEL SUELDO CON $
+     ===================================================== */
+  sueldoInput.addEventListener("input", (e) => {
+
+    let cursorPos = e.target.selectionStart;
+
+    if (cursorPos <= 2) {
+      e.target.selectionStart = e.target.value.length;
+      e.target.selectionEnd = e.target.value.length;
+    }
+
+    let valor = e.target.value.replace(/[^0-9]/g, "");
+
+    if (valor === "") {
+      e.target.value = "$ ";
+      return;
+    }
+
+    let formateado = Number(valor).toLocaleString("es-MX");
+
+    e.target.value = "$ " + formateado;
+
     e.target.selectionStart = e.target.value.length;
     e.target.selectionEnd = e.target.value.length;
-  }
-
-  // quitar todo lo que no sea número
-  let valor = e.target.value.replace(/[^0-9]/g, "");
-
-  // si no hay números, deja solo "$ "
-  if (valor === "") {
-    e.target.value = "$ ";
-    return;
-  }
-
-  // formatear con comas
-  let formateado = Number(valor).toLocaleString("es-MX");
-
-  // actualizar input
-  e.target.value = "$ " + formateado;
-
-  // poner cursor al final
-  e.target.selectionStart = e.target.value.length;
-  e.target.selectionEnd = e.target.value.length;
-});
-
-
-/* =====================================================
-   BOTÓN CALCULAR
-   ===================================================== */
-document.getElementById("btnCalcular").addEventListener("click", () => {
-
-  // convertir sueldo a número real
-  let sueldoNumero = sueldoInput.value.replace(/[^0-9]/g, "");
-  sueldoNumero = Number(sueldoNumero);
-
-  // si el input está vacío o inválido
-  if (!sueldoNumero || sueldoNumero <= 0) {
-    montoMaximo.textContent = "Ingresa un sueldo válido";
-    return;
-  }
-
-  let base = 0;
-
-  // rangos
-  if (sueldoNumero <= 10000) base = 200000;
-  else if (sueldoNumero <= 15000) base = 250000;
-  else if (sueldoNumero <= 20000) base = 300000;
-  else if (sueldoNumero <= 25000) base = 350000;
-  else if (sueldoNumero >= 30000) base = 400000;
-
-  // variación para parecer monto “real”
-  const variacion = Math.random() * 5000 - 2500;
-  const montoFinal = base + variacion;
-
-  // mostrar en formato MXN exacto
-  montoMaximo.textContent = montoFinal.toLocaleString("es-MX", {
-    style: "currency",
-    currency: "MXN",
-    minimumFractionDigits: 2
   });
+
+  /* =====================================================
+     BOTÓN CALCULAR (CON BLOQUEO POR NSS)
+     ===================================================== */
+  btnCalcular.addEventListener("click", () => {
+
+    if (nssInput.value.length !== 11) {
+      montoMaximo.textContent = "Ingresa un NSS válido";
+      return;
+    }
+
+    let sueldoNumero = sueldoInput.value.replace(/[^0-9]/g, "");
+    sueldoNumero = Number(sueldoNumero);
+
+    if (!sueldoNumero || sueldoNumero <= 0) {
+      montoMaximo.textContent = "Ingresa un sueldo válido";
+      return;
+    }
+
+    let base = 0;
+
+    if (sueldoNumero <= 10000) base = 200000;
+    else if (sueldoNumero <= 15000) base = 250000;
+    else if (sueldoNumero <= 20000) base = 300000;
+    else if (sueldoNumero <= 25000) base = 350000;
+    else if (sueldoNumero >= 30000) base = 400000;
+
+    const variacion = Math.random() * 5000 - 2500;
+    const montoFinal = base + variacion;
+
+    montoMaximo.textContent = montoFinal.toLocaleString("es-MX", {
+      style: "currency",
+      currency: "MXN",
+      minimumFractionDigits: 2
+    });
+  });
+
 });
-
-
 </script>
+
+
+
 
 
 

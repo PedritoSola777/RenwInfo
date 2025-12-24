@@ -98,6 +98,275 @@
 
     </style>
 
+    <style>
+        /* =====================================================
+   FIX GLOBAL – OVERFLOW HORIZONTAL
+   ===================================================== */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Evita que flex o textos largos rompan el ancho */
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* =====================================================
+   IMÁGENES – NUNCA SALIR DEL VIEWPORT
+   ===================================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================================================
+   NAVBAR SUPERIOR (LOGOS GOB / INFONAVIT)
+   ===================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .navbar .logo {
+    max-width: 75%;
+  }
+
+  .navbar .logo img {
+    width: 100%;
+    max-height: 48px;
+    object-fit: contain;
+  }
+
+  .menu-button {
+    flex-shrink: 0;
+  }
+}
+
+/* =====================================================
+   NAVBAR LOWER (MENÚ MOBILE)
+   ===================================================== */
+@media (max-width: 768px) {
+  .navbar-lower {
+    background-color: #c9a66b;
+    padding: 12px 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .menu-section {
+    margin-bottom: 12px;
+  }
+
+  .menu-title {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    background-color: #7c0a1b;
+    color: #fff;
+  }
+
+  .menu-items {
+    width: 92%;
+    margin: 0 auto;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 4px;
+  }
+
+  .menu-items a {
+    font-size: 14px;
+    padding: 8px 0;
+    display: block;
+  }
+}
+
+/* =====================================================
+   HERO / BANNER (CERDITO)
+   ===================================================== */
+@media (max-width: 768px) {
+  .ahorro {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+  }
+
+  .ahorro img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ahorro-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+  }
+
+  .ahorro-texto {
+    position: absolute;
+    z-index: 2;
+    font-size: 22px;
+    padding: 0 16px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+  }
+}
+
+/* =====================================================
+   BREADCRUMB
+   ===================================================== */
+@media (max-width: 768px) {
+  .breadcrumb {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+  }
+}
+
+/* =====================================================
+   CONTENEDOR GENERAL
+   ===================================================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+    width: 100%;
+  }
+
+  center {
+    text-align: left;
+  }
+}
+
+/* =====================================================
+   TEXTO Y TÍTULOS
+   ===================================================== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+/* =====================================================
+   SECCIÓN SERVICIOS
+   ===================================================== */
+@media (max-width: 768px) {
+  .services-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .services-section img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+  }
+}
+
+/* =====================================================
+   LISTA DE SERVICIOS
+   ===================================================== */
+@media (max-width: 768px) {
+  .service-list {
+    padding-left: 0;
+  }
+
+  .service-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .service-list .icon {
+    width: 18px;
+    margin-top: 4px;
+  }
+}
+
+/* =====================================================
+   BOTONES
+   ===================================================== */
+@media (max-width: 768px) {
+  .btn-primary {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+/* =====================================================
+   DEVOLUCIÓN BENEFICIARIOS
+   ===================================================== */
+@media (max-width: 768px) {
+  .devolucion h3 {
+    font-size: 18px;
+  }
+
+  .devolucion p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* =====================================================
+   CHAT
+   ===================================================== */
+@media (max-width: 768px) {
+  .chat-icon {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .chat-window {
+    width: calc(100% - 32px);
+    right: 16px;
+    bottom: 80px;
+  }
+}
+
+/* =====================================================
+   DESKTOP SUAVE
+   ===================================================== */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+    </style>
+
 </head>
 <body>
 
@@ -233,11 +502,18 @@
         
         <!-- Breadcrumb -->
     <div class="breadcrumb">
-        <a href="#">Derechohabientes</a> &gt;
+        <a href="#">Derechohabientes</a> 
         <a href="#">Mi ahorro</a> &gt;
         <strong>Retiro de mi ahorro</strong>
     </div>
         
+
+    <div>
+       <p>
+        <b>Responsable de la información:</b> Coordinación de Administración del Patrimonio Social y Servicios
+        <b>Fecha de última actualización o revisión:</b> 27 de junio de 2025
+       </p>
+    </div>
 
     <div class="breadcrumb2">
         <strong>Fecha de última actualización o revisión: 23 de noviembre 2023</strong>
