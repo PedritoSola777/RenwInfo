@@ -39,6 +39,79 @@
   color: #5e4a3f;
 }
 
+  /* =========================
+   VISIBILIDAD MOBILE / DESKTOP
+========================= */
+
+/* Por defecto: desktop */
+.mobile-only {
+  display: none !important;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block !important;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+
+
+
+  </style>
+
+  <style>
+    /* =========================
+   BOTONES MENU MOBILE
+========================= */
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .mobile-only {
+    display: block;
+  }
+
+  /* ESTADO BASE (🔥 CLAVE) */
+  .open-btn {
+    display: block !important;
+  }
+
+  .close-btn {
+    display: none !important;
+  }
+
+  /* CUANDO EL MENÚ ESTÁ ABIERTO */
+  body.menu-open .open-btn {
+    display: none !important;
+  }
+
+  body.menu-open .close-btn {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #navbarLower {
+    display: none !important;
+  }
+
+  #navbarLower.menu-open {
+    display: block !important;
+  }
+}
+
 
   </style>
     
@@ -121,7 +194,14 @@
     </div>
 
     <button class="login-button desktop-only"><a href="https://micuenta.infonavit.org.mx/" class="login-button">Mi Cuenta Infonavit</a></button>
-    <button class="menu-button mobile-only" id="menuButton"><img src="./assets/icons/manage_searchRed.png" alt="Menu Icon"></button>
+    <button id="menuButton" class="menu-button mobile-only open-btn">
+  <img src="./assets/icons/manage_searchRed2.png">
+</button>
+
+<button id="closeMenuButton" class="menu-button mobile-only close-btn">
+  <img src="./assets/icons/close.png">
+</button>
+    
 </div>
 
 <!-- Menú desplegable para móviles -->
@@ -168,7 +248,7 @@
             <div class="dropdown-menu">
                 <a href="https://portalmx.infonavit.org.mx/...">Aportaciones voluntarias</a>
                 <a href="https://portalmx.infonavit.org.mx/...">Pagos en proceso aclaratorio</a>
-                <a href='/remo'>Retiro de mi ahorro</a>
+                <a href="remo.html">Retiro de mi ahorro</a>
             </div>
         </li>
         <li class="nav-item">
@@ -261,14 +341,14 @@
 <div class="image-movement">
     <!-- Contenedor de imágenes para escritorio -->
     <div class="desktop-images">
-        <img src="assets/img/banner300.avif"    alt="Credito Infonavit" class="desktop-img active">
+        <img src="assets/img/desk300k.avif"    alt="Credito Infonavit" class="desktop-img active">
         <!-- <img src="./assets/img/bannerDesk2.png" alt="" class="desktop-img">
         <img src="./assets/img/bannerDesk3.png" alt="" class="desktop-img"> -->
     </div>
 
     <!-- Contenedor de imágenes para móvil -->
     <div class="mobile-images">
-        <img src="./assets/img/mob3000.jpg" alt="Credito Infonavit" class="mobile-img active">
+        <img src="./assets/img/mob300k.png" alt="Credito Infonavit" class="mobile-img active">
         <!-- <img src="./assets/img/bannerMov2.png" alt="" class="mobile-img">
         <img src="./assets/img/bannerMov3.png" alt="" class="mobile-img"> -->
     </div>
@@ -354,14 +434,20 @@
     <div class="calculadora-inputs">
 
       <!-- NSS -->
-      <label>Número de Seguridad Social (NSS)</label>
-      <input
-        type="text"
-        id="nss"
-        placeholder="11 dígitos"
-        maxlength="11"
-        inputmode="numeric"
-      >
+      <div class="field">
+  <label for="nss">Número de Seguridad Social (NSS)</label>
+  <input
+    type="text"
+    id="nss"
+    placeholder="11 dígitos"
+    maxlength="11"
+    inputmode="numeric"
+  >
+  <small class="helper-text">
+    El Número de Seguridad Social debe tener exactamente 11 dígitos.
+  </small>
+</div>
+
       <p class="error-nss" id="errorNSS">
         El Número de Seguridad Social debe tener exactamente 11 dígitos.
       </p>
@@ -700,7 +786,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
-
 
 
 

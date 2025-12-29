@@ -594,24 +594,30 @@ p {
 .navbar-lower .menu-title {
     font-size: 18px;
     color: white;
-    background-color: #c0945c; /* Fondo rojo para los títulos */
+    background-color: #7c0a1b; /* Fondo rojo para los títulos */
     padding: 10px;
     margin: 0; /* Elimina margen para que el fondo rojo abarque todo el ancho */
     font-weight: normal;
     text-align: center; /* Centra los títulos en rojo */
 }
 
+.navbar-lower{
+  background-color: #c9a66b; /* dorado / café */
+    padding: 15px 0;
+}
+
 .navbar-lower .menu-items {
-    background-color: white; /* Fondo blanco para las opciones */
-    padding: 10px 20px; /* Ajuste del padding */
-    margin: 0 auto; /* Centrando los elementos */
-    width: 90%; /* Asegura que los elementos ocupen el ancho completo */
+    background-color: #ffffff;
+    padding: 10px 20px;
+    margin: 0 auto 12px;
+    width: 92%; /* deja ver el fondo dorado a los lados */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra los elementos dentro del contenedor */
-    min-height: 200px; /* Altura mínima para igualar las secciones */
+    align-items: flex-start; /* como el diseño original */
+    border-radius: 4px;
 }
+
 
 .navbar-lower .menu-items a {
     color: black;
@@ -1139,7 +1145,7 @@ body {
   .infonavit-container .text-section .btn-red {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #d32f2f;
+    background-color: #7c0a1b;
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -1625,3 +1631,73 @@ input[type="number"] {
     font-size: 26px;
   }
 }
+
+
+/* Por defecto */
+.open-btn {
+  display: block;
+}
+
+.close-btn {
+  display: none;
+}
+
+/* Cuando el menú está abierto */
+.menu-open .open-btn {
+  display: none;
+}
+
+.menu-open .close-btn {
+  display: block;
+}
+
+.field {
+  width: 100%;
+  max-width: 600px;      /* 🔥 largo real del input */
+  margin: 16px 0;
+}
+
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+#nss {
+  width: 100%;
+  height: 40px;          /* 🔥 altura tipo inspeccionado */
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+#nss::placeholder {
+  color: #777;
+}
+
+#nss:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.helper-text {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+@media (min-width: 769px) {
+  #menuButton,
+  #closeMenuButton {
+    display: none !important;
+  }
+}
+
+
+@media (max-width: 768px) { #navbarLower { display: none !important; } #navbarLower.open { display: block !important; } }
+

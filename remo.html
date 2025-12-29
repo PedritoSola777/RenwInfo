@@ -365,7 +365,80 @@ img {
   }
 }
 
+  .service-list {
+  list-style: none;        /* 🔥 quita la viñeta nativa */
+  padding-left: 0;
+  margin: 0;
+}
+
+.service-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.service-list li::marker {
+  content: none;           /* 🔥 extra seguridad */
+}
+
+.service-list .icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+
     </style>
+
+      <style>
+    /* =========================
+   BOTONES MENU MOBILE
+========================= */
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .mobile-only {
+    display: block;
+  }
+
+  /* ESTADO BASE (🔥 CLAVE) */
+  .open-btn {
+    display: block !important;
+  }
+
+  .close-btn {
+    display: none !important;
+  }
+
+  /* CUANDO EL MENÚ ESTÁ ABIERTO */
+  body.menu-open .open-btn {
+    display: none !important;
+  }
+
+  body.menu-open .close-btn {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #navbarLower {
+    display: none !important;
+  }
+
+  #navbarLower.menu-open {
+    display: block !important;
+  }
+}
+
+
+  </style>
+    
 
 </head>
 <body>
@@ -380,8 +453,13 @@ img {
             </div>
         
             <button class="login-button desktop-only"><a href="https://micuenta.infonavit.org.mx/" class="login-button">Acceder a Mi Cuenta Infonavit</a></button>
-            <button class="menu-button mobile-only" id="menuButton"><img src="./assets/icons/manage_searchRed.png" alt="Menu Icon"></button>
-        </div>
+<button id="menuButton" class="menu-button mobile-only open-btn">
+  <img src="./assets/icons/manage_searchRed2.png">
+</button>
+
+<button id="closeMenuButton" class="menu-button mobile-only close-btn">
+  <img src="./assets/icons/close.png">
+</button>        </div>
         
         
         <!-- Navbar Inferior para Desktop -->

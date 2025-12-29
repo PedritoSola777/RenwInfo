@@ -1,99 +1,69 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Funcionalidad para los menús desplegables de desktop
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    dropdownToggles.forEach(function(toggle) {
-        toggle.addEventListener('click', function() {
-            const dropdownMenu = this.nextElementSibling;
+document.addEventListener("DOMContentLoaded", () => {
 
-            // Cerrar otros menús desplegables abiertos
-            dropdownToggles.forEach(function(otherToggle) {
-                if (otherToggle !== toggle) {
-                    otherToggle.nextElementSibling.style.display = 'none';
-                }
-            });
+  /* =====================================================
+     ELEMENTOS
+  ===================================================== */
+  const menuBtn = document.getElementById("menuButton");
+  const closeBtn = document.getElementById("closeMenuButton");
+  const mobileMenu = document.getElementById("navbarLower");
+  const body = document.body;
 
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-        });
-    });
+  const BREAKPOINT = 768;
 
-    // Nuevo: Funcionalidad para abrir el menú al pasar el cursor en desktop
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('mouseover', () => {
-            // Cerrar todos los menús
-            navItems.forEach(i => {
-                const dropdownMenu = i.querySelector('.dropdown-menu');
-                if (dropdownMenu) {
-                    dropdownMenu.style.display = 'none';
-                }
-            });
-            // Abrir el menú del elemento actual
-            const dropdownMenu = item.querySelector('.dropdown-menu');
-            if (dropdownMenu) {
-                dropdownMenu.style.display = 'block';
-            }
-        });
-    });
+  /* =====================================================
+     GUARDAS (anti errores silenciosos)
+  ===================================================== */
+  if (!menuBtn || !closeBtn || !mobileMenu) {
+    console.warn("⚠️ Menú mobile: elementos no encontrados");
+    return;
+  }
 
-    // Cerrar menús cuando el mouse sale de la navbar
-    document.querySelector('.navbar-lower').addEventListener('mouseleave', () => {
-        navItems.forEach(item => {
-            const dropdownMenu = item.querySelector('.dropdown-menu');
-            if (dropdownMenu) {
-                dropdownMenu.style.display = 'none';
-            }
-        });
-    });
+  /* =====================================================
+     FUNCIONES DE ESTADO
+  ===================================================== */
+  function openMenu() {
+    mobileMenu.classList.add("menu-open");
+    body.classList.add("menu-open");
+  }
 
-   
-    
+  function closeMenu() {
+    mobileMenu.classList.remove("menu-open");
+    body.classList.remove("menu-open");
+  }
 
-    // Funcionalidad del menú para móviles
-    const menuButton = document.getElementById('menuButton');
-    const searchButton = document.getElementById('searchButton');
-    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+  function resetMenu() {
+    closeMenu();
+  }
 
-    function closeAllMobileMenus() {
-        mobileDropdownToggles.forEach(function(toggle) {
-            const dropdownMenu = toggle.nextElementSibling;
-            dropdownMenu.classList.remove('open');
-        });
-        const mobileSearch = document.getElementById('mobileSearch');
-        mobileSearch.classList.remove('open');
+  function isDesktop() {
+    return window.innerWidth > BREAKPOINT;
+  }
+
+  /* =====================================================
+     EVENTOS BOTONES
+  ===================================================== */
+  menuBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    openMenu();
+  });
+
+  closeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeMenu();
+  });
+
+  /* =====================================================
+     SEGURIDAD AL CAMBIAR DE VIEWPORT
+  ===================================================== */
+  window.addEventListener("resize", () => {
+    if (isDesktop()) {
+      resetMenu();
     }
+  });
 
-    if (menuButton) {
-        menuButton.addEventListener('click', function() {
-            closeAllMobileMenus();
-            const navbarLower = document.getElementById('navbarLower');
-            navbarLower.classList.toggle('open');
-        });
-    }
+  /* =====================================================
+     ESTADO INICIAL (MUY IMPORTANTE)
+  ===================================================== */
+  resetMenu();
 
-    if (searchButton) {
-        searchButton.addEventListener('click', function() {
-            closeAllMobileMenus();
-            const mobileSearch = document.getElementById('mobileSearch');
-            mobileSearch.classList.toggle('open');
-        });
-    }
-
-    mobileDropdownToggles.forEach(function(toggle) {
-        toggle.addEventListener('click', function() {
-            closeAllMobileMenus();
-            const dropdownMenu = this.nextElementSibling;
-            dropdownMenu.classList.toggle('open');
-        });
-    });
-
-    // Validación del formulario
-    const userForm = document.getElementById('userForm');
-    if (userForm) {
-        userForm.addEventListener('submit', function(event) {
-            if (!userForm.checkValidity()) {
-                event.preventDefault();
-                alert('Por favor, complete todos los campos antes de enviar.');
-            }
-        });
-    }
 });
