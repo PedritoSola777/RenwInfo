@@ -1671,7 +1671,7 @@ input[type="number"] {
   padding: 6px 10px;
   font-size: 14px;
   border: 1px solid #cfcfcf;
-  border-radius: 2px;
+  border-radius: 6px;
   box-sizing: border-box;
 }
 
