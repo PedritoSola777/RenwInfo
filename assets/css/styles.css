@@ -1334,6 +1334,7 @@ input[type="number"] {
 .resultado {
   width: 360px;
   padding-top: 10px;
+  padding: 40px 35px;
 }
 
 .resultado h2 {
@@ -1395,7 +1396,7 @@ input[type="number"] {
   margin-top: 15px;
   font-size: 17px;
   font-weight: 700;
-  color: #b59133; /* dorado */
+  color: #b59133;
 }
 
 .nota {
@@ -1403,6 +1404,10 @@ input[type="number"] {
   margin-top: 10px;
   color: #777;
 }
+
+/* =========================
+   ICONOS
+========================= */
 
 .iconos-contenedor {
   margin-top: 45px;
@@ -1444,17 +1449,26 @@ input[type="number"] {
   color: #555;
 }
 
+/* =========================
+   SEPARADOR (DESKTOP)
+========================= */
+
 .icono-separador {
-  height: 2px;
-  width: 70px;
-  border-bottom: 2px dashed #b59133;
+  width: 1px;
+  height: 60px;
+  background: #b59133;
+  opacity: 0.6;
 }
+
+/* =========================
+   FILAS RESULTADO
+========================= */
 
 .fila {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 10px; /* empuja aún más a la derecha */
+  padding-right: 10px;
 }
 
 .fila b {
@@ -1462,13 +1476,12 @@ input[type="number"] {
   font-weight: 700;
 }
 
-
 /* ======================================
    📱  MOBILE (≤ 768px)
-   ====================================== */
+====================================== */
+
 @media (max-width: 768px) {
 
-  /* CALCULADORA */
   .calculadora-contenedor {
     flex-direction: column;
     gap: 40px;
@@ -1498,7 +1511,6 @@ input[type="number"] {
     width: 100%;
   }
 
-
   /* BLOQUE INFONAVIT */
   .bloque-infonavit {
     padding: 40px 20px;
@@ -1516,17 +1528,16 @@ input[type="number"] {
 
   .icono-item {
     max-width: 240px;
+    padding: 10px 15px; /* aire visual en mobile */
   }
 }
 
-
-
 /* ======================================
    📱  EXTRA SMALL (≤ 480px)
-   ====================================== */
+====================================== */
+
 @media (max-width: 480px) {
 
-  /* CALCULADORA */
   .resultado-item strong {
     font-size: 24px;
   }
@@ -1544,7 +1555,6 @@ input[type="number"] {
     height: 6px;
   }
 
-  /* BLOQUE INFONAVIT */
   .bloque-infonavit h2 {
     font-size: 22px;
   }
@@ -1556,31 +1566,43 @@ input[type="number"] {
   .destacado {
     font-size: 15px;
   }
+
+  
 }
-
-
 
 /* ======================================
    📟  TABLETS (769px – 1024px)
-   ====================================== */
+====================================== */
+
 @media (min-width: 769px) and (max-width: 1024px) {
 
-  /* CALCULADORA */
   .calculadora-contenedor {
     gap: 40px;
   }
 
+ @media (max-width: 768px) {
   .calculadora-inputs,
   .resultado {
-    width: 45%;
+    width: 100%;
   }
 
-  /* BLOQUE INFONAVIT */
+  .resultado {
+    padding: 30px 25px;
+  }
+}
+
+
   .iconos-contenedor {
     gap: 25px;
   }
 }
 
+
+
+
+/* =========================
+   OTROS
+========================= */
 
 .edad-label {
   text-align: center;
@@ -1594,7 +1616,6 @@ input[type="number"] {
   width: 100%;
   height: 260px;
   overflow: hidden;
-  border-radius: 0;
 }
 
 .ahorro img {
@@ -1603,7 +1624,6 @@ input[type="number"] {
   object-fit: cover;
 }
 
-/* Texto centrado (horizontal y vertical) */
 .ahorro-texto {
   position: absolute;
   top: 50%;
@@ -1618,10 +1638,9 @@ input[type="number"] {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   width: 100%;
-  padding: 0 20px; /* evita que se corte en mobile */
+  padding: 0 20px;
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .ahorro {
     height: 230px;
@@ -1631,6 +1650,7 @@ input[type="number"] {
     font-size: 26px;
   }
 }
+
 
 
 /* Por defecto */
@@ -1683,6 +1703,32 @@ input[type="number"] {
   outline: none;
   border-color: #4a90e2;
 }
+
+/* =========================
+   INPUT SUELDO
+========================= */
+
+#sueldo {
+  width: 100%;
+  height: 40px;
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Placeholder */
+#sueldo::placeholder {
+  color: #777;
+}
+
+/* Focus */
+#sueldo:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
 
 .helper-text {
   display: block;
