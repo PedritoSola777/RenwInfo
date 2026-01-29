@@ -133,7 +133,100 @@
   }
 }
 
+/* ===============================
+   CONTENEDOR GENERAL
+================================ */
+.image-movement {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
 
+/* ===============================
+   CONTENEDORES DESKTOP / MOBILE
+================================ */
+.desktop-images,
+.mobile-images {
+  width: 100%;
+}
+
+/* ===============================
+   IMÁGENES
+================================ */
+.desktop-img,
+.mobile-img {
+  width: 100%;
+  height: auto;
+  display: none;          /* solo una visible */
+}
+
+/* imagen activa */
+.desktop-img.active,
+.mobile-img.active {
+  display: block;
+}
+
+/* ===============================
+   SWITCH DESKTOP / MOBILE
+================================ */
+@media (max-width: 768px) {
+  .desktop-images { display: none; }
+}
+
+@media (min-width: 769px) {
+  .mobile-images { display: none; }
+}
+
+/* ===============================
+   NAVEGACIÓN
+================================ */
+.navigation-buttons {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.navigation-buttons button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  border: none;
+  background: #d9d9d9;
+  padding: 0;
+  cursor: pointer;
+}
+
+.navigation-buttons button.active {
+  width: 28px;
+  background: #7a1d2c;
+}
+
+/* ===============================
+   FIX: ESPACIO NEGRO → BLANCO
+================================ */
+
+/* el slider */
+.image-movement {
+  background: #fff;
+}
+
+/* por si el espacio viene del contenedor padre */
+.image-movement,
+.image-movement * {
+  background-color: transparent;
+}
+
+/* fallback extra (muy común en layouts) */
+section,
+.hero,
+.banner,
+.wrapper {
+  background-color: #fff;
+}
 </style>
 
   
@@ -362,30 +455,35 @@
 
 
 <div class="image-movement">
-    <!-- Contenedor de imágenes para escritorio -->
-    <div class="desktop-images">
-        <img src="assets/img/desk300k.avif"    alt="Credito Infonavit" class="desktop-img active">
-        <!-- <img src="./assets/img/bannerDesk2.png" alt="" class="desktop-img">
-        <img src="./assets/img/bannerDesk3.png" alt="" class="desktop-img"> -->
-    </div>
 
-    <!-- Contenedor de imágenes para móvil -->
-    <div class="mobile-images">
-        <img src="./assets/img/mob300k.png" alt="Credito Infonavit" class="mobile-img active">
-        <!-- <img src="./assets/img/bannerMov2.png" alt="" class="mobile-img">
-        <img src="./assets/img/bannerMov3.png" alt="" class="mobile-img"> -->
-    </div>
+  <!-- IMÁGENES DESKTOP -->
+  <div class="desktop-images">
+    <img src="assets/img/Banner_derechohabientes_311k.avif"
+         alt="Credito Infonavit"
+         class="desktop-img active">
 
+    <img src="./assets/img/SLIDE2.avif"
+         alt="Credito Infonavit"
+         class="desktop-img">
+  </div>
 
-    <!-- Botón de llamada a la acción (opcional) -->
-    <!-- <a href="#" class="cta-button">Descubre más</a> -->
+  <!-- IMÁGENES MOBILE -->
+  <div class="mobile-images">
+    <img src="./assets/img/mob_311k.avif"
+         alt="Credito Infonavit"
+         class="mobile-img active">
 
-    <!-- Botones de navegación -->
-    <!-- <div class="navigation-buttons">
-        <button class="active"></button>
-        <button></button>
-        <button></button>
-    </div> -->
+    <img src="./assets/img/banner-MOVIL_v2.webp"
+         alt="Credito Infonavit"
+         class="mobile-img">
+  </div>
+
+  <!-- BOTONES (2 slides = 2 botones) -->
+  <div class="navigation-buttons">
+    <button class="active" aria-label="Slide 1"></button>
+    <button aria-label="Slide 2"></button>
+  </div>
+
 </div>
 
 
@@ -778,6 +876,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 
 
