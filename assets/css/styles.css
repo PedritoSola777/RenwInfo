@@ -1268,70 +1268,367 @@ body {
   
 
 
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .calculadora-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin: 20px 0;
 }
 
 .calculadora-contenedor {
   display: flex;
-  gap: 70px;
-  font-family: 'Montserrat', sans-serif;
+  gap: 80px;
+  align-items: flex-start;
 }
+
+/* =========================
+   PANEL IZQUIERDO
+========================= */
 
 .calculadora-inputs {
-  width: 330px;
-  border: 1px solid #e3e3e3;
-  padding: 25px;
-  border-radius: 10px;
+  width: 445px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 28px 20px 36px;
+  background: #fff;
 }
 
-.calculadora-inputs label {
+/* NSS */
+
+.field {
+  margin-bottom: 26px;
+}
+
+.field label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.edad-title {
-  font-size: 24px;
-  text-align: center;
-  margin: 10px 0;
+  font-size: 16px;
   font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
 }
 
-input[type="number"] {
+.field input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #d8d8d8;
+  height: 44px;
+  border: 1px solid #d3d8df;
   border-radius: 6px;
-  margin-bottom: 25px;
+  padding: 0 12px;
   font-size: 16px;
 }
 
+.field input::placeholder {
+  color: #6e6e6e;
+}
+
+.helper-text {
+  display: block;
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #4f5663;
+}
+
+/* SUELDO */
+
+.calculadora-inputs > label:not(.edad-title) {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: #142033;
+  margin-bottom: 18px;
+}
+
+#sueldo {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #cfd6df;
+  border-radius: 4px;
+  padding: 0 12px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #142033;
+  margin-bottom: 18px;
+}
+
+#sueldo::placeholder {
+  color: #c7cfd9;
+}
+
+/* EDAD */
+
+.edad-label {
+  text-align: center;
+  font-size: 16px;
+  color: #142033;
+  margin: 0 0 18px;
+}
+
+.edad-title {
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: #142033;
+  margin-bottom: 8px;
+}
+
+/* SLIDER GRUESO */
+
 #edad-slider {
   width: 100%;
-  accent-color: #7c0a1b;
+  height: 20px;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: #d9d9d9;
+  cursor: pointer;
 }
+
+/* Chrome / Edge / Safari */
+
+#edad-slider::-webkit-slider-runnable-track {
+  height: 20px;
+  background: transparent;
+  border-radius: 0;
+}
+
+#edad-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #4052d5;
+  border-radius: 50%;
+  border: none;
+  margin-top: 0;
+}
+
+/* Firefox */
+
+#edad-slider::-moz-range-track {
+  height: 20px;
+  background: #dcdcdc;
+  border-radius: 0;
+}
+
+#edad-slider::-moz-range-progress {
+  height: 20px;
+  background: #2f3b99;
+  border-radius: 0;
+}
+
+#edad-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #4052d5;
+  border: none;
+  border-radius: 50%;
+}
+
+/* LABELS EDAD */
 
 .edad-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  color: #142033;
+  margin: 4px 0 28px;
 }
+
+/* BOTÓN PRINCIPAL */
 
 #btnCalcular {
-  width: 100%;
-  background: #7c0a1b;
-  color: white;
-  padding: 12px;
+  display: block;
+  width: calc(100% - 30px);
+  height: 41px;
+  margin: 0 auto 55px;
   border: none;
-  border-radius: 30px;
+  border-radius: 25px;
+  background: #781d39;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  font-weight: 600;
 }
 
+#btnCalcular:hover {
+  background: #66162f;
+}
+
+/* SEPARADOR */
+
+.separador {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 55px;
+}
+
+.separador::before,
+.separador::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #142033;
+  opacity: 0.65;
+}
+
+.separador span {
+  font-size: 20px;
+  color: #142033;
+}
+
+/* CRÉDITO MENOR */
+
+.credito-menor h3 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #142033;
+  margin: 0 0 20px;
+}
+
+.credito-form {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.credito-form input {
+  flex: 1;
+  height: 38px;
+  border: 1px solid #cfd6df;
+  border-radius: 4px;
+  padding: 0 12px;
+  font-size: 16px;
+}
+
+.credito-form input::placeholder {
+  color: #c7cfd9;
+}
+
+.credito-form button {
+  width: 180px;
+  height: 40px;
+  border: 2px solid #781d39;
+  border-radius: 24px;
+  background: #fff;
+  color: #781d39;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.fila-menor {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #142033;
+  font-size: 17px;
+  margin-bottom: 18px;
+}
+
+.fila-menor span {
+  line-height: 1.45;
+}
+
+.fila-menor b {
+  color: #142033;
+}
+
+.fila-menor:first-of-type b {
+  color: #be945d;
+}
+
+.nota {
+  font-size: 13px;
+  line-height: 1.3;
+  color: #142033;
+  margin: 0;
+}
+
+/* =========================
+   PANEL DERECHO
+========================= */
+
+.resultado {
+  width: 430px;
+}
+
+.resultado h2 {
+  font-size: 34px;
+  font-weight: 400;
+  color: #142033;
+  margin: 35px 0 26px;
+}
+
+.resultado-item strong {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: #be945d;
+  margin-bottom: 28px;
+}
+
+.aclaracion {
+  font-size: 14px;
+  color: #4f5663;
+  line-height: 1.4;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.fila b {
+  color: #000;
+}
+
+.resultado hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 24px 0;
+}
+
+.titulo-cuenta,
+.resultado b p {
+  color: #be945d !important;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.btn-ingresar {
+  width: 100%;
+  height: 44px;
+  border: 2px solid #781d39;
+  border-radius: 28px;
+  background: #fff;
+  color: #781d39;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .calculadora-contenedor {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .calculadora-inputs,
+  .resultado {
+    width: 100%;
+    max-width: 445px;
+  }
+}
 .resultado {
   width: 360px;
   padding-top: 10px;
