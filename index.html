@@ -260,6 +260,26 @@ section,
   background-color: #fff;
 }
 
+.navbar {
+  position: relative;
+}
+
+.navbar .logo {
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar .logo a {
+  display: inline-block;
+  position: relative;
+  z-index: 1001;
+  pointer-events: auto;
+}
+
+.navbar .logo img {
+  display: block;
+  pointer-events: auto;
+}
 
 
 </style>
@@ -339,10 +359,18 @@ section,
 <!-- Navbar Principal -->
 <div class="navbar">
     <div class="logo">
-        <a href='/'>
-        <img src="assets/img/logo-gob-infonavit-nav.avif" alt="Infonavit" style="height: 70px; width: auto;">
-        </a>
-    </div>
+  <a
+    href="https://portalmx.infonavit.org.mx/wps/portal/constructora/infonavit/constructora_home/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="assets/img/logo-gob-infonavit-nav.avif"
+      alt="Infonavit"
+      style="height: 70px; width: auto;"
+    >
+  </a>
+</div>
 
     <button class="login-button desktop-only"><a href="https://micuenta.infonavit.org.mx/" class="login-button">Mi Cuenta Infonavit</a></button>
     <button id="menuButton" class="menu-button mobile-only open-btn">
@@ -354,6 +382,22 @@ section,
 </button>
     
 </div>
+
+<style>
+  .navbar .logo {
+  position: relative;
+  z-index: 10;
+}
+
+.navbar .logo a {
+  display: block;
+  pointer-events: auto !important;
+}
+
+.navbar .logo img {
+  pointer-events: auto !important;
+}
+</style>
 
 <!-- Menú desplegable para móviles -->
 
@@ -629,145 +673,104 @@ section,
 
 <div class="calculadora-wrapper">
     <div class="calculadora-contenedor">
-
         <div class="calculadora-inputs">
-
             <!-- NSS -->
             <div class="field">
                 <label for="nss">Número de Seguridad Social (NSS)</label>
-
                 <input
                     type="text"
                     id="nss"
                     maxlength="11"
                     placeholder="11 dígitos"
                     inputmode="numeric">
-
                 <small class="helper-text">
                     El Número de Seguridad Social debe tener exactamente 11 dígitos.
                 </small>
             </div>
-
             <!-- Sueldo -->
             <label for="sueldo" class="titulo-input">Sueldo mensual</label>
-
             <input
                 type="text"
                 id="sueldo"
                 placeholder="$ 20,000"
                 inputmode="numeric">
-
             <!-- Edad -->
             <p class="edad-label">Edad</p>
-
             <div class="edad-title" id="edadTexto">
             </div>
-
             <input
                 type="range"
                 id="edad-slider"
                 min="18"
                 max="55"
                 value="18">
-
             <div class="edad-labels">
                 <span>18 años mínimo</span>
                 <span>55 años máximo</span>
             </div>
-
             <button id="btnCalcular">
                 Calcular
             </button>
-
             <div class="separador">
                 <span>ó</span>
             </div>
-
             <div class="credito-menor">
-
                 <h3>¿Quieres un monto de crédito menor?</h3>
-
                 <div class="credito-form">
-
-                    <input
-                        type="text"
-                        placeholder="Monto">
-
-                    <button>
-                        Calcular
-                    </button>
-
+                    <input type="text" id="montoMenor" placeholder="Monto" inputmode="numeric">
+                    <button id="btnMenorCalcular">Calcular</button>
                 </div>
-
                 <div class="fila-menor">
                     <span>Pagarías<br>mensualmente</span>
-                    <b>-----</b>
+                    <b id="pagoMenor">-----</b>
                 </div>
-
                 <div class="fila-menor">
                     <span>CAT</span>
-                    <b>-----</b>
+                    <b id="catMenor">-----</b>
                 </div>
-
                 <p class="nota">
                     NI: CAT indicativo cuyo cálculo es no informativo para el acreditado,
                     dados los parámetros particulares del crédito
                 </p>
-
             </div>
-
         </div>
-
         <!-- PANEL DERECHO -->
         <div class="resultado">
-
             <h2>Te prestamos hasta:</h2>
-
             <div class="resultado-item">
                 <strong id="montoMaximo">-----</strong>
             </div>
-
             <p class="aclaracion fila">
                 <span>Tasa</span>
-                <b>5.21%</b>
+                <b id="tasaValor">5.21%</b>
             </p>
-
             <p class="aclaracion fila">
                 <span>Pagarías mensualmente</span>
-                <b>----</b>
+                <b id="pagoMensual">----</b>
             </p>
-
             <p class="aclaracion fila">
                 <span>CAT</span>
-                <b>-----</b>
+                <b id="catValor">-----</b>
             </p>
-
             <p class="aclaracion fila">
                 <span>Plazo</span>
-                <b>-----</b>
+                <b id="plazoValor">-----</b>
             </p>
-
             <p class="aclaracion">
                 NI: CAT indicativo cuyo cálculo es no informativo para el acreditado,
                 dados los parámetros particulares del crédito
             </p>
-
             <hr>
-
             <h3 class="titulo-cuenta">
                 Accede a Mi Cuenta Infonavit
             </h3>
-
             <p class="aclaracion">
                 Consulta si ya puedes solicitar tu crédito, cuánto ahorro tienes y más.
             </p>
-
             <button class="btn-ingresar">
                 Ingresar
             </button>
-
         </div>
-
     </div>
 </div>
 
@@ -902,30 +905,29 @@ section,
 <script src="assets/JS/slide.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1) Cada vez que hagan click en el toggle…
-      document.querySelectorAll('.new-dropdown-toggle').forEach(btn => {
-        btn.addEventListener('click', e => {
-          e.stopPropagation();                                // no burbujear
-          const item = btn.closest('.new-dropdown');         // el LI padre
-          // Cierra otros dropdowns abiertos:
-          document.querySelectorAll('.new-dropdown.open').forEach(d => {
-            if (d !== item) d.classList.remove('open');
-          });
-          // Abre/Cierra este:
-          item.classList.toggle('open');
-        });
+document.addEventListener('DOMContentLoaded', () => {
+  // 1) Cada vez que hagan click en el toggle…
+  document.querySelectorAll('.new-dropdown-toggle').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();                                // no burbujear
+      const item = btn.closest('.new-dropdown');         // el LI padre
+      // Cierra otros dropdowns abiertos:
+      document.querySelectorAll('.new-dropdown.open').forEach(d => {
+        if (d !== item) d.classList.remove('open');
       });
-    
-      // 2) Al hacer click fuera, cerramos todo
-      document.addEventListener('click', () => {
-        document.querySelectorAll('.new-dropdown.open').forEach(d => {
-          d.classList.remove('open');
-        });
-      });
+      // Abre/Cierra este:
+      item.classList.toggle('open');
     });
-    </script>
+  });
 
+  // 2) Al hacer click fuera, cerramos todo
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.new-dropdown.open').forEach(d => {
+      d.classList.remove('open');
+    });
+  });
+});
+</script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -935,52 +937,99 @@ document.addEventListener("DOMContentLoaded", () => {
   const sueldoInput = document.getElementById("sueldo");
   const btnCalcular = document.getElementById("btnCalcular");
   const nssInput = document.getElementById("nss");
+  const tasaValor = document.getElementById("tasaValor");
+  const pagoMensual = document.getElementById("pagoMensual");
+  const catValor = document.getElementById("catValor");
+  const plazoValor = document.getElementById("plazoValor");
+
+  const montoMenorInput = document.getElementById("montoMenor");
+  const btnMenorCalcular = document.getElementById("btnMenorCalcular");
+  const pagoMenor = document.getElementById("pagoMenor");
+  const catMenor = document.getElementById("catMenor");
 
   if (!edadSlider || !sueldoInput || !btnCalcular || !nssInput) return;
 
-  btnCalcular.disabled = true;
-  btnCalcular.style.opacity = "0.5";
-  btnCalcular.style.cursor = "not-allowed";
+  const PLAZO_ANIOS = 30;
+
+  /* ======================
+     HELPERS COMPARTIDOS
+  ====================== */
+
+  // Convierte "$ 20,000" -> 20000
+  function limpiarNumero(valorTexto) {
+    return Number(valorTexto.replace(/[^0-9]/g, ""));
+  }
+
+  // Formatea un input tipo "$ 20,000" mientras el usuario escribe
+  function formatearMoneda(e) {
+    const valor = e.target.value.replace(/[^0-9]/g, "");
+    e.target.value = valor ? "$ " + Number(valor).toLocaleString("es-MX") : "";
+  }
+
+  function aMoneda(numero) {
+    return numero.toLocaleString("es-MX", { style: "currency", currency: "MXN" });
+  }
+
+  // Regresa la tasa anual (%) según el sueldo, según rango oficial de referencia
+  function tasaPorSueldo(sueldoNumero) {
+    if (sueldoNumero <= 10000) return 3.69;
+    if (sueldoNumero <= 15000) return 6.0;
+    if (sueldoNumero <= 20000) return 8.0;
+    if (sueldoNumero <= 25000) return 9.0;
+    return 10.45;
+  }
+
+  // Fórmula de anualidad: mensualidad para pagar "monto" en "plazoAnios" a "tasaAnual"
+  function calcularMensualidad(monto, tasaAnual, plazoAnios = PLAZO_ANIOS) {
+    const nMeses = plazoAnios * 12;
+    const iMensual = (tasaAnual / 100) / 12;
+    return monto * iMensual / (1 - Math.pow(1 + iMensual, -nMeses));
+  }
+
+  function calcularCAT(tasaAnual) {
+    return tasaAnual + 0.85; // CAT indicativo: tasa + spread estimado
+  }
 
   /* ======================
      SLIDER EDAD
   ====================== */
   function pintarSlider() {
-  const min = Number(edadSlider.min);
-  const max = Number(edadSlider.max);
-  const val = Number(edadSlider.value);
+    const min = Number(edadSlider.min);
+    const max = Number(edadSlider.max);
+    const val = Number(edadSlider.value);
+    const porcentaje = ((val - min) * 100) / (max - min);
 
-  const porcentaje = ((val - min) * 100) / (max - min);
+    edadSlider.style.background = `
+      linear-gradient(to right,
+        #4052d5 0%,
+        #4052d5 ${porcentaje}%,
+        #d9d9d9 ${porcentaje}%,
+        #d9d9d9 100%
+      )
+    `;
+  }
 
-  edadSlider.style.background = `
-    linear-gradient(to right,
-      #4052d5 0%,
-      #4052d5 ${porcentaje}%,
-      #d9d9d9 ${porcentaje}%,
-      #d9d9d9 100%
-    )
-  `;
-}
+  // Al cargar la página no mostramos la edad
+  edadTexto.textContent = "";
 
-// Al cargar la página no mostramos la edad
-edadTexto.textContent = "";
+  edadSlider.addEventListener("input", () => {
+    edadTexto.textContent = `${edadSlider.value} años`;
+    pintarSlider();
+  });
 
-edadSlider.addEventListener("input", () => {
-  edadTexto.textContent = `${edadSlider.value} años`;
+  // Solo pinta la barra inicial
   pintarSlider();
-});
-
-// Solo pinta la barra inicial
-pintarSlider();
 
   /* ======================
      VALIDACIÓN GENERAL
   ====================== */
+  btnCalcular.disabled = true;
+  btnCalcular.style.opacity = "0.5";
+  btnCalcular.style.cursor = "not-allowed";
+
   function validarFormulario() {
     const nssValido = nssInput.value.length === 11;
-    const sueldoValido = Number(
-      sueldoInput.value.replace(/[^0-9]/g, "")
-    ) > 0;
+    const sueldoValido = limpiarNumero(sueldoInput.value) > 0;
 
     btnCalcular.disabled = !(nssValido && sueldoValido);
     btnCalcular.style.opacity = btnCalcular.disabled ? "0.5" : "1";
@@ -999,29 +1048,17 @@ pintarSlider();
      SUELDO FORMATEADO
   ====================== */
   sueldoInput.addEventListener("input", (e) => {
-    let valor = e.target.value.replace(/[^0-9]/g, "");
-
-    if (!valor) {
-      e.target.value = "";
-      validarFormulario();
-      return;
-    }
-
-    e.target.value = "$ " + Number(valor).toLocaleString("es-MX");
+    formatearMoneda(e);
     validarFormulario();
   });
 
   /* ======================
-     CALCULAR
+     CALCULAR (panel principal)
   ====================== */
   btnCalcular.addEventListener("click", () => {
-
-    let sueldoNumero = Number(
-      sueldoInput.value.replace(/[^0-9]/g, "")
-    );
+    const sueldoNumero = limpiarNumero(sueldoInput.value);
 
     let base;
-
     if (sueldoNumero <= 10000) base = 200000;
     else if (sueldoNumero <= 15000) base = 250000;
     else if (sueldoNumero <= 20000) base = 300000;
@@ -1031,12 +1068,42 @@ pintarSlider();
     const variacion = Math.random() * 5000 - 2500;
     const montoFinal = base + variacion;
 
-    montoMaximo.textContent = montoFinal.toLocaleString("es-MX", {
-      style: "currency",
-      currency: "MXN"
-    });
+    const tasaAnual = tasaPorSueldo(sueldoNumero);
+    const mensualidad = calcularMensualidad(montoFinal, tasaAnual);
+    const cat = calcularCAT(tasaAnual);
+
+    montoMaximo.textContent = aMoneda(montoFinal);
+    if (tasaValor) tasaValor.textContent = `${tasaAnual.toFixed(2)}%`;
+    if (pagoMensual) pagoMensual.textContent = aMoneda(mensualidad);
+    if (catValor) catValor.textContent = `${cat.toFixed(2)}%`;
+    if (plazoValor) plazoValor.textContent = `${PLAZO_ANIOS} años`;
   });
 
+  /* ======================
+     CALCULAR (monto menor)
+  ====================== */
+  if (montoMenorInput && btnMenorCalcular && pagoMenor && catMenor) {
+
+    montoMenorInput.addEventListener("input", formatearMoneda);
+
+    btnMenorCalcular.addEventListener("click", () => {
+      const montoDeseado = limpiarNumero(montoMenorInput.value);
+
+      if (!montoDeseado || montoDeseado <= 0) {
+        pagoMenor.textContent = "-----";
+        catMenor.textContent = "-----";
+        return;
+      }
+
+      const sueldoNumero = limpiarNumero(sueldoInput.value);
+      const tasaAnual = tasaPorSueldo(sueldoNumero);
+      const mensualidad = calcularMensualidad(montoDeseado, tasaAnual);
+      const cat = calcularCAT(tasaAnual);
+
+      pagoMenor.textContent = aMoneda(mensualidad);
+      catMenor.textContent = `${cat.toFixed(2)}%`;
+    });
+  }
 });
 </script>
 
