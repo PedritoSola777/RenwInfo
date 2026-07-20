@@ -1906,6 +1906,10 @@ body {
     
   }
 
+   .resultado-top {
+    padding-right: 8px;
+  }
+  
   .resultado h2,
   .resultado-item,
   .resultado .fila,
@@ -1924,13 +1928,7 @@ body {
     margin-right: -100px;   /* empújalos hacia la derecha */
   }
 
-  @media (max-width: 768px) {
-
-  .resultado-top {
-    padding-right: 8px;
-  }
-
-}
+  
 
 
 
