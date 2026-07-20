@@ -1924,6 +1924,14 @@ body {
     margin-right: -100px;   /* empújalos hacia la derecha */
   }
 
+  @media (max-width: 768px) {
+
+  .resultado-top {
+    padding-right: 8px;
+  }
+
+}
+
   #btnCalcular,
   .btn-ingresar {
     width: 100%;
