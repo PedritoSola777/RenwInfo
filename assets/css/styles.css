@@ -1728,6 +1728,7 @@ body {
 
 /* RESPONSIVE */
 
+
 @media (max-width: 900px) {
   .calculadora-contenedor {
     flex-direction: column;
@@ -1902,17 +1903,25 @@ body {
   .resultado {
     width: 100%;
     max-width: 450px;
+    
   }
 
-  .resultado h2 {
-    text-align: center;
-    font-size: 24px;
+  .resultado h2,
+  .resultado-item,
+  .resultado .fila,
+  .resultado > p.aclaracion:not(.fila) {
+    margin-left: -10px;
+    font-size: 18px;
   }
 
   .resultado-item strong {
     font-size: 28px;
-    text-align: center;
+    text-align: left;
     display: block;
+  }
+
+  .fila b {
+    margin-right: -100px;   /* empújalos hacia la derecha */
   }
 
   #btnCalcular,
