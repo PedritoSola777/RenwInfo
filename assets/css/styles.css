@@ -1019,7 +1019,7 @@ p {
 .navbar-lower .menu-items a {
     font-family: 'geomanistregular', Arial, sans-serif;
     font-weight: normal;
-    color: #818181 !important; /* Aseguramos que se aplique el color */
+    color: #000 !important; /* Aseguramos que se aplique el color #818181 */
 }
 
 .navbar .login-button {
@@ -2145,7 +2145,7 @@ body {
   width: 100%;
   height: 40px;
   padding: 6px 10px;
-  font-size: 14px;
+  font-size: 18px;
   border: 1px solid #cfcfcf;
   border-radius: 6px;
   box-sizing: border-box;
@@ -2180,3 +2180,12 @@ body {
 
 @media (max-width: 768px) { #navbarLower { display: none !important; } #navbarLower.open { display: block !important; } }
 
+/* Por defecto (desktop primero) */
+.resultado--mobile  { display: none; }
+.resultado--desktop { display: block; }
+
+/* Mobile: se invierte */
+@media (max-width: 768px) {
+  .resultado--mobile  { display: block; }
+  .resultado--desktop { display: none; }
+}
