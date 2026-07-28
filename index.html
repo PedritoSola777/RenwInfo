@@ -569,7 +569,7 @@ section,
   <!-- IMÁGENES DESKTOP -->
   <div class="desktop-images">
     <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/escoge_tu_vivienda/!ut/p/z1/jZDLCsIwEEW_pV-QOzFO02VpUGMhWiFtzUa6KgGtLsTvV6jbPmY3cM6d4YogWhGG7hP77h2fQ3f_7dfAN7YGpAtIupx2YMdUWEXSeimaEdgDh0KR07XOUbnMyZI38pizCGv8LDOKSg15JgdUdUXGmhRbqHU-JibHOn8GCPPxjQjjiakG0iWA_8BcB0tfvB7e-xbR9knyBU5MFww!/dz/d5/L2dBISEvZ0FBIS9nQSEh/"> 
-      <img src="./assets/img/Banner-catalogo-vivienda-para-el-bienestar.webp"
+      <img src="./assets/img/bannerNuevo2.png"
          alt="Credito Infonavit"
          class="desktop-img"></a>
 
@@ -583,9 +583,7 @@ section,
          alt="Credito Infonavit"
          class="desktop-img">
   
-         <img src="./assets/img/banner3.webp"
-         alt="Credito Infonavit"
-         class="desktop-img">
+         
 
       
   </div>
@@ -682,12 +680,44 @@ section,
 </div>
 
 
+  <style>
+  /* ... tu CSS existente ... */
+
+  .calculadora-inputs label,
+  .titulo-input,
+  .edad-label {
+    display: block;
+    margin: 0 0 8px;
+    color: #142033;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .titulo-input {
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  text-align: center;
+  color: #142033;
+  display: block;
+  margin: 0 0 8px;
+}
+
+  .edad-label {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+
+</style>
+
+
 <div class="calculadora-wrapper">
     <div class="calculadora-contenedor">
         <div class="calculadora-inputs">
             <!-- NSS -->
             <div class="field">
-                <label for="nss">Número de Seguridad Social (NSS)</label>
+                <label for="nss" style="text-align: center;">Número de Seguridad Social (NSS)</label>
                 <input type="text" id="nss" maxlength="11" placeholder="11 dígitos" inputmode="numeric">
                 <small class="helper-text">
                     El Número de Seguridad Social debe tener exactamente 11 dígitos.

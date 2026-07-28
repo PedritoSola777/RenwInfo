@@ -1393,6 +1393,7 @@ body {
   color: #142033;
   font-size: 16px;
   text-align: center;
+  
 }
 
 .edad-title {
@@ -1402,6 +1403,8 @@ body {
   font-size: 16px;
   font-weight: 800;
   text-align: center;
+    font-weight: 700;
+
 }
 
 /* =========================
@@ -1915,7 +1918,7 @@ body {
 .resultado > p.aclaracion:not(.fila),
 .titulo-cuenta,
 .titulo-cuenta + p {
-  margin-left: -3px;
+  margin-left: -50px;
   font-size: 18px;
 }
 
@@ -2114,6 +2117,8 @@ body {
   border-radius: 6px;
   box-sizing: border-box;
   font-weight: 700;
+      text-align: center;
+
 }
 
 #nss::placeholder {
