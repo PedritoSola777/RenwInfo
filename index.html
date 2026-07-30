@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/botStyles.css">
     <link rel="stylesheet" href="assets/css/banner.css">
     <link rel="stylesheet" href="assets/css/navs.css">
+    <link rel="stylesheet" href="assets/css/calculadora.css">
 
 
     <style>
@@ -736,43 +737,44 @@ section,
             </div>
             <button id="btnCalcular">Calcular</button>
             <div class="separador"><span></span></div>
+        </div>
+        <!-- ⬆️ Aquí se cierra el cuadro con borde, el resultado ya NO va dentro -->
 
-            <!-- ⬇️ SOLO MOBILE: resultado debajo del botón Calcular -->
-            <div class="resultado resultado--mobile">
-                <div class="resultado-top">
-                    <h2>Te prestamos hasta:</h2>
-                    <div class="resultado-item">
-                        <strong id="mMontoMaximo">-----</strong>
-                    </div>
-                    <p class="aclaracion fila">
-                        <span>Tasa</span>
-                        <b id="mTasaValor">5.21%</b>
-                    </p>
-                    <p class="aclaracion fila">
-                        <span>Pagarías mensualmente</span>
-                        <b id="mPagoMensual">----</b>
-                    </p>
-                    <p class="aclaracion fila">
-                        <span>CAT</span>
-                        <b id="mCatValor">-----</b>
-                    </p>
-                    <p class="aclaracion fila">
-                        <span>Plazo</span>
-                        <b id="mPlazoValor">-----</b>
-                    </p>
-                    <p class="aclaracion">
-                        NI: CAT indicativo cuyo cálculo es no informativo para el acreditado,
-                        dados los parámetros particulares del crédito
-                    </p>
+        <!-- ⬇️ SOLO MOBILE: resultado ahora fuera del cuadro -->
+        <div class="resultado resultado--mobile">
+            <div class="resultado-top">
+                <h2>Te prestamos hasta:</h2>
+                <div class="resultado-item">
+                    <strong id="mMontoMaximo">-----</strong>
                 </div>
-                <hr>
-                <h3 class="titulo-cuenta">Accede a Mi Cuenta Infonavit</h3>
-                <p class="aclaracion">Consulta si ya puedes solicitar tu crédito, cuánto ahorro tienes y más.</p>
-                <button class="btn-ingresar">Ingresar</button>
+                <p class="aclaracion fila">
+                    <span>Tasa</span>
+                    <b id="mTasaValor">5.21%</b>
+                </p>
+                <p class="aclaracion fila">
+                    <span>Pagarías mensualmente</span>
+                    <b id="mPagoMensual">----</b>
+                </p>
+                <p class="aclaracion fila">
+                    <span>CAT</span>
+                    <b id="mCatValor">-----</b>
+                </p>
+                <p class="aclaracion fila">
+                    <span>Plazo</span>
+                    <b id="mPlazoValor">-----</b>
+                </p>
+                <p class="aclaracion">
+                    NI: CAT indicativo cuyo cálculo es no informativo para el acreditado,
+                    dados los parámetros particulares del crédito
+                </p>
             </div>
+            <hr>
+            <h3 class="titulo-cuenta">Accede a Mi Cuenta Infonavit</h3>
+            <p class="aclaracion">Consulta si ya puedes solicitar tu crédito, cuánto ahorro tienes y más.</p>
+            <button class="btn-ingresar">Ingresar</button>
         </div>
 
-        <!-- ⬇️ SOLO DESKTOP: panel derecho -->
+        <!-- ⬇️ SOLO DESKTOP: panel derecho (sin cambios) -->
         <div class="resultado resultado--desktop">
             <div class="resultado-top">
                 <h2>Te prestamos hasta:</h2>

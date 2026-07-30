@@ -1,0 +1,1013 @@
+.calculadora-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.calculadora-contenedor {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+
+/* =========================
+   PANEL IZQUIERDO
+========================= */
+
+.calculadora-inputs,
+.calculadora-inputs *,
+.calculadora-inputs *::before,
+.calculadora-inputs *::after {
+  box-sizing: border-box;
+}
+
+.calculadora-inputs {
+  width: 445px;
+  max-width: 100%;
+  min-width: 0;
+  padding: 28px 20px 36px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* =========================
+   NSS
+========================= */
+
+.field {
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 26px;
+}
+
+#nss {
+    font-size: 5px; /* o el tamaño que quieras */
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #000;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.field input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #d3d8df;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.field input::placeholder {
+  color: #6e6e6e;
+}
+
+.helper-text {
+  display: block;
+  margin-top: 7px;
+  color: #4f5663;
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+
+/* =========================
+   SUELDO
+========================= */
+
+.calculadora-inputs > label:not(.edad-title) {
+  display: block;
+  margin-bottom: 18px;
+  color: #142033;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+#sueldo {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 50px;
+  margin-bottom: 18px;
+  padding: 0 12px;
+  border: 1px solid #cfd6df;
+  border-radius: 4px;
+  color: #142033;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#sueldo::placeholder {
+  color: #c7cfd9;
+}
+
+/* =========================
+   EDAD
+========================= */
+
+.edad-label {
+  margin: 0 0 18px;
+  color: #142033;
+  font-size: 16px;
+  text-align: center;
+  
+}
+
+.edad-title {
+  display: block;
+  margin-bottom: 8px;
+  color: #142033;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: center;
+    font-weight: 700;
+
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+#edad-slider {
+  width: 100%;
+  max-width: 100%;
+  height: 20px;
+  margin: 0;
+  background: #d9d9d9;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Chrome, Edge y Safari */
+
+#edad-slider::-webkit-slider-runnable-track {
+  height: 20px;
+  background: transparent;
+  border-radius: 0;
+}
+
+#edad-slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  border: none;
+  border-radius: 50%;
+  background: #4052d5;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+
+#edad-slider::-moz-range-track {
+  height: 20px;
+  border-radius: 0;
+  background: #dcdcdc;
+}
+
+#edad-slider::-moz-range-progress {
+  height: 20px;
+  border-radius: 0;
+  background: #2f3b99;
+}
+
+#edad-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: #4052d5;
+}
+
+/* =========================
+   LABELS DE EDAD
+========================= */
+
+.edad-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+  margin: 4px 0 28px;
+  color: #142033;
+  font-size: 16px;
+}
+
+.edad-labels span {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+/* =========================
+   BOTÓN PRINCIPAL
+========================= */
+
+#btnCalcular {
+  display: block;
+  width: calc(100% - 30px);
+  max-width: 100%;
+  height: 41px;
+  margin: 0 auto 55px;
+  border: none;
+  border-radius: 25px;
+  background: #781d39;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#btnCalcular:hover {
+  background: #66162f;
+}
+
+/* =========================
+   SEPARADOR
+========================= */
+
+.separador {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  gap: 18px;
+  margin-bottom: 55px;
+}
+
+.separador::before,
+.separador::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #142033;
+  opacity: 0.65;
+}
+
+.separador span {
+  color: #142033;
+  font-size: 20px;
+}
+
+/* =========================
+   CRÉDITO MENOR
+========================= */
+
+.credito-menor {
+  width: 100%;
+  min-width: 0;
+}
+
+.credito-menor h3 {
+  margin: 0 0 20px;
+  color: #142033;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.credito-form {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.credito-form input {
+  flex: 1 1 0;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #cfd6df;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.credito-form input::placeholder {
+  color: #c7cfd9;
+}
+
+.credito-form button {
+  flex: 0 1 180px;
+  width: 180px;
+  max-width: 100%;
+  height: 40px;
+  border: 2px solid #781d39;
+  border-radius: 24px;
+  background: #fff;
+  color: #781d39;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.fila-menor {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 18px;
+  color: #142033;
+  font-size: 17px;
+}
+
+.fila-menor span,
+.fila-menor b {
+  min-width: 0;
+}
+
+.fila-menor span {
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+.fila-menor b {
+  color: #142033;
+}
+
+.fila-menor:first-of-type b {
+  color: #be945d;
+}
+
+.nota {
+  margin: 0;
+  color: #142033;
+  font-size: 13px;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .calculadora-inputs {
+    width: 100%;
+  }
+
+  .credito-form {
+    flex-wrap: wrap;
+  }
+
+  .credito-form input {
+    flex: 1 1 180px;
+  }
+
+  .credito-form button {
+    flex: 0 1 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .credito-form {
+    flex-direction: column;
+  }
+
+  .credito-form input,
+  .credito-form button {
+    flex: none;
+    width: 100%;
+  }
+
+  .edad-labels {
+    gap: 12px;
+  }
+
+  .edad-labels span {
+    flex: 1 1 0;
+  }
+
+  .edad-labels span:last-child {
+    text-align: right;
+  }
+}
+
+/* =========================
+   PANEL DERECHO
+========================= */
+
+.resultado {
+  width: 430px;
+}
+
+.resultado h2 {
+  font-size: 34px;
+  font-weight: 400;
+  color: #142033;
+  margin: 35px 0 26px;
+}
+
+.resultado-item strong {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: #be945d;
+  margin-bottom: 28px;
+}
+
+.aclaracion {
+  font-size: 14px;
+  color: #4f5663;
+  line-height: 1.4;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.fila b {
+  color: #000;
+}
+
+.resultado hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 24px 0;
+}
+
+.titulo-cuenta,
+.resultado b p {
+  color: #be945d !important;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.btn-ingresar {
+  width: 100%;
+  height: 44px;
+  border: 2px solid #781d39;
+  border-radius: 28px;
+  background: #fff;
+  color: #781d39;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .calculadora-contenedor {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .calculadora-inputs,
+  .resultado {
+    width: 100%;
+    max-width: 445px;
+  }
+}
+
+.resultado {
+  width: 360px;
+  padding: 40px 20px;
+}
+
+.resultado h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.resultado-item strong {
+  font-size: 35px;
+  color: #b59133;
+  font-weight: 800;
+}
+
+.aclaracion {
+  font-size: 12px;
+  color: #777;
+  margin-top: 10px;
+  max-width: none;
+}
+
+.btn-ingresar {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 30px;
+  border: 1px solid #7c0a1b;
+  color: #7c0a1b;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.bloque-infonavit {
+  background: #f7f6f5;
+  padding: 60px 40px;
+  text-align: center;
+  border-radius: 0 0 80px 80px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 40px;
+}
+
+.bloque-infonavit h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.bloque-infonavit .descripcion {
+  font-size: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #555;
+}
+
+.destacado {
+  margin-top: 15px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #b59133;
+}
+
+.nota {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #777;
+}
+
+/* =========================
+   ICONOS
+========================= */
+
+.iconos-contenedor {
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.icono-item {
+  text-align: center;
+  max-width: 180px;
+}
+
+.icono-circulo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #b59133;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px auto;
+}
+
+.icono-circulo img {
+  width: 35px;
+  opacity: 0.9;
+}
+
+.icono-item h4 {
+  color: #b59133;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.icono-item p {
+  font-size: 13px;
+  color: #555;
+}
+
+/* =========================
+   SEPARADOR (DESKTOP)
+========================= */
+
+.icono-separador {
+  width: 1px;
+  height: 60px;
+  background: #b59133;
+  opacity: 0.6;
+}
+
+/* =========================
+   FILAS RESULTADO
+========================= */
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fila b {
+  color: #000;
+  font-weight: 700;
+}
+
+/* ======================================
+   📱  MOBILE (≤ 768px)
+====================================== */
+
+@media (max-width: 768px) {
+
+  .calculadora-contenedor {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+    align-items: center;
+  }
+
+  .calculadora-inputs,
+  .resultado {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .resultado-top {
+    padding-right: 8px;
+  }
+
+  .resultado-item strong {
+    font-size: 28px;
+    text-align: left;
+    display: block;
+  }
+
+  #btnCalcular,
+  .btn-ingresar {
+    width: 100%;
+  }
+
+  /* BLOQUE INFONAVIT */
+  .bloque-infonavit {
+    padding: 40px 20px;
+    border-radius: 0 0 50px 50px;
+  }
+
+  .iconos-contenedor {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .icono-separador {
+    display: none;
+  }
+
+  .icono-item {
+    max-width: 240px;
+    padding: 10px 15px;
+  }
+}
+
+/* ======================================
+   📱  RESULTADO MOBILE (sin caja, estilo ss2)
+====================================== */
+
+@media (max-width: 768px) {
+
+  .resultado--mobile {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  /* Título "Te prestamos hasta:" */
+  .resultado--mobile h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #142033;
+    margin: 0 0 8px;
+  }
+
+  /* Monto "-----" en dorado */
+  .resultado--mobile .resultado-item strong {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #be945d;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  /* Filas: Tasa / Pagarías mensualmente / CAT / Plazo */
+  .resultado--mobile .fila,
+  .resultado--mobile p.aclaracion.fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0 0 16px;
+    font-size: 15px;
+    color: #142033;
+  }
+
+  .resultado--mobile .fila span,
+  .resultado--mobile p.aclaracion.fila span {
+    color: #142033;
+    flex: 1;
+  }
+
+  .resultado--mobile .fila b,
+  .resultado--mobile p.aclaracion.fila b {
+    font-weight: 700;
+    color: #142033;
+    white-space: nowrap;
+  }
+
+  /* Nota "NI: CAT indicativo..." */
+  .resultado--mobile > .resultado-top > p.aclaracion:not(.fila) {
+    margin: 0 0 24px;
+    font-size: 12px;
+    color: #4f5663;
+    line-height: 1.4;
+  }
+
+  .resultado--mobile hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 20px 0;
+  }
+
+  /* Título "Accede a Mi Cuenta Infonavit" */
+  .resultado--mobile .titulo-cuenta {
+    color: #be945d;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0 0 10px;
+    text-align: left;
+  }
+
+  .resultado--mobile .titulo-cuenta + p.aclaracion {
+    font-size: 13px;
+    color: #4f5663;
+    margin: 0 0 20px;
+    text-align: left;
+  }
+
+  /* Botón Ingresar */
+  .resultado--mobile .btn-ingresar {
+    width: 100%;
+    height: 42px;
+    border: 2px solid #781d39;
+    border-radius: 24px;
+    background: #fff;
+    color: #781d39;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+/* ======================================
+   📱  EXTRA SMALL (≤ 480px)
+====================================== */
+
+@media (max-width: 480px) {
+
+  .resultado-item strong {
+    font-size: 24px;
+  }
+
+  #btnCalcular,
+  .btn-ingresar {
+    font-size: 14px;
+  }
+
+  .edad-title {
+    font-size: 20px;
+  }
+
+  #edad-slider {
+    height: 6px;
+  }
+
+  .bloque-infonavit h2 {
+    font-size: 22px;
+  }
+
+  .bloque-infonavit .descripcion {
+    font-size: 14px;
+  }
+
+  .destacado {
+    font-size: 15px;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .calculadora-contenedor {
+    gap: 40px;
+  }
+
+  .iconos-contenedor {
+    gap: 25px;
+  }
+}
+
+/* =========================
+   MÓVIL
+========================= */
+@media (max-width: 768px) {
+  .calculadora-contenedor {
+    width: 100%;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .calculadora-inputs,
+  .resultado {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .resultado--desktop {
+    padding: 30px 8px;
+  }
+}
+
+/* =========================
+   OTROS
+========================= */
+
+.edad-label {
+  text-align: center;
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.ahorro {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.ahorro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ahorro-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  z-index: 2;
+  text-align: center;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  padding: 0 20px;
+}
+
+@media (max-width: 600px) {
+  .ahorro {
+    height: 230px;
+  }
+
+  .ahorro-texto {
+    font-size: 26px;
+  }
+}
+
+/* Por defecto */
+.open-btn {
+  display: block;
+}
+
+.close-btn {
+  display: none;
+}
+
+/* Cuando el menú está abierto */
+.menu-open .open-btn {
+  display: none;
+}
+
+.menu-open .close-btn {
+  display: block;
+}
+
+.field {
+  width: 100%;
+  max-width: 600px;
+  margin: 16px 0;
+}
+
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+#nss {
+  width: 100%;
+  height: 40px;
+  padding: 6px 10px;
+  font-size: 17px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-weight: 700;
+
+}
+
+#nss::placeholder {
+  color: #777;
+}
+
+#nss:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+/* =========================
+   INPUT SUELDO
+========================= */
+
+#sueldo {
+  width: 100%;
+  height: 40px;
+  padding: 6px 10px;
+  font-size: 18px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+
+#sueldo::placeholder {
+  color: #777;
+}
+
+#sueldo:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.helper-text {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+@media (min-width: 769px) {
+  #menuButton,
+  #closeMenuButton {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #navbarLower {
+    display: none !important;
+  }
+  #navbarLower.open {
+    display: block !important;
+  }
+}
+
+/* Por defecto (desktop primero) */
+.resultado--mobile {
+  display: none;
+}
+.resultado--desktop {
+  display: block;
+}
+
+/* Mobile: se invierte */
+@media (max-width: 768px) {
+  .resultado--mobile {
+    display: block;
+  }
+  .resultado--desktop {
+    display: none;
+  }
+}
