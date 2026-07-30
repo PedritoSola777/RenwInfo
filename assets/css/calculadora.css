@@ -38,12 +38,9 @@
 
 .field {
   width: 100%;
+  max-width: 600px;
   min-width: 0;
-  margin-bottom: 26px;
-}
-
-#nss {
-    font-size: 5px; /* o el tamaño que quieras */
+  margin: 16px 0 26px;
 }
 
 .field label {
@@ -67,6 +64,26 @@
 
 .field input::placeholder {
   color: #6e6e6e;
+}
+
+#nss {
+  width: 100%;
+  height: 40px;
+  padding: 6px 10px;
+  font-size: 17px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+
+#nss::placeholder {
+  color: #777;
+}
+
+#nss:focus {
+  outline: none;
+  border-color: #4a90e2;
 }
 
 .helper-text {
@@ -101,12 +118,18 @@
   border: 1px solid #cfd6df;
   border-radius: 4px;
   color: #142033;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
+  box-sizing: border-box;
 }
 
 #sueldo::placeholder {
   color: #c7cfd9;
+}
+
+#sueldo:focus {
+  outline: none;
+  border-color: #4a90e2;
 }
 
 /* =========================
@@ -118,7 +141,6 @@
   color: #142033;
   font-size: 16px;
   text-align: center;
-  
 }
 
 .edad-title {
@@ -126,10 +148,8 @@
   margin-bottom: 8px;
   color: #142033;
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
-    font-weight: 700;
-
 }
 
 /* =========================
@@ -147,8 +167,6 @@
   -webkit-appearance: none;
 }
 
-/* Chrome, Edge y Safari */
-
 #edad-slider::-webkit-slider-runnable-track {
   height: 20px;
   background: transparent;
@@ -165,8 +183,6 @@
   appearance: none;
   -webkit-appearance: none;
 }
-
-/* Firefox */
 
 #edad-slider::-moz-range-track {
   height: 20px;
@@ -349,7 +365,7 @@
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE (créditos / edad)
 ========================= */
 
 @media (max-width: 768px) {
@@ -395,32 +411,35 @@
 }
 
 /* =========================
-   PANEL DERECHO
+   PANEL DERECHO — RESULTADO (base, aplica a ambas variantes)
 ========================= */
 
 .resultado {
-  width: 430px;
+  width: 360px;
+  padding: 40px 20px;
 }
 
 .resultado h2 {
-  font-size: 34px;
+  font-size: 26px;
   font-weight: 400;
-  color: #142033;
-  margin: 35px 0 26px;
+  color: #333;
+  margin: 0 0 20px;
 }
 
 .resultado-item strong {
   display: block;
-  font-size: 28px;
+  font-size: 35px;
   font-weight: 800;
-  color: #be945d;
+  color: #b59133;
   margin-bottom: 28px;
 }
 
 .aclaracion {
-  font-size: 14px;
-  color: #4f5663;
+  font-size: 12px;
+  color: #777;
   line-height: 1.4;
+  margin-top: 10px;
+  max-width: none;
 }
 
 .fila {
@@ -432,6 +451,7 @@
 
 .fila b {
   color: #000;
+  font-weight: 700;
 }
 
 .resultado hr {
@@ -450,15 +470,17 @@
 .btn-ingresar {
   width: 100%;
   height: 44px;
+  margin-top: 25px;
   border: 2px solid #781d39;
   border-radius: 28px;
   background: #fff;
   color: #781d39;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE panel derecho */
 
 @media (max-width: 900px) {
   .calculadora-contenedor {
@@ -471,42 +493,6 @@
     width: 100%;
     max-width: 445px;
   }
-}
-
-.resultado {
-  width: 360px;
-  padding: 40px 20px;
-}
-
-.resultado h2 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.resultado-item strong {
-  font-size: 35px;
-  color: #b59133;
-  font-weight: 800;
-}
-
-.aclaracion {
-  font-size: 12px;
-  color: #777;
-  margin-top: 10px;
-  max-width: none;
-}
-
-.btn-ingresar {
-  margin-top: 25px;
-  width: 100%;
-  padding: 12px;
-  border-radius: 30px;
-  border: 1px solid #7c0a1b;
-  color: #7c0a1b;
-  background: transparent;
-  cursor: pointer;
-  font-weight: 600;
 }
 
 .bloque-infonavit {
@@ -537,12 +523,6 @@
   font-size: 17px;
   font-weight: 700;
   color: #b59133;
-}
-
-.nota {
-  font-size: 14px;
-  margin-top: 10px;
-  color: #777;
 }
 
 /* =========================
@@ -589,10 +569,6 @@
   color: #555;
 }
 
-/* =========================
-   SEPARADOR (DESKTOP)
-========================= */
-
 .icono-separador {
   width: 1px;
   height: 60px;
@@ -600,30 +576,16 @@
   opacity: 0.6;
 }
 
-/* =========================
-   FILAS RESULTADO
-========================= */
-
-.fila {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fila b {
-  color: #000;
-  font-weight: 700;
-}
-
 /* ======================================
-   📱  MOBILE (≤ 768px)
+   📱  MOBILE (≤ 768px) — layout general
 ====================================== */
 
 @media (max-width: 768px) {
 
   .calculadora-contenedor {
+    width: 100%;
     flex-direction: column;
-    gap: 40px;
+    gap: 25px;
     padding: 0 20px;
     align-items: center;
   }
@@ -632,24 +594,23 @@
   .resultado {
     width: 100%;
     max-width: 450px;
+    box-sizing: border-box;
+  }
+
+  .resultado--desktop {
+    padding: 30px 8px;
   }
 
   .resultado-top {
     padding-right: 8px;
   }
 
-  .resultado-item strong {
-    font-size: 28px;
-    text-align: left;
-    display: block;
-  }
-
   #btnCalcular,
   .btn-ingresar {
     width: 100%;
+    font-size: 16px;
   }
 
-  /* BLOQUE INFONAVIT */
   .bloque-infonavit {
     padding: 40px 20px;
     border-radius: 0 0 50px 50px;
@@ -672,11 +633,14 @@
 
 /* ======================================
    📱  RESULTADO MOBILE (sin caja, estilo ss2)
+   Selectores encadenados (.resultado.resultado--mobile) para que
+   siempre le ganen a las reglas base de .resultado, sin depender
+   del orden de carga del CSS en prod.
 ====================================== */
 
 @media (max-width: 768px) {
 
-  .resultado--mobile {
+  .resultado.resultado--mobile {
     width: 100%;
     max-width: 100%;
     padding: 0;
@@ -685,16 +649,14 @@
     text-align: left;
   }
 
-  /* Título "Te prestamos hasta:" */
-  .resultado--mobile h2 {
+  .resultado.resultado--mobile h2 {
     font-size: 22px;
     font-weight: 700;
     color: #142033;
     margin: 0 0 8px;
   }
 
-  /* Monto "-----" en dorado */
-  .resultado--mobile .resultado-item strong {
+  .resultado.resultado--mobile .resultado-item strong {
     display: block;
     font-size: 20px;
     font-weight: 700;
@@ -703,9 +665,8 @@
     text-align: left;
   }
 
-  /* Filas: Tasa / Pagarías mensualmente / CAT / Plazo */
-  .resultado--mobile .fila,
-  .resultado--mobile p.aclaracion.fila {
+  .resultado.resultado--mobile .fila,
+  .resultado.resultado--mobile p.aclaracion.fila {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -715,35 +676,33 @@
     color: #142033;
   }
 
-  .resultado--mobile .fila span,
-  .resultado--mobile p.aclaracion.fila span {
+  .resultado.resultado--mobile .fila span,
+  .resultado.resultado--mobile p.aclaracion.fila span {
     color: #142033;
     flex: 1;
   }
 
-  .resultado--mobile .fila b,
-  .resultado--mobile p.aclaracion.fila b {
+  .resultado.resultado--mobile .fila b,
+  .resultado.resultado--mobile p.aclaracion.fila b {
     font-weight: 700;
     color: #142033;
     white-space: nowrap;
   }
 
-  /* Nota "NI: CAT indicativo..." */
-  .resultado--mobile > .resultado-top > p.aclaracion:not(.fila) {
+  .resultado.resultado--mobile > .resultado-top > p.aclaracion:not(.fila) {
     margin: 0 0 24px;
     font-size: 12px;
     color: #4f5663;
     line-height: 1.4;
   }
 
-  .resultado--mobile hr {
+  .resultado.resultado--mobile hr {
     border: none;
     border-top: 1px solid #e0e0e0;
     margin: 20px 0;
   }
 
-  /* Título "Accede a Mi Cuenta Infonavit" */
-  .resultado--mobile .titulo-cuenta {
+  .resultado.resultado--mobile .titulo-cuenta {
     color: #be945d;
     font-size: 18px;
     font-weight: 800;
@@ -751,17 +710,17 @@
     text-align: left;
   }
 
-  .resultado--mobile .titulo-cuenta + p.aclaracion {
+  .resultado.resultado--mobile .titulo-cuenta + p.aclaracion {
     font-size: 13px;
     color: #4f5663;
     margin: 0 0 20px;
     text-align: left;
   }
 
-  /* Botón Ingresar */
-  .resultado--mobile .btn-ingresar {
+  .resultado.resultado--mobile .btn-ingresar {
     width: 100%;
     height: 42px;
+    margin-top: 0;
     border: 2px solid #781d39;
     border-radius: 24px;
     background: #fff;
@@ -811,6 +770,7 @@
 /* =========================
    TABLET
 ========================= */
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .calculadora-contenedor {
     gap: 40px;
@@ -822,37 +782,8 @@
 }
 
 /* =========================
-   MÓVIL
-========================= */
-@media (max-width: 768px) {
-  .calculadora-contenedor {
-    width: 100%;
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .calculadora-inputs,
-  .resultado {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
-  .resultado--desktop {
-    padding: 30px 8px;
-  }
-}
-
-/* =========================
    OTROS
 ========================= */
-
-.edad-label {
-  text-align: center;
-  font-size: 15px;
-  color: #777;
-  margin-bottom: 10px;
-}
 
 .ahorro {
   position: relative;
@@ -894,7 +825,8 @@
   }
 }
 
-/* Por defecto */
+/* Menú hamburguesa */
+
 .open-btn {
   display: block;
 }
@@ -903,79 +835,12 @@
   display: none;
 }
 
-/* Cuando el menú está abierto */
 .menu-open .open-btn {
   display: none;
 }
 
 .menu-open .close-btn {
   display: block;
-}
-
-.field {
-  width: 100%;
-  max-width: 600px;
-  margin: 16px 0;
-}
-
-.field label {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #000;
-}
-
-#nss {
-  width: 100%;
-  height: 40px;
-  padding: 6px 10px;
-  font-size: 17px;
-  border: 1px solid #cfcfcf;
-  border-radius: 6px;
-  box-sizing: border-box;
-  font-weight: 700;
-
-}
-
-#nss::placeholder {
-  color: #777;
-}
-
-#nss:focus {
-  outline: none;
-  border-color: #4a90e2;
-}
-
-/* =========================
-   INPUT SUELDO
-========================= */
-
-#sueldo {
-  width: 100%;
-  height: 40px;
-  padding: 6px 10px;
-  font-size: 18px;
-  border: 1px solid #cfcfcf;
-  border-radius: 6px;
-  box-sizing: border-box;
-  font-weight: 700;
-}
-
-#sueldo::placeholder {
-  color: #777;
-}
-
-#sueldo:focus {
-  outline: none;
-  border-color: #4a90e2;
-}
-
-.helper-text {
-  display: block;
-  margin-top: 4px;
-  font-size: 12px;
-  color: #666;
 }
 
 @media (min-width: 769px) {
@@ -994,7 +859,12 @@
   }
 }
 
-/* Por defecto (desktop primero) */
+/* =========================
+   TOGGLE DESKTOP / MOBILE
+   (se mantiene al final para que sea explícito que gobierna
+   la visibilidad, independiente de las reglas de estilo de arriba)
+========================= */
+
 .resultado--mobile {
   display: none;
 }
@@ -1002,7 +872,6 @@
   display: block;
 }
 
-/* Mobile: se invierte */
 @media (max-width: 768px) {
   .resultado--mobile {
     display: block;
