@@ -284,6 +284,145 @@ section,
 
 
 </style>
+<style>
+    :root {
+        --maroon: #6d1a35;
+        --gold: #b08d57;
+        --gold-dark: #a07d47;
+        --text-dark: #1f2937;
+        --text-gray: #4b5563;
+        --bg-section: #eeeeee;
+        --white: #ffffff;
+        --radius: 10px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .tramites-section {
+        position: relative;
+        background-color: var(--bg-section);
+        padding: 60px 20px 140px;
+        overflow: hidden;
+    }
+
+    /* Curva blanca decorativa en la parte inferior */
+    .tramites-section::after {
+        content: "";
+        position: absolute;
+        left: -10%;
+        bottom: -60px;
+        width: 120%;
+        height: 160px;
+        background: var(--white);
+        border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        transform: rotate(-3deg);
+        z-index: 0;
+    }
+
+    .tramites-header {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .tramites-header h2 {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin: 0 0 8px;
+    }
+
+    .tramites-header p {
+        font-size: 15px;
+        color: var(--text-gray);
+        margin: 0;
+    }
+
+    .tramites-cards {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .tramite-card {
+        background: var(--white);
+        border: 1px solid #e5e0d8;
+        border-radius: var(--radius);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        width: 230px;
+        padding: 30px 20px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.25s ease, transform 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .tramite-card img {
+        width: 48px;
+        height: 48px;
+        display: block;
+        transition: filter 0.25s ease;
+    }
+
+    .tramite-card span {
+        font-size: 15px;
+        color: var(--gold-dark);
+        font-weight: 500;
+        line-height: 1.3;
+        transition: color 0.25s ease;
+    }
+
+    .tramite-card:hover,
+    .tramite-card:focus-visible {
+        background-color: var(--maroon);
+        transform: translateY(-2px);
+    }
+
+    .tramite-card:hover span,
+    .tramite-card:focus-visible span {
+        color: var(--white);
+    }
+
+    /* Los iconos se asumen en tono dorado (currentColor via SVG) o con filtro para aclararlos en hover */
+    .tramite-card:hover img,
+    .tramite-card:focus-visible img {
+        filter: brightness(0) invert(1);
+    }
+
+    @media (max-width: 768px) {
+        .tramites-cards {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tramite-card {
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .tramites-header h2 {
+            font-size: 22px;
+            padding: 0 10px;
+        }
+    }
+</style>
 
   
     
@@ -619,10 +758,11 @@ section,
 </div>
 
 
+
 <!-- Cards Section -->
     <!-- Cards Section -->
 <div class="cards-container">
-    <div class="text-title"><b style="color: #666;">Realiza tus tareas de manera más sencilla</b></div>
+    <div class="text-title"><b style="color: #666;">Realiza tus trámites de manera más sencilla</b></div>
     <div class="text-subtitle">¡Siguenos!</div>
     <div class="cards-row social-cards">
         <div class="card social-card">
@@ -665,6 +805,10 @@ section,
             </div>
         </div>
     </div>
+
+    
+
+    
 
 
     <div class="infonavit-container">
@@ -711,6 +855,56 @@ section,
 
 
 </style>
+
+
+
+<section class="bloque-infonavit">
+
+  <h2>¿Cuánto me puede prestar Infonavit?</h2>
+
+  <p class="descripcion">
+    Recuerda que la Unidad de Medida y Actualización se cambia regularmente al inicio de cada año.
+  </p>
+
+  <p class="destacado">Esta cantidad se multiplica por 30.4</p>
+
+  <p class="nota">
+    Nota: Este simulador solo aplica para Crédito Infonavit y para Crédito Infonavit Total.
+  </p>
+
+  <div class="iconos-contenedor">
+
+    <div class="icono-item">
+      <div class="icono-circulo">
+        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/202b6ee3-23cc-4fca-a087-0a773b876ee8/icono-monto-del-credito.png?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-202b6ee3-23cc-4fca-a087-0a773b876ee8-pmI1Yit" alt="Crédito" />
+      </div>
+      <h4>Monto del crédito</h4>
+      <p>Varía de acuerdo a la edad o el salario</p>
+    </div>
+
+    <!-- <div class="icono-separador"></div> -->
+
+    <div class="icono-item">
+      <div class="icono-circulo">
+        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/ab938603-c00b-4e11-b3e4-686f94edc048/icono-pagos-fijos.png?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-ab938603-c00b-4e11-b3e4-686f94edc048-pmI1Yxv" alt="Pagos" />
+      </div>
+      <h4>Pagos fijos</h4>
+      <p>Durante toda la vida del crédito</p>
+    </div>
+
+    <div class="icono-separador"></div>
+
+    <div class="icono-item">
+      <div class="icono-circulo">
+        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/6bb0f865-4e0d-43d8-a5d3-8ce70939f971/icono-aporte-patronal.png?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-6bb0f865-4e0d-43d8-a5d3-8ce70939f971-pmI1YMe" alt="Aporte" />
+      </div>
+      <h4>Aporte patronal</h4>
+      <p>Abono directo a capital para reducir el plazo del crédito</p>
+    </div>
+
+  </div>
+
+</section>
 
 
 <div class="calculadora-wrapper">
@@ -818,53 +1012,7 @@ section,
 
 <br>
 
-<section class="bloque-infonavit">
 
-  <h2>¿Cuánto me puede prestar Infonavit?</h2>
-
-  <p class="descripcion">
-    Recuerda que la Unidad de Medida y Actualización se cambia regularmente al inicio de cada año.
-  </p>
-
-  <p class="destacado">Esta cantidad se multiplica por 30.4</p>
-
-  <p class="nota">
-    Nota: Este simulador solo aplica para Crédito Infonavit y para Crédito Infonavit Total.
-  </p>
-
-  <div class="iconos-contenedor">
-
-    <div class="icono-item">
-      <div class="icono-circulo">
-        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/202b6ee3-23cc-4fca-a087-0a773b876ee8/icono-monto-del-credito.png?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-202b6ee3-23cc-4fca-a087-0a773b876ee8-pmI1Yit" alt="Crédito" />
-      </div>
-      <h4>Monto del crédito</h4>
-      <p>Varía de acuerdo a la edad o el salario</p>
-    </div>
-
-    <div class="icono-separador"></div>
-
-    <div class="icono-item">
-      <div class="icono-circulo">
-        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/ab938603-c00b-4e11-b3e4-686f94edc048/icono-pagos-fijos.png?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-ab938603-c00b-4e11-b3e4-686f94edc048-pmI1Yxv" alt="Pagos" />
-      </div>
-      <h4>Pagos fijos</h4>
-      <p>Durante toda la vida del crédito</p>
-    </div>
-
-    <div class="icono-separador"></div>
-
-    <div class="icono-item">
-      <div class="icono-circulo">
-        <img src="https://portalmx.infonavit.org.mx/wps/wcm/connect/6bb0f865-4e0d-43d8-a5d3-8ce70939f971/icono-aporte-patronal.png?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CACHEID=ROOTWORKSPACE-6bb0f865-4e0d-43d8-a5d3-8ce70939f971-pmI1YMe" alt="Aporte" />
-      </div>
-      <h4>Aporte patronal</h4>
-      <p>Abono directo a capital para reducir el plazo del crédito</p>
-    </div>
-
-  </div>
-
-</section>
 
 
 
