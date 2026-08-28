@@ -43,7 +43,7 @@ function removeLoadingText() {
 }
 
 function addWelcomeMessage() {
-    addBotMessage("¡Hola! Soy AVI, el asistente virtual del Infonavit 😊. Puedo ayudarte a:");
+    addBotMessage("¡Hola! <strong>Soy AVI</strong>, el asistente virtual del Infonavit 😊. <strong>Puedo ayudarte a:</strong>");
     addOptionButtons();
 }
 

@@ -504,26 +504,41 @@
 
 .iconos-contenedor {
   margin-top: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+
+  align-items: start;
 }
 
 .icono-item {
+  position: relative;
+
+  width: 100%;
+  max-width: none;
+
+  padding: 0 40px;
+
   text-align: center;
-  max-width: 180px;
 }
 
 .icono-circulo {
   width: 70px;
   height: 70px;
+
   border-radius: 50%;
   border: 2px solid #b59133;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 15px auto;
+
+  margin: 0 auto 15px;
 }
 
 .icono-circulo img {
@@ -534,19 +549,78 @@
 .icono-item h4 {
   color: #b59133;
   font-size: 16px;
-  margin-bottom: 6px;
+  margin: 0 0 6px;
 }
 
 .icono-item p {
+  max-width: 220px;
+  margin: 0 auto;
+
   font-size: 13px;
+  line-height: 1.5;
+
   color: #555;
 }
 
+
+/* Ya no necesitamos que el separador ocupe espacio */
 .icono-separador {
+  display: none;
+}
+
+
+/* Separadores visuales */
+.icono-item:not(:last-of-type)::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+  top: 75px;
+
   width: 1px;
   height: 60px;
+
   background: #b59133;
   opacity: 0.6;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .bloque-infonavit {
+    padding: 45px 20px;
+    border-radius: 0 0 45px 45px;
+  }
+
+  .bloque-infonavit h2 {
+    font-size: 24px;
+  }
+
+  .bloque-infonavit .descripcion {
+    font-size: 14px;
+  }
+
+  .iconos-contenedor {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 35px;
+  }
+
+  .icono-item {
+    padding: 0 10px;
+  }
+
+  .icono-item:not(:last-of-type)::after {
+    display: none;
+  }
+
+  .icono-item p {
+    max-width: 280px;
+  }
 }
 
 /* ======================================
