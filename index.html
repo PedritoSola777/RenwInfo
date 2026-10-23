@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Derechohabientes | Infonavit</title>
     <link rel="icon" href="./assets/img/infonavit.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/botStyles.css">
     <link rel="stylesheet" href="assets/css/banner.css">
@@ -72,97 +73,72 @@
   color: #5e4a3f;
 }
 
-  /* =========================
-   VISIBILIDAD MOBILE / DESKTOP
-========================= */
-
-/* Por defecto: desktop */
-.mobile-only {
-  display: none !important;
-}
-
-.desktop-only {
-  display: block;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .mobile-only {
-    display: block !important;
-  }
-
-  .desktop-only {
-    display: none !important;
-  }
-}
-
-
-
-
   </style>
 
   <style>
-    /* =========================
-   BOTONES MENU MOBILE
-========================= */
+  /* =========================
+     VISIBILIDAD MOBILE / DESKTOP (bloque único)
+  ========================= */
 
-.mobile-only {
-  display: none;
-}
-
-@media (max-width: 768px) {
-
+  /* Por defecto: lo mobile-only no se ve */
   .mobile-only {
-    display: block;
-  }
-
-  /* ESTADO BASE (🔥 CLAVE) */
-  .open-btn {
-    display: block !important;
-  }
-
-  .close-btn {
     display: none !important;
   }
 
-  /* CUANDO EL MENÚ ESTÁ ABIERTO */
-  body.menu-open .open-btn {
-    display: none !important;
+  @media (max-width: 768px) {
+
+    .mobile-only {
+      display: block !important;
+    }
+
+    .desktop-only {
+      display: none !important;
+    }
+
+    /* BOTONES MENU MOBILE: estado base */
+    .open-btn {
+      display: block !important;
+    }
+
+    .close-btn {
+      display: none !important;
+    }
+
+    /* Cuando el menú está abierto */
+    body.menu-open .open-btn {
+      display: none !important;
+    }
+
+    body.menu-open .close-btn {
+      display: block !important;
+    }
+
+    /* Navbar inferior mobile */
+    #navbarLower {
+      display: none !important;
+    }
+
+    #navbarLower.menu-open {
+      display: block !important;
+    }
   }
-
-  body.menu-open .close-btn {
-    display: block !important;
-  }
-}
-
-@media (max-width: 768px) {
-  #navbarLower {
-    display: none !important;
-  }
-
-  #navbarLower.menu-open {
-    display: block !important;
-  }
-}
-
-
   </style>
   
 <style>
 /* =========================
-   RESULTADO – MOBILE (MICRO AJUSTE FINAL)
+   RESULTADO – MOBILE
 ========================= */
 
 @media (max-width: 768px) {
   .resultado {
-    padding: 65px 55px;
+    padding: 40px 24px;
     box-sizing: border-box;
   }
 }
 
 @media (max-width: 480px) {
   .resultado {
-    padding: 70px 55px;
+    padding: 32px 20px;
   }
 }
 
@@ -425,7 +401,219 @@ section,
 </style>
 
   
-    
+  <style>
+  .beneficios {
+    --oro: #b98f55;
+    --fondo-card: #f4f1e9;
+    --texto: #222;
+    --gris: #c9c9c9;
+    --por-vista: 4;
+    --gap: 28px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: var(--texto);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(24px, 6vw, 40px) clamp(12px, 4vw, 20px);
+    box-sizing: border-box;
+    overflow-x: clip;
+  }
+  .beneficios *, .beneficios *::before, .beneficios *::after { box-sizing: border-box; }
+
+  .beneficios__titulo {
+    text-align: center;
+    font-size: clamp(17px, 4.5vw, 20px);
+    font-weight: 700;
+    margin: 0 0 clamp(28px, 7vw, 56px);
+    padding: 0 8px;
+  }
+
+  .beneficios__carrusel {
+    position: relative;
+    padding: 0 56px;
+  }
+  .beneficios__ventana {
+    overflow: hidden;
+    padding: 2px;
+    margin: -2px;
+    touch-action: pan-y;
+    user-select: none;
+  }
+  .beneficios__pista {
+    --i: 0;
+    display: flex;
+    gap: var(--gap);
+    transition: transform .45s ease;
+    transform: translateX(calc(var(--i) * -1 * ((100% - var(--gap) * (var(--por-vista) - 1)) / var(--por-vista) + var(--gap))));
+  }
+
+  .beneficios__card {
+    flex: 0 0 calc((100% - var(--gap) * (var(--por-vista) - 1)) / var(--por-vista));
+    min-width: 0;
+    min-height: 305px;
+    background: var(--fondo-card);
+    border: 2px solid var(--oro);
+    border-radius: 10px;
+    padding: 24px 20px;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  .beneficios__icono {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 14px;
+    display: block;
+    object-fit: contain;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+  .beneficios__card h3 {
+    margin: 0 0 18px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .beneficios__card p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .beneficios__card p a { color: #a3324f; text-decoration: none; }
+  .beneficios__card p a:hover { text-decoration: underline; }
+  .beneficios__card p strong { font-weight: 700; }
+
+  .beneficios__flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 3px solid var(--gris);
+    border-radius: 50%;
+    background: #fff;
+    color: var(--gris);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+  }
+  .beneficios__flecha:hover:not(:disabled) { color: var(--oro); border-color: var(--oro); }
+  .beneficios__flecha:focus-visible, .beneficios__punto:focus-visible { outline: 2px solid var(--oro); outline-offset: 3px; }
+  .beneficios__flecha:disabled { opacity: .5; cursor: default; }
+  .beneficios__flecha svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .beneficios__flecha--prev { left: 0; }
+  .beneficios__flecha--next { right: 0; }
+
+  .beneficios__puntos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+  }
+  .beneficios__punto {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: var(--gris);
+    cursor: pointer;
+    transition: width .3s ease, background .3s ease;
+  }
+  .beneficios__punto[aria-current="true"] { width: 30px; background: var(--oro); }
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .beneficios { --por-vista: 2; --gap: 20px; }
+    .beneficios__card { min-height: 260px; }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .beneficios { --por-vista: 1; --gap: 14px; }
+    .beneficios__carrusel { padding: 0 36px; }
+    .beneficios__card { min-height: 0; padding: 20px 16px; }
+    .beneficios__card h3 { font-size: 15px; margin-bottom: 12px; }
+    .beneficios__flecha { width: 28px; height: 28px; border-width: 2px; }
+    .beneficios__flecha svg { width: 12px; height: 12px; }
+    .beneficios__puntos { margin-top: 24px; gap: 8px; }
+    .beneficios__punto { width: 10px; height: 10px; }
+    .beneficios__punto[aria-current="true"] { width: 24px; }
+  }
+
+  @media (max-width: 360px) {
+    .beneficios__carrusel { padding: 0 30px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .beneficios__pista, .beneficios__punto { transition: none; }
+  }
+</style>
+
+<style>
+  
+/* ICONOS CUÁNTO ME PUEDE PRESTAR - MOBILE */
+@media (max-width: 768px) {
+
+  .bloque-infonavit .iconos-contenedor {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 28px !important;
+    width: 100%;
+    margin: 30px auto 0 !important;
+  }
+
+  .bloque-infonavit .icono-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  .bloque-infonavit .icono-circulo {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px;
+    margin: 0 auto 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0;
+  }
+
+  .bloque-infonavit .icono-circulo img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: auto !important;
+  }
+
+  .bloque-infonavit .icono-item h4 {
+    margin: 0 0 6px !important;
+    text-align: center !important;
+  }
+
+  .bloque-infonavit .icono-item p {
+    margin: 0 !important;
+    text-align: center !important;
+    line-height: 1.5;
+  }
+
+  .bloque-infonavit .icono-separador {
+    display: none !important;
+  }
+
+}
+
+</style>
 
 </head>
 <body>
@@ -434,7 +622,6 @@ section,
 
 
    <!-- Navbar Inferior – Desktop (segunda barra, “desktop-only2”) -->
-<!-- Navbar Inferior – Desktop (segunda barra, “desktop-only2”) -->
 <nav class="navbar-lower desktop-only2">
     <ul class="navbar-nav">
       <!-- Ítem con Dropdown: Aliados Estratégicos -->
@@ -576,7 +763,10 @@ section,
             <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/seguro-danos/!ut/p/z1/nZRdb4IwFIZ_ixdejh4-LGV3BKYUMpD4ud4sujAkQTDIRvbvB7glDufBrXe0z9P3wGkhgqyJyDbvSbwpkzzbpPXzk6DPdALgWJrssyUzIfQNX_GoygNVISsEUFyTEnG-HOhjC8LxiM4eYQrM0798w7A12WOgTGUfIFyGss1tHUag3ebDlWHCbf6VF7Q4Wj84tOtfAlh-oON-AyD-w6zHbwAsX-upvwEQ37N6_AZofW6DzKy6vQtXAzqntkNnwcRy1G__OoD2r69-j_6x_5eA-P_5bwGBH88VEUjE6Qa1AHZF-kKwCM5kpa8GHd8hmKtdoPMdGSUuEXGab0__FDPbqiwmooheoyIqpLeint6V5eF4P4QhVFUlxXkep5H0ku-H8Juyy48lWf8kyWG_OBtrSHjC78T2ozIHg09bYHdb/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Seguro de daños por siniestro</a>
             <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/pagos/!ut/p/z1/lY5LCsIwAETP4gkyifkuQ0u1lsYGsbbZSFYS0OpCPL8Vuqmi4OwG3mOGBNKRMMRHOsV7ug7xPPY-yKNcAeuMU7dVRQZfCLmr0QC1IIc5oFtt4Z1xrJJLtrGKhL_8T-Dl40ssRj_MJ94fyAkwJue00mANdYBvPc3LXEGAT8CPkdtl3yGViyeBeTDa/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Pagos</a>
             <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/dev_excedentes/!ut/p/z1/pZRLc4IwEIB_iwePNQuEEHqjUOUxvHzSXDrYociMgoO0TP99QdsZsTXYaW6Q72M3uxsQQxFiefyepXGVFXm8bZ6fGHkmEwBTx4IHLn2AUBIdOdACMKcErboAXVINQk_1RIdIoq0RxM63fWWsQziWycyFAMCVv3xVNbDgUBCDJgaEy1AwLEMBGfBtPlxZGtzmXwGor_D8x5nC91uA41NMeuJjbv0cvcdvgaNvGSBQvSnvwsZA5sQwycyf6Kb07V8HePk7ffk7hO8rff5F_TrjZfmSyJ2_I_Cf_rcA-9P8_wQYfzxXiHGOeLpBR4B3RfqC8EJYVBD7clD4X_Dn0iVw0UdKkI1Yui3Wp3-Klq8lmiJWJq9JmZSjt7J5vamq_eF-CEOo63qUFkW6TUYvxW4Ivymb4lChqEui_W5xtiLIrMy6Y-uPWhsMPgGN1GK6/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Devolución de Pago a Beneficiarios</a>
-            </div>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/asesores_de_recuperacion_crediticia/!ut/p/z1/jZBBa4NAEIV_jVfn7caua2-L0tYENrHQxOwlmGI3grpBTf37TTCXQi2Z2wzfxxseGcrJtMV3ZYuhcm1RX_e9EQeRJmAyBmfv6xcILVicBozHIWg3Aa_AWxwwLbdSIdOR5iux4EsVknnInwduPmZG3XwzRcx9IO5AFCUBW0nwDdNAts1YkiYhnhDcgX9ClmRs7Y5TH6o9LqQl05VfZVd2_qW7nk_DcO6fPXgYx9G3ztm69D9d4-Ev5eT6gfLfJJ2bjxzVptnJXv0AlzJDjw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Asesores de recuperación crediticia</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/asesores_de_recuperacion_crediticia/!ut/p/z1/jZBBa4NAEIV_jVfn7caua2-L0tYENrHQxOwlmGI3grpBTf37TTCXQi2Z2wzfxxseGcrJtMV3ZYuhcm1RX_e9EQeRJmAyBmfv6xcILVicBozHIWg3Aa_AWxwwLbdSIdOR5iux4EsVknnInwduPmZG3XwzRcx9IO5AFCUBW0nwDdNAts1YkiYhnhDcgX9ClmRs7Y5TH6o9LqQl05VfZVd2_qW7nk_DcO6fPXgYx9G3ztm69D9d4-Ev5eT6gfLfJJ2bjxzVptnJXv0AlzJDjw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Asesores de recuperación crediticia</a>
+
+          </div>
         </li>
         
 
@@ -604,7 +794,7 @@ section,
                 <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/11_aportaciones_credito/10_aportaciones_patron/!ut/p/z1/jZDLCoJAFIafxQeIOWM66lIU85I3QrPZyGBmA6Vi0qKnb4I2Bqlnd_j__1w-RFGBaMuevGEj71p2E_2JkpLsAFxLwVGsORakjkoOISSgxwQdpwY9101IIyOSA7KVfZMguiZvGLaCAx3kBEcAaZ5i27M1UEFZl4c_ZcK6_IyBzo_3lxYIgvIQWmGDaM_G64a3lw4VGJes74aRVYJz_SiroT7z8SPAVBCZoWvFmXS66Be0tmQgX8Mc6qVn-3uWZcVr7wL3GlOS3vPNyLY!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=49e52e39-68fe-49f7-a174-9b5934e46906&subtemaSelect=042bb25e-f7fe-4c3e-98ad-9de61382c7ea">Aportaciones a mi ahorro</a>
                 <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/12_quiero_credito/10_informacion_obtener/!ut/p/z1/jZDLDoIwEEW_xQ8wnVYosCQQBJVXDIrdNBURmyhogy78ejFxo4nA7Gbm3nkcxFCOWC0eshKtbGpx7vIdo5zOAXxHw1FseA6knk7XISRgxhRtvwXmxrQhjayILOmMLGyK2Bi_ZbkaXppAEhwBpJsUu4FrgA7aOD_8CRvG-XsErH_8YmhBR5Co0AkrxK6iPU1lfWxQjgm_3WWpGl6o8iDbdwn4u6cuoujY82bflnWpugPZ94pfxMaQgH4EfZCH3rxesizLnysfZFDZk8kLzFodKw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=f11561e0-37ae-4ac3-b484-05a6caa16294&subtemaSelect=909de2bc-05b8-4229-a420-dffa147547b8">Quiero un crédito</a>
                 <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/13_tengo_credito/10_informacion_credito/!ut/p/z1/jZDdCoJAEIWfpQeImTVd10tRyn7cWsKyvVkWM1soDZEuevoMIihInbuZ-c4c5oCEFGSp76bQjalKfWn7g6SKzhCjwCZ87U4DFFOHbmPcIFtT2H8DbMd8FNzj1pJOrIVPQQ7Re15okyVDa0M4otgJEs5DFx20h-nxT_k4TN8ByO7ziz6DNkGrjoO4AHnTzXlsylMFKZmoJi-LSmV1fjTNa4LqtaqvOmuj_8z3IL8dfhN2-wD6Broy7vvydk2SJH2sIjTzwh-NnowoMVA!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=be54ebb9-521c-4c3c-8269-b34d694b502c&subtemaSelect=5250bedf-4e85-4d4c-a6aa-2afce591c2d1">Tengo un crédito</a>
-                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/14_mi_cuenta/10_quiero_registrarme/!ut/p/z1/jZDNDoIwEISfxQcw3SIUOBKICshfDIi9NI1BbCI_VvDg08vBCyYCe5vkm9ndQRTliNb8JUreiabm90GfKWFkB7C3VRxG-taGZKuRYwAxGBFBpzFgZIYFSWiGik82imcRRJf4TdNRsW-AEuMQIMkS7LiODhqoy_zwZyxY5p8A6HS8N7dgaFCRgR2UiLa8u61FfW1QjlVWCXbpi7rjgwL26EUhGyaLUjw7yWVVDKfRcfhvufocQL7AVL1zD7ZVmqb5-7AH4ZbWavUBu5c1UQ!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=85d7acc8-38d7-4871-8fea-902d237ff5b6&subtemaSelect=206ae78e-7cb0-4513-a1a4-589164983071">Mi cuenta infonavit</a>
+                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/14_mi_cuenta/10_quiero_registrarme/!ut/p/z1/jZDNDoIwEISfxQcw3SIUOBKICshfDIi9NI1BbCI_VvDg08vBCyYCe5vkm9ndQQwViEn-FBUfRSv5fdJXRkpyAPBsDceJ4dqQuTo5RZACTQi6zAF6phZksRmrIdmrgUUQ2-I3TUfDIQU1xTFAds6w4zsG6KBt88OfsWCbfwFgy_HB2oKpQbWP7KhCrONjvRPy1qICQ9mIktdt33_VUHYPObbDdBKbh_6WaqwB5AMs1br2WNfkeV68jh4Iv7IU5Q0_NAl_/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=85d7acc8-38d7-4871-8fea-902d237ff5b6&subtemaSelect=206ae78e-7cb0-4513-a1a4-589164983071">Mi cuenta infonavit</a>
                 <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/16_atencion_servicios/10_aclaraciones_nss/!ut/p/z1/jVDLDoIwEPwWP8B0i1jgSCAKKCAxKPbSNASxiRZCCQe_3pp40URgT_uY2dkdRFGBqOSDqHkvGsnvur5QwsgWIPBMnKTWxoNssybHGA5gpwSdvwH2yXYhS5zE2JGVEbkE0Tl8x_FNvLPBOOAEIDtl2A99C9ZgzuPDn3BhHn8EQMfXR1MC2kGji724RrTl_W0p5LVBBSaM95UstctMVd0gdKZ0Gxgv77zj70GlmFRKX0i_NX49tqYA5AMYc3nqz_aR53nx3AcgwtpdLF6Dw8ZA/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=6eb62bc3-1386-459d-9a1b-a6433f67b52c&subtemaSelect=e88d9fb1-fbe3-4f9e-a81b-86673c4f250e">Atención y servicios</a>
                 <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/15_terminos_comunes/10_relacion_credito/!ut/p/z1/jZDLDoIwEEW_xQ8wnSIUWBKIL-QVg2I3TYOITaA1iC78ertwo4nA7GZy7tyZiygqEJX8KWreCyV5o_sTJYysANa-iePEXvqQLS2yjyAFJyHo-A04B8eDLHZjIyQLY-sRRKfoXTcwceiAkeIYIDtkONgENlhgTtPDn_Jgmn4AoMPrt2MGOkGji_yoRvTG--tcyItCBbZYX3WtkOrOStU-ZHXXQ2Bd1fBSR8_KrjqLXun76LfDb8L2GEA-wFDGY1_e2jzPi9duDWJTe7PZG4SCOQw!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=02e61cff-c1ce-419d-9ab7-4d39e52e433f&subtemaSelect=feb3d577-479b-4dbe-b6b3-8824e8eb10ea">Términos comunes</a>
                 <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/centro_ayuda/17_glosario/10_glosario/!ut/p/z1/jZDNCoJAFIWfxQeIuWM66lIU8ydHh_Cn2chssgFTMWnR02cQhEHq3R34zjncgzgqEW_FQ9ZilF0rmkmfOanIAcB3NEwTw3OAeTo5xZCCmRBUzAEzN21g1KJqRPZqaBPEt_gty9VwZIKaYgrAcobdwDVAB22bH_6cDdv8CwBfjg_XCqYF1SF24hrxXozXnWwvHSqxUdVNdxeDfAv4igLxeeLvosYaQD7A0qZrX_W3LMvK59EHGdS2orwAe6K7zg!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/?pestaniaSelect=300dcc3b-6778-4888-82f8-53c3652064a1&subtemaSelect=44172f98-d75c-4534-927d-e56b334a22f6">Glosario</a>
@@ -633,9 +823,10 @@ section,
             <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/solucion_integral/!ut/p/z1/pZRdb4IwFIZ_ixdezp4Clro7UqZUMpDg13qzyMKQRMUgG9m_n4gXauapyXoHfR7enp4WosiSqN3qO89WVV7sVpvj85ti70y6QLkAYzIbW8CmzPVYHI6EZ5JFC4wAPGHRgM-5A1EwCAyfmcbYYURdTof2UEA07LP4FSbgC3b2BwPXoj4_BtAAIJpH1JWuDX2wHvPhznDgMf8OwAXFfB6Dxo9v8q-2R_qeje7fCUB8IRnuNwCyfvA09TcAVn9oa-oPbcx_iTV-A2D5lq5_FvtX_xtAPXT-7wMKP54LopAWtzfoBGBXRBeCRUhODd0abPwL4dS8BW76wBkZE5VtiqT9pzi7xOQZUWX6mZZp2fsqj6_XVbU_PHehC3Vd97KiyDZp76PYduEvZV0cKrK8Jsl-O7sYS8hlLp9U8lM7nc4vBAvMEw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Solución Integral</a>
             <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/soluciones_para_ti/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz9_M3dnA0C3UzNgn0NAgwsvM30w1EVWIRZOBoE-ln6GXmbGRt5OZrrR5GkH1MBSL8BDuBoANQfhWoFugvMoAosLV1MDL0tDIwCDP0MDALDAg1dPF3MDUwNTKAK8FhSkBsaYZDpqQgA8bxpIA!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Soluciones para ti</a>
             <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/agencia_soluciones/!ut/p/z1/lZRbb4IwFIB_iw8-jh4ulrI3AlMqGUjwwvqyyMKQBMUgG9m_H6hLhmirfWv7fT0n7TlFDEWI7dbfWbqusmK3zpv5G8PveALgWJrs-frYgmA8wuErzIC4Olp1AbIkJgSe4SkuVpWpiRHj-fjsG4atyS4BZSZ7AMEykG1q6zAC7T4fbgwT7vOv509dR-_63W2LCvwW4MQHp-f3AV7-vs73W4Djv4QCvwV48TVB_i3A8V1L4LfA0ac2yMRqymMx1QDPse3g0J9Yjvrn3wYee_8-wB6q_z7A-OW5QoxTYqcOOgK8FhEF4YWgRFZEOej8E_y5eglc3APBaIpYmhfx6U8xd7FKUsTK5DMpk1L6KpvlTVXtD89DGEJd11JaFGmeSB_FdgjXlE1xqFDUJdF-u_g3IshoRp9Y_FObg8Eva3dQUw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Agentes de Cobranza Extrajudicial</a>
-            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/seguro-danos/!ut/p/z1/nZRdb4IwFIZ_ixdejh4-LGV3BKYUMpD4ud4sujAkQTDIRvbvB7glDufBrXe0z9P3wGkhgqyJyDbvSbwpkzzbpPXzk6DPdALgWJrssyUzIfQNX_GoygNVISsEUFyTEnG-HOhjC8LxiM4eYQrM0798w7A12WOgTGUfIFyGss1tHUag3ebDlWHCbf6VF7Q4Wj84tOtfAlh-oON-AyD-w6zHbwAsX-upvwEQ37N6_AZofW6DzKy6vQtXAzqntkNnwcRy1G__OoD2r69-j_6x_5eA-P_5bwGBH88VEUjE6Qa1AHZF-kKwCM5kpa8GHd8hmKtdoPMdGSUuEXGab0__FDPbqiwmooheoyIqpLeint6V5eF4P4QhVFUlxXkep5H0ku-H8Juyy48lWf8kyWG_OBtrSHjC78T2ozIHg09bYHdb/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Seguro de daños por siniestro</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/seguro-danos/!ut/p/z1/nZRdb4IwFIZ_ixdejh4-LGV3BKYUMpD4ud4sujAkQTDIRvbvB7glDufBrXe0z9P3wGkhgqyJyDbvSbwpkzzbpPXzk6DPdALgWJrss8yUzIfQNX_GoygNVISsEUFyTEnG-HOhjC8LxiM4eYQrM0798w7A12WOgTGUfIFyGss1tHUag3ebDlWHCbf6VF7Q4Wj84tOtfAlh-oON-AyD-w6zHbwAsX-upvwEQ37N6_AZofW6DzKy6vQtXAzqntkNnwcRy1G__OoD2r69-j_6x_5eA-P_5bwGBH88VEUjE6Qa1AHZF-kKwCM5kpa8GHd8hmKtdoPMdGSUuEXGab0__FDPbqiwmooheoyIqpLeint6V5eF4P4QhVFUlxXkep5H0ku-H8Juyy48lWf8kyWG_OBtrSHjC78T2ozIHg09bYHdb/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Seguro de daños por siniestro</a>
             <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/pagos/!ut/p/z1/lY5LCsIwAETP4gkyifkuQ0u1lsYGsbbZSFYS0OpCPL8Vuqmi4OwG3mOGBNKRMMRHOsV7ug7xPPY-yKNcAeuMU7dVRQZfCLmr0QC1IIc5oFtt4Z1xrJJLtrGKhL_8T-Dl40ssRj_MJ94fyAkwJue00mANdYBvPc3LXEGAT8CPkdtl3yGViyeBeTDa/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Pagos</a>
             <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/dev_excedentes/!ut/p/z1/pZRLc4IwEIB_iwePNQuEEHqjUOUxvHzSXDrYociMgoO0TP99QdsZsTXYaW6Q72M3uxsQQxFiefyepXGVFXm8bZ6fGHkmEwBTx4IHLn2AUBIdOdACMKcErboAXVINQk_1RIdIoq0RxM63fWWsQziWycyFAMCVv3xVNbDgUBCDJgaEy1AwLEMBGfBtPlxZGtzmXwGor_D8x5nC91uA41NMeuJjbv0cvcdvgaNvGSBQvSnvwsZA5sQwycyf6Kb07V8HePk7ffk7hO8rff5F_TrjZfmSyJ2_I_Cf_rcA-9P8_wQYfzxXiHGOeLpBR4B3RfqC8EJYVBD7clD4X_Dn0iVw0UdKkI1Yui3Wp3-Klq8lmiJWJq9JmZSjt7J5vamq_eF-CEOo63qUFkW6TUYvxW4Ivymb4lChqEui_W5xtiLIrMy6Y-uPWhsMPgGN1GK6/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Devolución de Pago a Beneficiarios</a>
+            <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/tengo-un-credito/asesores_de_recuperacion_crediticia/!ut/p/z1/jZBBa4NAEIV_jVfn7caua2-L0tYENrHQxOwlmGI3grpBTf37TTCXQi2Z2wzfxxseGcrJtMV3ZYuhcm1RX_e9EQeRJmAyBmfv6xcILVicBozHIWg3Aa_AWxwwLbdSIdOR5iux4EsVknnInwduPmZG3XwzRcx9IO5AFCUBW0nwDdNAts1YkiYhnhDcgX9ClmRs7Y5TH6o9LqQl05VfZVd2_qW7nk_DcO6fPXgYx9G3ztm69D9d4-Ev5eT6gfLfJJ2bjxzVptnJXv0AlzJDjw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Asesores de recuperación crediticia</a>
         </div>
     </div>
     <div class="menu-section">
@@ -645,7 +836,7 @@ section,
                 <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/mi_ahorro/pagos_proceso_aclaratorio/!ut/p/z1/lZTBcoIwEEC_xQPHkiVIiL1RrRUZEKRVmktHOhSZQXCQlunfV6SHInbR3JJ5L7vZbEIECYjINl9JvCmTPNukx_mrYG_sCWA2HirOQp-OwZtqzLfBBe4DWbcBvuIGeM7IoRZT6dxgRCD-WPn1R6PJULE4UFdxALyVp0zMiQ4aDK_z4Z9hwHX-5fxNrlDMf_T1c78LYPEthvs1gPp6n38Wv328xbOKn78GMF-lPb6K1g9sDc-_Blo-2PwBPJVammu4MFt26tcFbrv_LiBu6v8uIPD2XBOBlLh5QScAeyJ9QbAQTZPjOej4Dqc2QQvFGZkTEad52PwpRhaqPCaiiD6iIirkz-K4vC3L_eFeAgmqqpLjPI_TSH7PdxJcUrb5oSRBmyT73cufEUBiJuadCL8rYzD4AfFCIU4!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Pagos en proceso aclaratorio</a>
                 <a href="remo.html">Retiro de mi ahorro</a>
                 <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/mi_ahorro/trabajadores_plataformas_digitales/!ut/p/z1/pZBJD4IwEIV_Ul8LlHJEGqQSlqIC9mI4GRJFD8bf73ZxY0l8t8m8mW_eEENqYrrm0u6ac3vsmv2t3hi-5UqCigAsAgvBcxmLWVTQIqOkehrmQBTYNBWl8KFTL2Uxt9jCd4l5bWduGECHDl8myIHE-Zz_Npi_-Hwa3_OkTWMBltMU0KWmUkkXDuxp8-iRj4n5-wOa4fUVMe-IHx94GIYijkGGECpbWWM3uOR0WN9Vo1XtFcTQ2uE!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Trabajadores de plataformas digitales</a>
-                                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/mi_ahorro/trabajadores_independientes/!ut/p/z1/jZLLDoIwFES_xS_olMelLJEGKEQeiordGFaGRNGF8fs1ukGUx901PZOZOy3TrGK6rR_Nqb4317Y-v84HTUdSElz4MPJtbIFKkhFtslASsf0HCIHIt3gqdsJDkbqpkZBpxJ7DdPc6cwIfRWDTZoUcWNl9_S-gu_4RjACUy0QsozVfZ3zKn-bpXVdaPBGvBXkKFLuCSyUd2LDm6TEwHmbmHwb0rP6HAT0eb8_09xP9afANjFU0ZTJmobLSnMrg9IHvbyIEsdtl-54KjWqUt3gCAdZhbw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Trabajadores independientes y del hogar</a>
+                                <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/derechohabientes/mi_ahorro/trabajadores_independientes/!ut/p/z1/jZLLDoIwFES_xS_olMelLJEGKEQeiordGFaGRNGF8fs1ukGUx901PZOZOy3TrGK6rR_Nqb4317Y-v84HTUdSElz4MPJtbIFKkhFtslASsf0HCIHIt3gqdsJDkbqpkZBpxJ7DdPc6cwIfRWDTZoUcWNl9_S-gu_4RjACUy0QsozVfZ3zKn-bpXVdaPBGvBXkKFLuCSyUd2LDm6TEwHmbmHwb0rP6HAT0eb8_09xP9afANjFU0ZTJmobLSnMrg9IHvbyIEsdtl-54KjWqUt3gCAdZhbw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Trabajadoras independientes y del hogar</a>
           
               </div>
     </div>
@@ -683,25 +874,6 @@ section,
   }
 }
 </style>
-
-<!-- <div class="image-movement">
-    <img src="./assets/img/feriasWeb.png" alt="Credito Infonavit" class="desktop-img active">
-    <img src="./assets/img/bannerDesk2.png" alt="" class="desktop-img">
-    <img src="./assets/img/bannerDesk3.png" alt="" class="desktop-img">
-
-    
-
-    <div class="navigation-buttons">
-        <button class="active"></button>
-        <button></button>
-        <button></button>
-    </div>
-</div> -->
-
-
-
-
-
 
 
 <div class="image-movement">
@@ -760,7 +932,6 @@ section,
 
 
 <!-- Cards Section -->
-    <!-- Cards Section -->
 <div class="cards-container">
     <div class="text-title"><b style="color: #666;">Realiza tus trámites de manera más sencilla</b></div>
     <div class="text-subtitle">¡Siguenos!</div>
@@ -785,30 +956,92 @@ section,
         </div>
     </div>
 
-    <div class="cards-container">
-        <div class="text-title"><b style="color: #666;">Beneficios de un crédito infonavit</b></div>
-        <div class="cards-row benefit-cards">
-            <div class="card benefit-card">
-                <img src="./assets/icons/ahorro.png" alt="Ahorro Icon">
-                <p><b>Mi ahorro</b></p>
-                <p>Utiliza tu ahorro en la <b class="textoSub">Subcuenta de Vivienda</b> para ampliar tu capacidad de compra</p>
-            </div>
-            <div class="card benefit-card">
-                <img src="./assets/icons/request_quote_24dp_2854C5_FILL0_wght400_GRAD0_opsz24.png" alt="Interés Icon">
-                <p><b>Tasa de interés</b></p>
-                <p>Tasa diferenciada por nivel salarial, fija durante toda la vida del crédito.</p>
-            </div>
-            <div class="card benefit-card">
-                <img src="./assets/icons/currency_exchange_24dp_2854C5_FILL0_wght400_GRAD0_opsz24.png" alt="Aportaciones Icon">
-                <p><b>Aportaciones patronales</b></p>
-                <p>Se aplican al pago del capital de tu crédito</p>
-            </div>
-        </div>
+    <!-- ===== INICIO DEL COMPONENTE ===== -->
+<div class="beneficios" id="beneficios">
+  <h2 class="beneficios__titulo">Beneficios de un crédito Infonavit</h2>
+
+  <div class="beneficios__carrusel">
+    <button class="beneficios__flecha beneficios__flecha--prev" type="button" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+
+    <div class="beneficios__ventana">
+      <div class="beneficios__pista">
+
+        <!-- 1. Mi ahorro -->
+        <article class="beneficios__card">
+          <img class="beneficios__icono" src="assets/icons/icono-mi-ahorro.png" alt="" width="40" height="40" draggable="false">
+          <h3>Mi ahorro</h3>
+          <p>Utiliza tu ahorro en la <a href="#">Subcuenta de Vivienda</a> para ampliar tu capacidad de compra.</p>
+        </article>
+
+        <!-- 2. Tasa de interesés -->
+        <article class="beneficios__card">
+          <img class="beneficios__icono" src="assets/icons/icono-tasa-de-interes.png" alt="" width="40" height="40" draggable="false">
+          <h3>Tasa de interesés</h3>
+          <p>Tasa diferenciada por nivel salarial, fija durante toda la vida del crédito.</p>
+        </article>
+
+        <!-- 3. Aportaciones patronales -->
+        <article class="beneficios__card">
+          <img class="beneficios__icono" src="assets/icons/icono-aportaciones-patronales.png" alt="" width="40" height="40" draggable="false">
+          <h3>Aportaciones patronales</h3>
+          <p>Se aplican al pago del capital de tu crédito.</p>
+        </article>
+
+        <!-- 4. Crédito conyugal -->
+        <article class="beneficios__card">
+          <img class="beneficios__icono" src="assets/icons/icono-credito-conyugal.png" alt="" width="40" height="40" draggable="false">
+          <h3>Crédito conyugal</h3>
+          <p>Puedes sumar el monto de tu crédito al de tu cónyuge y conseguir un mayor financiamiento.</p>
+        </article>
+
+        <!-- 5. Estás protegido -->
+        <article class="beneficios__card">
+          <img class="beneficios__icono" src="assets/icons/icono-estas-protegido.png" alt="" width="40" height="40" draggable="false">
+          <h3>Estás protegido</h3>
+          <p>Tu vivienda cuenta con seguro de daños y tus cuentas con un seguro en caso de desempleo.</p>
+        </article>
+
+        <!-- 6. Cobranza Social -->
+        <article class="beneficios__card">
+          <img class="beneficios__icono" src="assets/icons/icono-cobranza-social.png" alt="" width="40" height="40" draggable="false">
+          <h3>Cobranza Social</h3>
+          <p>En caso de que tengas problemas para pagar, te ofrecemos alternativas de acuerdo a tus posibilidades.</p>
+        </article>
+
+        <!-- 7. Obtén descuentos -->
+        <article class="beneficios__card">
+          <img class="beneficios__icono" src="assets/icons/icono-obten-descuentos.png" alt="" width="40" height="40" draggable="false">
+          <h3>Obtén descuentos</h3>
+          <p>Puedes ser candidato a descuentos por liquidación anticipada de tu crédito hipotecario.</p>
+        </article>
+
+        <!-- 8. Créditos Subsecuentes -->
+        <article class="beneficios__card">
+          <img class="beneficios__icono" src="assets/icons/icono-segundo-credito.png" alt="" width="40" height="40" draggable="false">
+          <h3>Créditos Subsecuentes</h3>
+          <p>Ahora ya puedes tener más créditos para comprar otra casa, terreno, renovar, reparar, construir o pagar tu crédito hipotecario con otro banco. <strong>¡Los que necesites, para lo que decidas!</strong></p>
+        </article>
+
+        <!-- 9. Unamos Créditos Infonavit -->
+        <article class="beneficios__card">
+          <img class="beneficios__icono" src="assets/icons/icono-unamos-creditos.png" alt="" width="40" height="40" draggable="false">
+          <h3>Unamos Créditos Infonavit</h3>
+          <p>Puedes sumar el monto de tu primer crédito Infonavit con tu familiar o corresidente y conseguir un mayor financiamiento para adquirir vivienda nueva o usada. (Disponible para dos participantes)</p>
+        </article>
+
+      </div>
     </div>
 
-    
+    <button class="beneficios__flecha beneficios__flecha--next" type="button" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
 
-    
+  <div class="beneficios__puntos" role="tablist" aria-label="Páginas de beneficios"></div>
+</div>
+<!-- ===== FIN DEL COMPONENTE ===== -->
 
 
     <div class="infonavit-container">
@@ -818,7 +1051,7 @@ section,
         <div class="text-section">
           <h2>Inversiones Infonavit</h2>
           <p>¿Qué inversiones hace el Infonavit?</p>
-          <a href="https://portalmx.infonavit.org.mx/wps/portal/inversiones.web/necesidades_capacidades/coordinacion_general_inversiones/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz9_F0NnAwCzd2DDY19Qo2NDEz0w1EVWPi7GRoEBvmbhAQFGRhb-JrrRxGj3wAHcDQgTj8eBVH4jQ_Xj8JnRbCJCboCLF4kZElBbmhohEGmJwASdhjo/dz/d5/L2dBISEvZ0FBIS9nQSEh/" class="btn-red" target="_blank">Conoce más</a>
+          <a href="https://portalmx.infonavit.org.mx/wps/portal/inversiones.web/necesidades_capacidades/coordinacion_general_inversiones/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8zizdwNDDycTQz9_F0NnAwCzd2DDY19Qo2NDEz0w1EVWPi7GRoEBvmbhAQFGRhb-JrrRxGj3wAHcDQgTj8eBVH4jQ_Xj8JnRbCJCboCLF4kZElBbmhohEGmJwASdhjo/dz/d5/L2dBISEvZ0FBIS9nQSEh/" class="btn-red">Conoce más</a>
 
         </div>
       </div>
@@ -826,8 +1059,6 @@ section,
 
 
   <style>
-  /* ... tu CSS existente ... */
-
   .calculadora-inputs label,
   .titulo-input,
   .edad-label {
@@ -1004,18 +1235,8 @@ section,
     </div>
 </div>
 
-<!-- =========================
-     VALIDACIÓN NSS + UX
-     ========================= -->
-
-
 
 <br>
-
-
-
-
-
 
 <br>
 
@@ -1043,15 +1264,6 @@ section,
       </div>
     </div>
   </div>
-  
-  
-  
-
-
-
-<!-- Cards Section -->
-
-
 
 
 <!-- Chat Icon and Window -->
@@ -1307,7 +1519,81 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+<script>
+(function () {
+  var root = document.getElementById('beneficios');
+  var pista = root.querySelector('.beneficios__pista');
+  var ventana = root.querySelector('.beneficios__ventana');
+  var cards = pista.children;
+  var prev = root.querySelector('.beneficios__flecha--prev');
+  var next = root.querySelector('.beneficios__flecha--next');
+  var puntosBox = root.querySelector('.beneficios__puntos');
+  var pagina = 0;
 
+  function porVista() {
+    return parseInt(getComputedStyle(root).getPropertyValue('--por-vista'), 10) || 4;
+  }
+  function totalPaginas() {
+    return Math.max(1, Math.ceil(cards.length / porVista()));
+  }
+  // Índice de la primera tarjeta visible. La última página se ajusta
+  // para mostrar siempre tarjetas completas.
+  function indice(p) {
+    var n = porVista();
+    return Math.max(0, Math.min(p * n, cards.length - n));
+  }
+  function pintarPuntos() {
+    puntosBox.innerHTML = '';
+    for (var i = 0; i < totalPaginas(); i++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'beneficios__punto';
+      b.setAttribute('aria-label', 'Ir a la página ' + (i + 1));
+      (function (n) { b.addEventListener('click', function () { ir(n); }); })(i);
+      puntosBox.appendChild(b);
+    }
+  }
+  function ir(p) {
+    var total = totalPaginas();
+    pagina = Math.max(0, Math.min(p, total - 1));
+    pista.style.setProperty('--i', indice(pagina));
+    Array.prototype.forEach.call(puntosBox.children, function (b, i) {
+      b.setAttribute('aria-current', i === pagina ? 'true' : 'false');
+    });
+    prev.disabled = pagina === 0;
+    next.disabled = pagina === total - 1;
+  }
+
+  prev.addEventListener('click', function () { ir(pagina - 1); });
+  next.addEventListener('click', function () { ir(pagina + 1); });
+
+  // Swipe (touch y mouse)
+  var x0 = null, arrastro = false;
+  ventana.addEventListener('pointerdown', function (e) { x0 = e.clientX; arrastro = false; });
+  ventana.addEventListener('pointerup', function (e) {
+    if (x0 === null) return;
+    var dx = e.clientX - x0;
+    x0 = null;
+    if (Math.abs(dx) > 50) {
+      arrastro = true;
+      ir(pagina + (dx < 0 ? 1 : -1));
+    }
+  });
+  ventana.addEventListener('pointercancel', function () { x0 = null; });
+  // Evita que un swipe sobre un link lo active
+  ventana.addEventListener('click', function (e) {
+    if (arrastro) { e.preventDefault(); e.stopPropagation(); arrastro = false; }
+  }, true);
+
+  window.addEventListener('resize', function () {
+    pintarPuntos();
+    ir(Math.min(pagina, totalPaginas() - 1));
+  });
+
+  pintarPuntos();
+  ir(0);
+})();
+</script>
 
 
 </body>
