@@ -625,6 +625,12 @@ section,
 <nav class="navbar-lower desktop-only2">
     <ul class="navbar-nav">
       <!-- Ítem con Dropdown: Aliados Estratégicos -->
+      <li class="nav-item">
+        <a href="https://portalmx.infonavit.org.mx/wps/portal/infonavitmx/mx2/el-instituto/el-infonavit/contratos/!ut/p/z1/pZHBDoIwEEQ_qdMCpRyRBkFibTUi9mI4mSaKHozfr8jJRCrGuW3yZncySyxpiO3auzu2N3fp2tNz3lt-4KUEFRlYAZaDa1mJWbGmQU3JbgDmQJGFVK3iPIPJI75ZQgMRI_Yfvw5-9ItapDAqUaziAVukfJo_SWRIKwGmqQJMbagsZYwI4TQ_RpRiYv5xwPrX74gdTng-4AX6it-BDx2-AF9J32Jez9teDVzpHv9EYLw!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">
+          <span style="font-size: 18px; color: gray;">Contratos</span>
+        </a>
+      </li>
+
       <li class="nav-item new-dropdown">
         <button class="new-dropdown-toggle" aria-expanded="false">
           <span style="font-size: 18px;">Aliados Estratégicos</span>
@@ -1313,14 +1319,19 @@ section,
 
 <!-- Chat Icon and Window -->
 <div class="chat-icon" id="chatIcon">
-    <img src="./assets/icons/chat.png" alt="Chat Icon">
+    <img src="./assets/icons/chat.png" alt="">
 </div>
-<div class="chat-window" id="chatWindow" style="display: none;">
+<div class="chat-window" id="chatWindow" role="dialog" aria-label="Asistente Virtual Infonavit">
     <div class="chatbot">
-        <div id="chatbot-messages" class="chatbot-messages">
-            <div class="loading-text">Cargando asistente virtual...</div>
+        <div class="chatbot-header">
+            <span>Asistente Virtual Infonavit</span>
+            <button id="chatClose" type="button" aria-label="Cerrar">×</button>
         </div>
-        
+        <div id="chatbot-messages" class="chatbot-messages" role="log" aria-live="polite"></div>
+        <form class="user-input" id="chatForm" autocomplete="off">
+            <input id="userMessage" type="text" placeholder="Escribe tu pregunta..." maxlength="200">
+            <button id="sendButton" type="submit" aria-label="Enviar">➤</button>
+        </form>
     </div>
 </div>
 
