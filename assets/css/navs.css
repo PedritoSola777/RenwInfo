@@ -9,14 +9,63 @@
   /* ──────────────────────────────────────────────────────────
      2) Segunda barra (desktop-only2) por encima y sin recortes
   ────────────────────────────────────────────────────────── */
-  .navbar-lower.desktop-only2 {
-    position: relative;
-    z-index: 1000;
-    overflow: visible;
-    display: flex;
-    justify-content: right;
-    align-items: right;
-  }
+/* 2) Barra */
+.navbar-lower.desktop-only2 {
+  position: relative;
+  z-index: 1000;
+  overflow: visible;
+  display: flex;
+  justify-content: flex-end;   /* antes: right (inválido) */
+  align-items: center;
+  height: 60px;
+}
+
+/* Lista y items: alineación vertical uniforme */
+.navbar-lower.desktop-only2 .navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar-lower.desktop-only2 .nav-item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-lower.desktop-only2 .nav-item > a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* El botón se comporta como los links */
+.navbar-lower.desktop-only2 .new-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.navbar-lower.desktop-only2 .new-dropdown-toggle img {
+  display: block;              /* quita el desfase de baseline */
+  width: 20px;
+  height: auto;
+}
+
+.navbar-lower.desktop-only2 .nav-item span {
+  line-height: 1;              /* mismo alto de línea en todos */
+}
   
   /* ──────────────────────────────────────────────────────────
      3) Anclaje del dropdown dentro de su <li>
@@ -29,21 +78,21 @@
      4) Estilos del dropdown (“Aliados Estratégicos”)
   ────────────────────────────────────────────────────────── */
   .navbar-lower.desktop-only2 .new-dropdown-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    display: none;                   /* oculto por defecto */
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 24px 32px;              /* espacio interior */
-    min-height: 320px;               /* altura mínima */
-    max-width: 600px;                /* ancho máximo recortado */
-    display: flex;                   /* layout flex de columnas */
-    gap: 24px;                       /* espacio entre columnas */
-    align-items: flex-start;         /* arranca las columnas arriba */
-    z-index: 1001;
-  }
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  display: none;               /* oculto por defecto */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px 32px;
+  min-height: 320px;
+  max-width: 600px;
+  gap: 24px;
+  align-items: flex-start;
+  z-index: 1001;
+  /* ← eliminé el segundo "display: flex" */
+}
   
   /* ──────────────────────────────────────────────────────────
      5) Mostrar menú sólo cuando el <li> tenga la clase .open
