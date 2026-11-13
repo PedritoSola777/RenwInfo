@@ -24,7 +24,7 @@
 .navbar-lower.desktop-only2 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
